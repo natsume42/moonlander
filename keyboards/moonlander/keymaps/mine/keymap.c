@@ -96,6 +96,7 @@ enum custom_keycodes {
   ST_MACRO_45,
   ST_MACRO_46,
   SWITCH_DE,
+  SWITCH_JP, 
   DE_LSPO,
   DE_RSPC,
   JP_LSPO,
@@ -144,7 +145,7 @@ enum tap_dance_codes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
     TD(DANCE_0),    TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    TD(DANCE_5),    SWITCH_DE,                                  KC_TRANSPARENT, TD(DANCE_7),    TD(DANCE_8),    TD(DANCE_9),    TD(DANCE_10),   TD(DANCE_11),   DE_MINS,        
-    KC_TAB,         KC_J,           KC_L,           KC_U,           KC_A,           KC_Q,           ST_MACRO_0,                                     LGUI(LSFT(KC_A)),KC_W,           KC_B,           KC_D,           KC_G,           DE_Y,           DE_SS,          
+    KC_TAB,         KC_J,           KC_L,           KC_U,           KC_A,           KC_Q,           SWITCH_JP,                                     LGUI(LSFT(KC_A)),KC_W,           KC_B,           KC_D,           KC_G,           DE_Y,           DE_SS,          
     LCTL(KC_BSPACE),KC_C,           KC_R,           KC_I,           KC_E,           KC_O,           TO(5),                                                                          LGUI(KC_6),     KC_M,           KC_N,           KC_T,           KC_S,           KC_H,           DE_Z,           
     KC_LSHIFT,      KC_V,           KC_X,           DE_UE,          DE_AE,          DE_OE,                                          KC_P,           KC_F,           TD(DANCE_12),   TD(DANCE_13),   KC_K,           KC_RSHIFT,      
     KC_LCTRL,       KC_LGUI,        KC_LALT,        OSL(3),         TO(1),          LGUI(KC_2),                                                                                                     LGUI(KC_3),     KC_MEH,         TO(2),          OSL(7),         TO(9),          TO(8),          
@@ -321,7 +322,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 switch_to_german();
           }
           break;
-    case ST_MACRO_0:
+    case SWITCH_JP:
     if (record->event.pressed) {
       switch_to_japanese();
     }

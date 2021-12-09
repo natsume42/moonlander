@@ -27,6 +27,7 @@
 #include "keymap_belgian.h"
 #include "keymap_us_international.h"
 #include "customlogic.h"
+//#include "print.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
@@ -172,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, DE_UNDS,        DE_LBRC,        DE_RBRC,        DE_CIRC,        KC_TRANSPARENT,                                 KC_TRANSPARENT, DE_EXLM,        DE_LESS,        DE_MORE,        DE_EQL,         DE_AMPR,        ST_MACRO_5,     
     KC_TRANSPARENT, DE_BSLS,        DE_SLSH,        DE_LCBR,        DE_RCBR,        DE_ASTR,        KC_TRANSPARENT,                                                                 KC_TRANSPARENT, DE_QST,         DE_LPRN,        DE_RPRN,        DE_MINS,        DE_COLN,        DE_AT,          
     KC_TRANSPARENT, DE_HASH,        DE_DLR,         DE_PIPE,        DE_TILD,        DE_GRV,                                         DE_PLUS,        DE_PERC,        DE_DQOT,        DE_QUOT,        DE_SCLN,        KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, OSL3,           OSL(4),         KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, OSL(4),         _______,        KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [4] = LAYOUT_moonlander(
@@ -180,7 +181,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, ST_MACRO_8,     ST_MACRO_9,     ST_MACRO_10,    ST_MACRO_11,    DE_PARA,        KC_TRANSPARENT,                                 KC_TRANSPARENT, DE_EXLM,        ST_MACRO_21,    ST_MACRO_22,    ST_MACRO_23,    ST_MACRO_24,    ST_MACRO_25,    
     KC_TRANSPARENT, ST_MACRO_12,    DE_EURO,        ST_MACRO_13,    ST_MACRO_14,    DE_RING,        KC_TRANSPARENT,                                                                 KC_TRANSPARENT, DE_QST,         ST_MACRO_26,    ST_MACRO_27,    ST_MACRO_28,    ST_MACRO_29,    KC_TRANSPARENT, 
     KC_TRANSPARENT, ST_MACRO_15,    KC_DLR,         ST_MACRO_16,    ST_MACRO_17,    ST_MACRO_18,                                    ST_MACRO_30,    ST_MACRO_31,    ST_MACRO_32,    ST_MACRO_33,    DE_MINS,        KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 ST_MACRO_34,    TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TO(0),          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 ST_MACRO_34,    TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, ST_MACRO_35
   ),
   [5] = LAYOUT_moonlander(
@@ -204,7 +205,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, ST_MACRO_36,    ST_MACRO_37,    ST_MACRO_38,    ST_MACRO_39,    KC_TRANSPARENT,                                 KC_TRANSPARENT, TD(DANCE_23),   TD(DANCE_24),   TD(DANCE_25),   TD(DANCE_26),   KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, ST_MACRO_40,    ST_MACRO_41,    ST_MACRO_42,    ST_MACRO_43,    ST_MACRO_44,    KC_TRANSPARENT,                                                                 KC_TRANSPARENT, TD(DANCE_27),   TD(DANCE_28),   TD(DANCE_29),   TD(DANCE_30),   KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 TD(DANCE_31),   TD(DANCE_32),   TD(DANCE_33),   TD(DANCE_34),   KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TO(0),          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [8] = LAYOUT_moonlander(
@@ -238,6 +239,8 @@ extern rgb_config_t rgb_matrix_config;
 
 void keyboard_post_init_user(void) {
   rgb_matrix_enable();
+    //debug_enable = true;
+    //debug_matrix = true;
 }
 
 const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
@@ -319,13 +322,7 @@ void rgb_matrix_indicators_user(void) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case OSL3:
-            if (record->event.pressed) {
-                layer_on(3);
-                set_oneshot_layer(3, ONESHOT_START);
-            } else {
-                clear_oneshot_layer_state(ONESHOT_PRESSED);
-            }
-            return false;
+            process_oneshot_key(3, record);
             break;
         case SWITCH_DE:
             if (record->event.pressed) {

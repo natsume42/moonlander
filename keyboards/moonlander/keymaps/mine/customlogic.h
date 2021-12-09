@@ -19,17 +19,18 @@ void switch_to_german(void) {
     layer_move(0);
 }
 
-//void oneshot_layer_changed_user(uint8_t layer) {
-//    if (layer == 3) {
-//        SEND_STRING(SS_TAP(X_3));
-//    }
-//    if (layer == 0) {
-//        SEND_STRING(SS_TAP(X_0));
-//    }
-//    if (layer == 4) {
-//        SEND_STRING(SS_TAP(X_4));
-//    }
-//    if (!layer) {
-//        SEND_STRING(SS_TAP(X_X));
-//    }
-//}
+void process_oneshot_key(uint8_t layer, keyrecord_t *record) {
+    if (record->event.pressed) {
+        set_oneshot_layer(layer, ONESHOT_START);
+
+        /* Workaround:
+         * By setting pressed to false, we prevent framework logic(process_action)
+         * from clearing ONESHOT_OTHER_KEY_PRESSED already for our OSL key, which would cause
+         * the OSL to be cleared as soon as the key release event gets processed and
+         * we would therefore never get a chance to hit a key on the OSL.
+         */
+        record->event.pressed = false;
+    } else {
+        clear_oneshot_layer_state(ONESHOT_PRESSED);
+    }
+}

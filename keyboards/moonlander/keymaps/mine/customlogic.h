@@ -1,3 +1,16 @@
+enum custom_layers {
+    mineL,
+    editL,
+    numPadL,
+    prgSymL,
+    txtSymL,
+    ja1L,
+    ja2L,
+    fncKeysL,
+    mediaL,
+    qwertyL,
+};
+
 /** \brief Change input language and keyboard layer to Japanese input.
  *
  * ALT+Shift+2 to switch to Japanese IME
@@ -21,6 +34,14 @@ void switch_to_german(void) {
 
 void process_oneshot_key(uint8_t layer, keyrecord_t *record) {
     if (record->event.pressed) {
+        /* To allow chaining OSL macros, clear already active one shot layer, if any.
+         * This ensures that we return to first non-OSL after (last) OSL has finished.
+         * We use clear_oneshot_layer_state() instead of reset_oneshot_layer(),
+         * because the latter does no layer_off for the active OSL but just resets
+         * the OSL related states.
+         */ 
+        clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
+
         set_oneshot_layer(layer, ONESHOT_START);
 
         /* Workaround:

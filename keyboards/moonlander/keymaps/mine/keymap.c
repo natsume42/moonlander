@@ -5,11 +5,9 @@
 #include "keymap_us_international.h"
 
 #include "layers.h"
-#include "languages.h"
 #include "oneshot.h"
-#include "languages.h"
+#include "layouts.h"
 #include "tapdances.h"
-#include "leds.h"
 
 #ifdef CONSOLE_ENABLE
 #   include "print.h"
@@ -98,9 +96,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [mineL] = LAYOUT_moonlander(
     TD(DANCE_0),    TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    TD(DANCE_5),    SWITCH_DE,                                     _______,        TD(DANCE_7),    TD(DANCE_8),    TD(DANCE_9),    TD(DANCE_10),   TD(DANCE_11),   DE_MINS,        
     KC_TAB,         KC_J,           KC_L,           KC_U,           KC_A,           KC_Q,           SWITCH_JP,                                     LGUI(LSFT(KC_A)),KC_W,           KC_B,           KC_D,           KC_G,           DE_Y,           DE_SS,          
-    LCTL(KC_BSPACE),KC_C,           KC_R,           KC_I,           KC_E,           KC_O,           TO(5),                                                                          LGUI(KC_6),     KC_M,           KC_N,           KC_T,           KC_S,           KC_H,           DE_Z,           
+    LCTL(KC_BSPACE),KC_C,           KC_R,           KC_I,           KC_E,           KC_O,           _______,                                                                          LGUI(KC_6),     KC_M,           KC_N,           KC_T,           KC_S,           KC_H,           DE_Z,           
     KC_LSHIFT,      KC_V,           KC_X,           DE_UE,          DE_AE,          DE_OE,                                          KC_P,           KC_F,           TD(DANCE_12),   TD(DANCE_13),   KC_K,           KC_RSHIFT,      
-    KC_LCTRL,       KC_LGUI,        KC_LALT,        OSL_prgSym,     TT(editL),      LGUI(KC_2),                                                                                                     LGUI(KC_3),     KC_MEH,         TO(numPadL),    OSL(fncKeysL),  TO(9),          TO(8),          
+    KC_LCTRL,       KC_LGUI,        KC_LALT,        OSL_prgSym,     TT(editL),      LGUI(KC_2),                                                                                                     LGUI(KC_3),     KC_MEH,         TO(numPadL),    OSL(fncKeysL),  TO(qwertyL),    TO(mediaL),          
     KC_LSHIFT,      TD(DANCE_6),    KC_LCTRL,                       TD(DANCE_14),   KC_BSPACE,      KC_SPACE
   ),
   [editL] = LAYOUT_moonlander(
@@ -156,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        ST_MACRO_36,    ST_MACRO_37,    ST_MACRO_38,    ST_MACRO_39,    _______,                                        _______,        TD(DANCE_23),   TD(DANCE_24),   TD(DANCE_25),   TD(DANCE_26),   _______,        _______,        
     _______,        ST_MACRO_40,    ST_MACRO_41,    ST_MACRO_42,    ST_MACRO_43,    ST_MACRO_44,    _______,                                                                        _______,        TD(DANCE_27),   TD(DANCE_28),   TD(DANCE_29),   TD(DANCE_30),   _______,        _______,        
     _______,        _______,        _______,        _______,        _______,        _______,                                        TD(DANCE_31),   TD(DANCE_32),   TD(DANCE_33),   TD(DANCE_34),   _______,        _______,        
-    _______,        _______,        _______,        TO(mineL),          _______,        _______,                                                                                                        _______,        TO(0),          _______,        _______,        _______,        _______,        
+    _______,        _______,        _______,        TO(0),          _______,        _______,                                                                                                        _______,        TO(0),          _______,        _______,        _______,        _______,        
     _______,        _______,        _______,                        _______,        _______,        KC_TRANSPARENT
   ),
   [mediaL] = LAYOUT_moonlander(
@@ -202,12 +200,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case SWITCH_DE:
             if (record->event.pressed) {
-                switch_to_german();
+                switch_to_mine();
             }
             break;
         case SWITCH_JP:
             if (record->event.pressed) {
-                switch_to_japanese();
+                switch_to_jisx6004();
             }
             break;
         case ST_MACRO_1:

@@ -8,7 +8,9 @@ extern rgb_config_t rgb_matrix_config;
 #define ALOHA      {122, 216, 172}
 #define ASSESSIN   {0, 249, 243}   /* Assessin’s Red */
 #define BARB_L     {30,239,161}    /* Barbarian leather, brown */
+#define BAY_B      {15,255,125}    /* Bab Brown */
 #define BLACK      {0, 0, 0}
+#define BLUE       {172,255,255}   /* Blue */
 #define BTS        {196, 235, 173} /* purple */
 #define CERULEAN   {141, 255, 233} /* Cerulean Blue */
 #define CYBER_Y    {35, 255, 255}  /* Cyber Yellow */
@@ -19,9 +21,9 @@ extern rgb_config_t rgb_matrix_config;
 #define FORSYTHIA  {33, 255, 255}  /* orange */
 #define GOLD_F     {29, 255, 255}  /* Gold Fusion */
 #define GREEN      {86, 255, 255}
-#define LEMON      {30, 96, 255}   /* Lemon Drops, pale yellow */
 #define LINDERH_G  {85, 203, 158}  /* Linderhof Garden, green */
 #define MYOGA_P    {233, 218, 217} /* Myoga Purple */
+#define PEPPRONI   {14,255,175}    /* warm orange */
 #define RED        {0, 255, 255}
 #define RED_VIT    {0, 205, 155}   /* Red Vitality */
 #define WHITE      {0, 0, 255}
@@ -37,7 +39,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, ALOHA,
-                FOREST_R, FOREST_R, FOREST_R, FOREST_R, CERULEAN,
+                FOREST_R, FOREST_R, FOREST_R, FOREST_R, PEPPRONI,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, WHITE,    BTS,
 
@@ -94,9 +96,9 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                  BTS, RED, ASSESSIN, BTS},
     [editL] = {BLACK, BLACK,     BLACK,     BLACK,    BLACK,
                BLACK, FORSYTHIA, FORSYTHIA, BLACK,    BLACK,
-               BLACK, RED,       GREEN,     RED,      BLACK,
-               BLACK, GREEN,     GREEN,     BLACK,    BLACK,
-               BLACK, RED,       GREEN,     RED,      GREEN,
+               BLACK, RED,       BLUE,     RED,      BLACK,
+               BLACK, BLUE,      BLUE,     BLACK,    BLACK,
+               BLACK, RED,       BLUE,     RED,      GREEN,
                BLACK, FORSYTHIA, FORSYTHIA, CERULEAN,
                FOREST_R, WHITE,  BTS,
 
@@ -104,10 +106,10 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
                BLACK, BLACK,  BLACK,    BLACK,    BLACK,
                BLACK, BLACK,  BLACK,    BLACK,    BLACK,
-               BLACK, LEMON,  CERULEAN, CERULEAN, BLACK,
-               BLACK, LEMON,  CERULEAN, BLACK,    BLACK,
-               BLACK, LEMON,  CERULEAN, BLACK,    GREEN,
-               BLACK, BLACK,  LEMON,    BLACK,
+               BLACK, BAY_B,  PEPPRONI, PEPPRONI, BLACK,
+               BLACK, BAY_B,  PEPPRONI, BLACK,    BLACK,
+               BLACK, BAY_B,  PEPPRONI, BLACK,    GREEN,
+               BLACK, BLACK,  BAY_B,    BLACK,
                BLACK, BLACK,  BLACK,
 
                BLACK, BLACK, BLACK, BLACK},

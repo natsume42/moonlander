@@ -1,32 +1,217 @@
 #include "leds.h"
+#include "layers.h"
 
 extern bool         g_suspend_state;
 extern rgb_config_t rgb_matrix_config;
 
+// clang-format off
+#define ALOHA      {122, 216, 172}
+#define ASSESSIN   {0, 249, 243}   /* Assessin’s Red */
+#define BLACK      {0, 0, 0}
+#define BTS        {196, 235, 173} /* purple */
+#define CERULEAN   {141, 255, 233} /* Cerulean Blue */
+#define CYBER_Y    {35, 255, 255}  /* Cyber Yellow */
+#define DELFT_BLUE {180, 255, 233}
+#define FUEGO_N    {14, 222, 242}  /* Fuego Nuevo */
+#define FORSYTHIA  {33, 255, 255}  /* orange */
+#define GOLD_F     {29, 255, 255}  /* Gold Fusion */
+#define GREEN      {86, 255, 255}
+#define LEMON      {30, 96, 255}   /* Lemon Drops, pale yellow */
+#define LINDERH_G  {85, 203, 158}  /* Linderhof Garden, green */
+#define MYOGA_P    {233, 218, 217} /* Myoga Purple */
+#define RED        {0, 255, 255}
+#define RED_VIT    {0, 205, 155}   /* Red Vitality */
+#define WHITE      {0, 0, 255}
+
+/* leds are arranged by column:
+ * 1. left hand, from left to right
+ * 2. left thumb
+ * 3. right hand, from right to left
+ * 4. right thumb.
+ */
 const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
-    [1] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {33, 255, 255}, {33, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 255, 255}, {86, 255, 255}, {0, 255, 255}, {0, 0, 0}, {0, 0, 0}, {86, 255, 255}, {86, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 255, 255}, {86, 255, 255}, {0, 255, 255}, {86, 255, 255}, {0, 0, 0}, {33, 255, 255}, {33, 255, 255}, {141, 255, 233}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {30, 96, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {30, 96, 255}, {141, 255, 233}, {141, 255, 233}, {0, 0, 0}, {0, 0, 0}, {30, 96, 255}, {141, 255, 233}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {30, 96, 255}, {141, 255, 233}, {0, 0, 0}, {86, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
+    [editL] = {BLACK, BLACK,     BLACK,     BLACK,    BLACK,
+               BLACK, FORSYTHIA, FORSYTHIA, BLACK,    BLACK,
+               BLACK, RED,       GREEN,     RED,      BLACK,
+               BLACK, GREEN,     GREEN,     BLACK,    BLACK,
+               BLACK, RED,       GREEN,     RED,      GREEN,
+               BLACK, FORSYTHIA, FORSYTHIA, CERULEAN,
+               BLACK, BLACK,     BLACK,
 
-    [2] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 255}, {0, 255, 255}, {85, 203, 158}, {0, 0, 0}, {0, 0, 0}, {0, 205, 155}, {35, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {35, 255, 255}, {35, 255, 255}, {180, 255, 233}, {0, 0, 0}, {0, 0, 0}, {0, 205, 155}, {35, 255, 255}, {233, 218, 217}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {14, 222, 242}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {35, 255, 255}, {35, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {35, 255, 255}, {35, 255, 255}, {35, 255, 255}, {0, 0, 0}, {0, 0, 0}, {154, 255, 255}, {154, 255, 255}, {154, 255, 255}, {0, 0, 0}, {0, 0, 0}, {154, 255, 255}, {154, 255, 255}, {154, 255, 255}, {0, 0, 0}, {249, 228, 255}, {154, 255, 255}, {154, 255, 255}, {154, 255, 255}, {86, 255, 255}, {0, 0, 0}, {35, 255, 255}, {35, 255, 255}, {154, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
+               BLACK, BLACK,     BLACK,    BLACK,
 
-    [3] = {{122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {29, 255, 255},  {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {29, 255, 255}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172},
-           {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {86, 255, 255}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}, {122, 216, 172}},
+               BLACK, BLACK,  BLACK,    BLACK,    BLACK,
+               BLACK, BLACK,  LEMON,    BLACK,    BLACK,
+               BLACK, LEMON,  CERULEAN, CERULEAN, BLACK,
+               BLACK, LEMON,  CERULEAN, BLACK,    BLACK,
+               BLACK, LEMON,  CERULEAN, BLACK,    GREEN,
+               BLACK, BLACK,  BLACK,    BLACK,
+               BLACK, BLACK,  BLACK,
 
-    [4] = {{29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {86, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255},
-           {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {86, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}, {29, 255, 255}},
+               BLACK, BLACK, BLACK, BLACK},
 
-    [5] = {{0, 0, 255}, {0, 0, 255}, {154, 255, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {154, 255, 255}, {0, 0, 255}, {0, 0, 255}, {154, 255, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {86, 255, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {154, 255, 255}, {0, 0, 255}, {0, 0, 255}, {154, 255, 255}},
+    [numPadL] = {BLACK, BLACK,   BLACK,   BLACK,      BLACK,
+                 BLACK, WHITE,   RED,     LINDERH_G,  BLACK,
+                 BLACK, RED_VIT, CYBER_Y, BLACK,      BLACK,
+                 BLACK, CYBER_Y, CYBER_Y, DELFT_BLUE, BLACK,
+                 BLACK, RED_VIT, CYBER_Y, MYOGA_P,    BLACK,
+                 BLACK, BLACK,   BLACK,   FUEGO_N,
+                 BLACK, BLACK,   BLACK,
 
-    [6] = {{0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243},  {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243},
-           {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {86, 255, 255}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}, {0, 249, 243}},
+                 BLACK, BLACK, BLACK, BLACK,
 
-    [7] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {152, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {152, 255, 255}, {152, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {152, 255, 255}, {152, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {152, 255, 255}, {152, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {152, 255, 255}, {152, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {86, 255, 255}, {0, 0, 0}, {0, 0, 255}, {0, 0, 255}, {0, 0, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
+                 BLACK, CYBER_Y,  CYBER_Y,  BLACK,    BLACK,
+                 BLACK, CYBER_Y,  CYBER_Y,  CYBER_Y,  BLACK,
+                 BLACK, CERULEAN, CERULEAN, CERULEAN, BLACK,
+                 BLACK, CERULEAN, CERULEAN, CERULEAN, BLACK,
+                 RED,   CERULEAN, CERULEAN, CERULEAN, GREEN,
+                 BLACK, CYBER_Y,  CYBER_Y, CERULEAN,
+                 BLACK, BLACK,    BLACK,
 
-    [8] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 255}, {0, 0, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {0, 0, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {33, 255, 255}, {0, 0, 0}, {0, 0, 0}, {154, 255, 255}, {0, 0, 255}, {33, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {154, 255, 255}, {0, 0, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 255}, {35, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {199, 255, 255}, {86, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {141, 255, 233}, {35, 255, 255}, {0, 0, 0}, {86, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {243, 222, 234}, {85, 203, 158}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
+                 BLACK, BLACK, BLACK, BLACK},
 
-    [9] = {{196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173},
-           {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {86, 255, 255},  {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}, {196, 235, 173}},
+    [prgSymL] = {ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
+                 ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
+                 ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
+                 ALOHA, ALOHA, ALOHA, ALOHA, GOLD_F,
+                 ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
+                 ALOHA, ALOHA, ALOHA, ALOHA,
+                 ALOHA, ALOHA, ALOHA,
+
+                 ALOHA, ALOHA, ALOHA, ALOHA,
+
+                 ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
+                 ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
+                 ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
+                 ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
+                 ALOHA, ALOHA, ALOHA, ALOHA, GREEN,
+                 ALOHA, ALOHA, ALOHA, ALOHA,
+                 ALOHA, ALOHA, ALOHA,
+
+                 ALOHA, ALOHA, ALOHA, ALOHA},
+
+    [txtSymL] = {GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, GREEN,
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F,
+                 GOLD_F, GOLD_F, GOLD_F,
+
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F,
+
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, GREEN,
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F,
+                 GOLD_F, GOLD_F, GOLD_F,
+
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F},
+
+    [ja1L] = {WHITE, WHITE, CERULEAN, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE,
+
+              CERULEAN, WHITE, WHITE, CERULEAN,
+
+              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, GREEN,
+              WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE,
+
+              CERULEAN, WHITE, WHITE, CERULEAN},
+
+    [ja2L] = {ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN,
+
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, GREEN,
+              ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN,
+
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN},
+
+    [fncKeysL] = {BLACK, BLACK,    BLACK,    BLACK, BLACK,
+                  BLACK, BLACK,    CERULEAN, BLACK, BLACK,
+                  BLACK, CERULEAN, CERULEAN, BLACK, BLACK,
+                  BLACK, CERULEAN, CERULEAN, BLACK, GREEN,
+                  BLACK, CERULEAN, CERULEAN, BLACK, BLACK,
+                  BLACK, CERULEAN, CERULEAN, BLACK,
+                  BLACK, BLACK,    BLACK,
+
+                  BLACK, BLACK, BLACK, BLACK,
+
+                  BLACK, BLACK, BLACK, BLACK, BLACK,
+                  BLACK, BLACK, BLACK, BLACK, BLACK,
+                  BLACK, WHITE, WHITE, WHITE, BLACK,
+                  BLACK, WHITE, WHITE, WHITE, BLACK,
+                  BLACK, WHITE, WHITE, WHITE, GREEN,
+                  BLACK, WHITE, WHITE, WHITE,
+                  BLACK, BLACK, BLACK,
+
+                  BLACK, BLACK, BLACK, BLACK},
+
+    [mediaL] = {BLACK, BLACK,    BLACK,   BLACK,     BLACK,
+                BLACK, WHITE,    WHITE,   BLACK,     BLACK,
+                BLACK, RED_VIT,  RED_VIT, WHITE,     BLACK,
+                BLACK, RED_VIT,  RED_VIT, FORSYTHIA, BLACK,
+                BLACK, CERULEAN, WHITE,   FORSYTHIA, BLACK,
+                BLACK, BLACK,    RED_VIT, BLACK,
+                BLACK, BLACK,    BLACK,
+
+                BLACK, BLACK, BLACK, BLACK,
+
+                CERULEAN, WHITE,     BLACK,   BLACK, BLACK,
+                BLACK,    BLACK,     BLACK,   BLACK, BLACK,
+                BLACK,    WHITE,     CYBER_Y, BLACK, BLACK,
+                BLACK,    MYOGA_P,   GREEN,   BLACK, BLACK,
+                BLACK,    CERULEAN,  CYBER_Y, BLACK, GREEN,
+                BLACK,    BLACK,     BLACK,   BLACK,
+                RED,      LINDERH_G, BLACK,
+
+                BLACK, BLACK, BLACK, BLACK},
+
+    [qwertyL] = {BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS,
+
+                 BTS, BTS, BTS, BTS,
+
+                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, GREEN,
+                 BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS,
+
+                 BTS, BTS, BTS, BTS},
 
 };
+// clang-format on
 
 void set_layer_color(int layer);
 

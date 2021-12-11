@@ -1,12 +1,12 @@
 enum custom_layers {
     mineL,
+    ja1L,
+    ja2L,
+    qwertyL,
     editL,
     numPadL,
     prgSymL,
     txtSymL,
-    ja1L,
-    ja2L,
     fncKeysL,
     mediaL,
-    qwertyL,
 };

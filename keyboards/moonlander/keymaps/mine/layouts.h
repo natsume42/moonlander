@@ -1,16 +1,23 @@
 #include QMK_KEYBOARD_H
 
-/** \brief Change input language and keyboard layer to Japanese input.
+/** \brief Change input language to Japanese and keyboard layer to JISX6004.
  *
- * ALT+Shift+2 to switch to Japanese IME
- * INT2 (Hiragana key on Japanese keyboard) to switch to Hiragana
- * Switch to JISX6004 layer.
+ * Uses ALT+Shift+2 to switch to Japanese IME
+ * Uses INT2 (Hiragana key on Japanese keyboard) to switch to Hiragana
  */
 void switch_to_jisx6004(void);
 
-/** \brief Change input language and keyboard layer to German input.
+/** \brief Change input language to German and keyboard layer to Mine.
  *
- * ALT+Shift+1 to switch to Japanese IME
- * Switch to Mine layer.
+ * Uses ALT+Shift+1 to switch to German IME
  */
 void switch_to_mine(void);
+
+/** \brief Change input language to German and keyboard layout to QWERTZ.
+ *
+ * Uses ALT+Shift+1 to switch to German IME
+ */
+void switch_to_qwertz(void);
+
+/** \brief move to current default layer. */
+void default_layer_move(void);

@@ -30,6 +30,45 @@ extern rgb_config_t rgb_matrix_config;
  * 4. right thumb.
  */
 const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
+    [ja1L] = {WHITE, WHITE, DELFT_BLUE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, ALOHA,
+              WHITE, WHITE, WHITE, WHITE, CERULEAN,
+              WHITE, WHITE, WHITE, WHITE,
+              BLACK, WHITE, BTS,
+
+              ASSESSIN, WHITE, WHITE, DELFT_BLUE,
+
+              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, CERULEAN,
+              WHITE, WHITE, WHITE, WHITE, GREEN,
+              WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE,
+
+              DELFT_BLUE, WHITE, WHITE, DELFT_BLUE},
+
+    [qwertyL] = {BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, ALOHA,
+                 BTS, BTS, BTS, BTS, CERULEAN,
+                 BTS, BTS, BTS, BTS,
+                 BLACK, WHITE, BTS,
+
+                 BTS, BTS, BTS, BTS,
+
+                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, CERULEAN,
+                 BTS, BTS, BTS, BTS, GREEN,
+                 BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS,
+
+                 BTS, BTS, BTS, BTS},
     [editL] = {BLACK, BLACK,     BLACK,     BLACK,    BLACK,
                BLACK, FORSYTHIA, FORSYTHIA, BLACK,    BLACK,
                BLACK, RED,       GREEN,     RED,      BLACK,
@@ -50,7 +89,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
                BLACK, BLACK, BLACK, BLACK},
 
-    [numPadL] = {BLACK, BLACK,   BLACK,   BLACK,      BLACK,
+   [numPadL] = {BLACK, BLACK,   BLACK,   BLACK,      BLACK,
                  BLACK, WHITE,   RED,     LINDERH_G,  BLACK,
                  BLACK, RED_VIT, CYBER_Y, BLACK,      BLACK,
                  BLACK, CYBER_Y, CYBER_Y, DELFT_BLUE, BLACK,
@@ -109,26 +148,6 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                  GOLD_F, GOLD_F, GOLD_F,
 
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F},
-
-    [ja1L] = {WHITE, WHITE, CERULEAN, WHITE, WHITE,
-              WHITE, WHITE, WHITE, WHITE, WHITE,
-              WHITE, WHITE, WHITE, WHITE, WHITE,
-              WHITE, WHITE, WHITE, WHITE, WHITE,
-              WHITE, WHITE, WHITE, WHITE, WHITE,
-              WHITE, WHITE, WHITE, WHITE,
-              WHITE, WHITE, WHITE,
-
-              CERULEAN, WHITE, WHITE, CERULEAN,
-
-              WHITE, WHITE, WHITE, WHITE, WHITE,
-              WHITE, WHITE, WHITE, WHITE, WHITE,
-              WHITE, WHITE, WHITE, WHITE, WHITE,
-              WHITE, WHITE, WHITE, WHITE, WHITE,
-              WHITE, WHITE, WHITE, WHITE, GREEN,
-              WHITE, WHITE, WHITE, WHITE,
-              WHITE, WHITE, WHITE,
-
-              CERULEAN, WHITE, WHITE, CERULEAN},
 
     [ja2L] = {ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
               ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
@@ -189,27 +208,6 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 RED,      LINDERH_G, BLACK,
 
                 BLACK, BLACK, BLACK, BLACK},
-
-    [qwertyL] = {BTS, BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS,
-
-                 BTS, BTS, BTS, BTS,
-
-                 BTS, BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS, BTS, GREEN,
-                 BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS,
-
-                 BTS, BTS, BTS, BTS},
-
 };
 // clang-format on
 

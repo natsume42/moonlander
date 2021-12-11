@@ -114,17 +114,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [qwertyL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        SWITCH_MINE,                                        _______,        _______,        _______,        _______,        _______,        _______,        DE_SS,          
     _______,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           SWITCH_JISX6004,                                        _______,        DE_Z,           KC_U,           KC_I,           KC_O,           KC_P,           DE_UE,          
-    _______,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           SWITCH_QWERTZ,                                                                        _______,        KC_H,           KC_J,           KC_K,           KC_L,           DE_OE,          DE_AE,          
+    _______,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           SWITCH_QWERTZ,                                                                        _______,        KC_H,           KC_J,           KC_K,           KC_L,           DE_OE,    DE_AE,          
     KC_LSHIFT,      DE_Y,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           _______,        _______,        DE_MINS,        KC_RSHIFT,      
-    _______,        _______,        _______,        _______,        _______,        _______,                                                                                                        _______,        TO_DFLTL,          _______,        _______,        _______,        _______,        
+    _______,        _______,        _______,        OSL_prgSym,     TT(editL),      _______,                                                                                                        _______,        KC_MEH,          TO(numPadL),        _______,        _______,   TO(mediaL),        
     _______,        _______,        _______,                        _______,        _______,        KC_TRANSPARENT
   ),
   [editL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
     _______,        KC_PGUP,        KC_BSPACE,      KC_UP,          KC_DELETE,      KC_PGDOWN,      _______,                                        _______,        _______,        LCTL(KC_X),     LCTL(KC_C),     LCTL(KC_V),     _______,        _______,        
-    _______,        KC_HOME,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_END,         _______,                                                                        _______,        _______,        KC_LCTRL,       KC_LGUI,        KC_LALT,        LCTL(KC_A),     _______,        
+    _______,        KC_HOME,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_END,         _______,                                                                        _______,        LCTL(KC_A),     KC_LCTRL,       KC_LGUI,        KC_LALT,        _______,     _______,        
     _______,        _______,        LCTL(KC_BSPACE),_______,        RCTL(KC_DELETE),KC_INSERT,                                      _______,        _______,        _______,        KC_RALT,        _______,        _______,        
-    _______,        _______,        _______,       OSL_prgSym,     TT(editL),       _______,                                                                                                        _______,        TO_DFLTL,         TO(numPadL),    _______,    TO(qwertyL),    TO(mediaL),        
+    _______,        _______,        _______,       OSL_prgSym,     TT(editL),       _______,                                                                                                        _______,        TO_DFLTL,       _______,        _______,        _______,        _______,        
     KC_LSHIFT,      _______,        _______,                        _______,        _______,        KC_TRANSPARENT
   ),
   [numPadL] = LAYOUT_moonlander(

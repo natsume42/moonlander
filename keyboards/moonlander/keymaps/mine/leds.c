@@ -7,6 +7,7 @@ extern rgb_config_t rgb_matrix_config;
 // clang-format off
 #define ALOHA      {122, 216, 172}
 #define ASSESSIN   {0, 249, 243}   /* Assessin’s Red */
+#define BARB_L     {30,239,161}    /* Barbarian leather, brown */
 #define BLACK      {0, 0, 0}
 #define BTS        {196, 235, 173} /* purple */
 #define CERULEAN   {141, 255, 233} /* Cerulean Blue */
@@ -14,7 +15,7 @@ extern rgb_config_t rgb_matrix_config;
 #define DELFT_BLUE {180, 255, 233}
 #define FUEGO_N    {14, 222, 242}  /* Fuego Nuevo */
 #define FOREST_N   {86,255,34}     /* Forest Night, dark green */
-#define FOREST_R   {86,255,105}    /* Forest Ride, green */
+#define FOREST_R   {86,255,105}    /* Forest Ride, green, #006900*/
 #define FORSYTHIA  {33, 255, 255}  /* orange */
 #define GOLD_F     {29, 255, 255}  /* Gold Fusion */
 #define GREEN      {86, 255, 255}
@@ -43,7 +44,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
 
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, CYBER_Y,
-                FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
+                FOREST_R, FOREST_R, FOREST_R, FOREST_R, BARB_L,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, CERULEAN,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, GREEN,
@@ -63,7 +64,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
               ASSESSIN, WHITE, WHITE, DELFT_BLUE,
 
               WHITE, WHITE, WHITE, WHITE, CYBER_Y,
-              WHITE, WHITE, WHITE, WHITE, WHITE,
+              WHITE, WHITE, WHITE, WHITE, BARB_L,
               WHITE, WHITE, WHITE, WHITE, WHITE,
               WHITE, WHITE, WHITE, WHITE, CERULEAN,
               WHITE, WHITE, WHITE, WHITE, CERULEAN,
@@ -83,7 +84,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                  WHITE, CERULEAN, BTS, BTS,
 
                  BTS, BTS, BTS, BTS, CYBER_Y,
-                 BTS, BTS, BTS, BTS, BTS,
+                 BTS, BTS, BTS, BTS, BARB_L,
                  BTS, BTS, BTS, BTS, BTS,
                  BTS, BTS, BTS, BTS, CERULEAN,
                  BTS, BTS, BTS, BTS, GREEN,

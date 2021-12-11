@@ -100,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         KC_J,           KC_L,           KC_U,           KC_A,           KC_Q,           SWITCH_JISX6004,                                     LGUI(LSFT(KC_A)),KC_W,           KC_B,           KC_D,           KC_G,           DE_Y,           DE_SS,          
     LCTL(KC_BSPACE),KC_C,           KC_R,           KC_I,           KC_E,           KC_O,           SWITCH_QWERTZ,                                                                          LGUI(KC_6),     KC_M,           KC_N,           KC_T,           KC_S,           KC_H,           DE_Z,           
     KC_LSHIFT,      KC_V,           KC_X,           DE_UE,          DE_AE,          DE_OE,                                          KC_P,           KC_F,           TD(DANCE_12),   TD(DANCE_13),   KC_K,           KC_RSHIFT,      
-    KC_LCTRL,       KC_LGUI,        KC_LALT,        OSL_prgSym,     TT(editL),      LGUI(KC_2),                                                                                                     LGUI(KC_3),     KC_MEH,         TO(numPadL),    _______,    SWITCH_QWERTZ,    TO(mediaL),          
+    KC_LCTRL,       KC_LGUI,        KC_LALT,        OSL_prgSym,     TT(editL),      LGUI(KC_2),                                                                                                     LGUI(KC_3),     KC_MEH,         TO(numPadL),    _______,    TOGGLE_LAYER_COLOR,    TO(mediaL),          
     KC_LSHIFT,      TD(DANCE_6),    KC_LCTRL,                       TD(DANCE_14),   KC_BSPACE,      KC_SPACE
   ),
   [ja1L] = LAYOUT_moonlander(
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        KC_C,           JP_COLN,        KC_P,           KC_W,           LSFT(KC_9),     SWITCH_JISX6004,                                    _______,        KC_Z,           KC_Y,           KC_K,           LSFT(KC_0),     KC_L,           KC_A,           
     JP_ZHTG,        TD(DANCE_19),   KC_T,           KC_D,           KC_S,           KC_Q,           SWITCH_QWERTZ,                                                                        _______,        KC_H,           KC_4,           KC_E,           KC_LBRACKET,    KC_G,          TD(DANCE_22),   
     _______,        TD(DANCE_20),   TD(DANCE_21),   KC_I,           KC_X,           KC_3,                                           LSFT(KC_Z),     KC_DOT,         LSFT(KC_COMMA), LSFT(KC_DOT),   KC_SCOLON,      _______,        
-    _______,        _______,        _______,        OSL_prgSym,     TT(editL),      JP_KANA,                                                                                                        JP_MHEN,        KC_MEH,         TO(numPadL),    _______,    _______,       TO(mediaL),        
+    _______,        _______,        _______,        OSL_prgSym,     TT(editL),      JP_KANA,                                                                                                        JP_MHEN,        KC_MEH,         TO(numPadL),    _______,    TOGGLE_LAYER_COLOR,       TO(mediaL),        
     OSL(ja2L),         _______,        _______,                        _______,        _______,        JP_HENK
   ),
   [qwertyL] = LAYOUT_moonlander(
@@ -116,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           SWITCH_JISX6004,                                    _______,        DE_Z,           KC_U,           KC_I,           KC_O,           KC_P,           DE_UE,          
     _______,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           SWITCH_QWERTZ,                                      _______,        KC_H,           KC_J,           KC_K,           KC_L,           DE_OE,    DE_AE,          
     KC_LSHIFT,      DE_Y,           KC_X,           KC_C,           KC_V,           KC_B,                                                                               KC_N,           KC_M,           _______,        _______,        DE_MINS,        KC_RSHIFT,      
-    _______,        _______,        _______,        OSL_prgSym,     TT(editL),      _______,                                                                                                        _______,        KC_MEH,          TO(numPadL),   _______,        _______,   TO(mediaL),        
+    _______,        _______,        _______,        OSL_prgSym,     TT(editL),      _______,                                                                                                        _______,        KC_MEH,          TO(numPadL),   _______,        TOGGLE_LAYER_COLOR,   TO(mediaL),        
     _______,        _______,        _______,                        _______,        _______,        KC_TRANSPARENT
   ),
   [editL] = LAYOUT_moonlander(

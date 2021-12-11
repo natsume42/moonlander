@@ -155,7 +155,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
     [txtSymL] = {GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
-                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, GREEN,
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, WHITE,
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  FOREST_R, WHITE, BTS,

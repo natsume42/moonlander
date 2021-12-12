@@ -10,14 +10,14 @@ extern rgb_config_t rgb_matrix_config;
 #define BARB_L     {30,239,161}    /* Barbarian leather, brown */
 #define BAY_B      {15,255,125}    /* Bab Brown */
 #define BLACK      {0, 0, 0}
-#define BLUE       {172,255,255}   /* Blue */
+#define BLUE       {170,255,255}   /* Blue */
 #define BTS        {196, 235, 173} /* purple */
 #define CERULEAN   {141, 255, 233} /* Cerulean Blue */
 #define CYBER_Y    {35, 255, 255}  /* Cyber Yellow */
 #define DELFT_BLUE {180, 255, 233}
 #define FUEGO_N    {14, 222, 242}  /* Fuego Nuevo */
 #define FOREST_N   {86,255,34}     /* Forest Night, dark green */
-#define FOREST_R   {86,255,105}    /* Forest Ride, green, #006900*/
+#define FOREST_R   {85,255,105}    /* Forest Ride, green, #006900*/
 #define FORSYTHIA  {33, 255, 255}  /* orange */
 #define GOLD_F     {29, 255, 255}  /* Gold Fusion */
 #define GREEN      {86, 255, 255}

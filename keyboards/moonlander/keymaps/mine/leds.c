@@ -96,9 +96,9 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                  BTS, RED, ASSESSIN, BTS},
     [editL] = {BLACK, BLACK,     BLACK,     BLACK,    BLACK,
                BLACK, FORSYTHIA, FORSYTHIA, BLACK,    BLACK,
-               BLACK, RED,       BLUE,     RED,      BLACK,
-               BLACK, BLUE,      BLUE,     BLACK,    BLACK,
-               BLACK, RED,       BLUE,     RED,      GREEN,
+               BLACK, RED,       BLUE,     RED,       BLACK,
+               BLACK, BLUE,      BLUE,     BLACK,     BLACK,
+               BLACK, RED,       BLUE,     RED,       BLACK,
                BLACK, FORSYTHIA, FORSYTHIA, CERULEAN,
                FOREST_R, WHITE,  BTS,
 

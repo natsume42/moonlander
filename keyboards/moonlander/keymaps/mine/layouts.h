@@ -1,3 +1,4 @@
+#pragma once
 #include QMK_KEYBOARD_H
 
 /** \brief Change input language to Japanese and keyboard layer to JISX6004.

@@ -1,5 +1,5 @@
-#include "leds.h"
 #include "layers.h"
+#include QMK_KEYBOARD_H
 
 extern bool         g_suspend_state;
 extern rgb_config_t rgb_matrix_config;
@@ -257,11 +257,14 @@ void set_layer_color(int layer) {
 
 uint32_t remove_common_layer(uint32_t layer_mask) { return layer_mask & ~(1UL << commonL); }
 
+custom_layers_t get_custom_layer(uint32_t layer_mask) { return (custom_layers_t)biton32(remove_common_layer(layer_state)); }
+
+
 void rgb_matrix_indicators_user(void) {
     if (g_suspend_state || keyboard_config.disable_layer_led) {
         return;
     }
-    switch (biton32(remove_common_layer(layer_state))) {
+    switch (get_custom_layer(layer_state)) {
         case mineL:
             set_layer_color(mineL);
             break;

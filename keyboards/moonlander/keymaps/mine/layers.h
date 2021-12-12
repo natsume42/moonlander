@@ -1,4 +1,6 @@
-enum custom_layers {
+#pragma once
+
+typedef enum custom_layers_t {
     commonL,
     mineL,
     ja1L,
@@ -10,4 +12,4 @@ enum custom_layers {
     txtSymL,
     fncKeysL,
     mediaL,
-};
+} custom_layers_t ;

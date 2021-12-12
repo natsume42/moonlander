@@ -86,28 +86,36 @@ enum custom_keycodes {
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+ [commonL] = LAYOUT_moonlander(
+    TD(DANCE_0),    TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    TD(DANCE_5),    SWITCH_MINE,                                    _______,          TD(DANCE_7),    TD(DANCE_8),    TD(DANCE_9),    TD(DANCE_10),   TD(DANCE_11),   _______,        
+    KC_TAB,         _______,        _______,        _______,        _______,        _______,        SWITCH_JISX6004,                                LGUI(LSFT(KC_A)), _______,        _______,        _______,        _______,        _______,        _______,          
+    _______,        _______,        _______,        _______,        _______,        _______,        SWITCH_QWERTZ,                                  _______,          _______,        _______,        _______,        _______,        _______,        _______,           
+    KC_LSHIFT,      _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        KC_RSHIFT,      
+    KC_LCTRL,       KC_LGUI,        KC_LALT,        OSL_prgSym,     TT(editL),                      _______,                                        _______,                          KC_MEH,         TO(numPadL),    _______, TOGGLE_LAYER_COLOR,    TO(mediaL),          
+                                                                    KC_LSHIFT,      _______,        _______,                                        _______,          KC_BSPACE,      KC_SPACE
+  ),
  [mineL] = LAYOUT_moonlander(
-    TD(DANCE_0),    TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    TD(DANCE_5),    SWITCH_MINE,                                     _______,        TD(DANCE_7),    TD(DANCE_8),    TD(DANCE_9),    TD(DANCE_10),   TD(DANCE_11),   DE_MINS,        
-    KC_TAB,         KC_J,           KC_L,           KC_U,           KC_A,           KC_Q,           SWITCH_JISX6004,                                     LGUI(LSFT(KC_A)),KC_W,           KC_B,           KC_D,           KC_G,           DE_Y,           DE_SS,          
-    LCTL(KC_BSPACE),KC_C,           KC_R,           KC_I,           KC_E,           KC_O,           SWITCH_QWERTZ,                                                                          LGUI(KC_6),     KC_M,           KC_N,           KC_T,           KC_S,           KC_H,           DE_Z,           
-    KC_LSHIFT,      KC_V,           KC_X,           DE_UE,          DE_AE,          DE_OE,                                          KC_P,           KC_F,           TD(DANCE_12),   TD(DANCE_13),   KC_K,           KC_RSHIFT,      
-    KC_LCTRL,       KC_LGUI,        KC_LALT,        OSL_prgSym,     TT(editL),      LGUI(KC_2),                                                                                                     LGUI(KC_3),     KC_MEH,         TO(numPadL),    _______,    TOGGLE_LAYER_COLOR,    TO(mediaL),          
-    KC_LSHIFT,      TD(DANCE_6),    KC_LCTRL,                       TD(DANCE_14),   KC_BSPACE,      KC_SPACE
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,        
+    _______,        KC_J,           KC_L,           KC_U,           KC_A,           KC_Q,           _______,                                     LGUI(LSFT(KC_A)),    KC_W,           KC_B,           KC_D,           KC_G,           DE_Y,           DE_SS,          
+    LCTL(KC_BSPACE),KC_C,           KC_R,           KC_I,           KC_E,           KC_O,           _______,                                        LGUI(KC_6),       KC_M,           KC_N,           KC_T,           KC_S,           KC_H,           DE_Z,           
+    _______,        KC_V,           KC_X,           DE_UE,          DE_AE,          DE_OE,                                                                            KC_P,           KC_F,           TD(DANCE_12),   TD(DANCE_13),   KC_K,           _______,      
+    _______,        _______,        _______,        _______,        _______,                        LGUI(KC_2),                                     LGUI(KC_3),                       _______,        _______,        _______,        _______,        TO(mediaL),          
+                                                                    _______,        TD(DANCE_6),    _______,                                        TD(DANCE_14),     _______,        _______
   ),
   [ja1L] = LAYOUT_moonlander(
-    _______,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_4,        KC_KP_5,        SWITCH_MINE,                                        _______,        KC_KP_6,        KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_0,        KC_KP_MINUS,    
-    _______,        KC_C,           JP_COLN,        KC_P,           KC_W,           LSFT(KC_9),     SWITCH_JISX6004,                                    _______,        KC_Z,           KC_Y,           KC_K,           LSFT(KC_0),     KC_L,           KC_A,           
-    JP_ZHTG,        TD(DANCE_19),   KC_T,           KC_D,           KC_S,           KC_Q,           SWITCH_QWERTZ,                                                                        _______,        KC_H,           KC_4,           KC_E,           KC_LBRACKET,    KC_G,          TD(DANCE_22),   
-    _______,        TD(DANCE_20),   TD(DANCE_21),   KC_I,           KC_X,           KC_3,                                           LSFT(KC_Z),     KC_DOT,         LSFT(KC_COMMA), LSFT(KC_DOT),   KC_SCOLON,      _______,        
-    _______,        _______,        _______,        OSL_prgSym,     TT(editL),      JP_KANA,                                                                                                        JP_MHEN,        KC_MEH,         TO(numPadL),    _______,    TOGGLE_LAYER_COLOR,       TO(mediaL),        
-    OSL(ja2L),         _______,        _______,                        _______,        _______,        JP_HENK
+    _______,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_4,        KC_KP_5,        _______,                                        _______,        KC_KP_6,        KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_0,        KC_KP_MINUS,    
+    _______,        KC_C,           JP_COLN,        KC_P,           KC_W,           LSFT(KC_9),     _______,                                        _______,        KC_Z,           KC_Y,           KC_K,           LSFT(KC_0),     KC_L,           KC_A,           
+    JP_ZHTG,        TD(DANCE_19),   KC_T,           KC_D,           KC_S,           KC_Q,           _______,                                        _______,        KC_H,           KC_4,           KC_E,           KC_LBRACKET,    KC_G,          TD(DANCE_22),   
+    _______,        TD(DANCE_20),   TD(DANCE_21),   KC_I,           KC_X,           KC_3,                                                                           LSFT(KC_Z),     KC_DOT,         LSFT(KC_COMMA), LSFT(KC_DOT),   KC_SCOLON,      _______,        
+    _______,        _______,        _______,        _______,        _______,                        JP_KANA,                                        JP_MHEN,                        KC_MEH,         TO(numPadL),    _______,        _______,        _______,        
+                                                                    OSL(ja2L),      _______,        _______,                                        _______,        _______,        JP_HENK
   ),
-  [qwertyL] = LAYOUT_moonlander(
-    _______,        _______,        _______,        _______,        _______,        _______,        SWITCH_MINE,                                        _______,        _______,        _______,        _______,        _______,        _______,        DE_SS,          
-    _______,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           SWITCH_JISX6004,                                    _______,        DE_Z,           KC_U,           KC_I,           KC_O,           KC_P,           DE_UE,          
-    _______,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           SWITCH_QWERTZ,                                      _______,        KC_H,           KC_J,           KC_K,           KC_L,           DE_OE,    DE_AE,          
-    KC_LSHIFT,      DE_Y,           KC_X,           KC_C,           KC_V,           KC_B,                                                                               KC_N,           KC_M,           _______,        _______,        DE_MINS,        KC_RSHIFT,      
-    _______,        _______,        _______,        OSL_prgSym,     TT(editL),      _______,                                                                                                        _______,        KC_MEH,          TO(numPadL),   _______,        TOGGLE_LAYER_COLOR,   TO(mediaL),        
+  [qwertzL] = LAYOUT_moonlander(
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        DE_SS,          
+    _______,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           _______,                                        _______,        DE_Z,           KC_U,           KC_I,           KC_O,           KC_P,           DE_UE,          
+    _______,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           _______,                                        _______,        KC_H,           KC_J,           KC_K,           KC_L,           DE_OE,          DE_AE,
+    _______,        DE_Y,           KC_X,           KC_C,           KC_V,           KC_B,                                                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         DE_MINS,        _______,      
+    _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                        KC_MEH,         _______,        _______,        _______,        _______,        
     _______,        _______,        _______,                        _______,        _______,        KC_TRANSPARENT
   ),
   [editL] = LAYOUT_moonlander(
@@ -171,7 +179,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 void keyboard_post_init_user(void) {
-  rgb_matrix_enable();
+    rgb_matrix_enable();
+    switch_to_mine();
 
 #ifdef CONSOLE_ENABLE
     debug_enable = true;

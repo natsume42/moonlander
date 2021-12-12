@@ -1,8 +1,9 @@
 enum custom_layers {
+    commonL,
     mineL,
     ja1L,
     ja2L,
-    qwertyL,
+    qwertzL,
     editL,
     numPadL,
     prgSymL,

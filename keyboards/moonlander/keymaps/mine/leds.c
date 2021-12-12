@@ -75,7 +75,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
               DELFT_BLUE, RED, WHITE, DELFT_BLUE},
 
-    [qwertyL] = {BTS, BTS, BTS, BTS, BTS,
+    [qwertzL] = {BTS, BTS, BTS, BTS, BTS,
                  BTS, BTS, BTS, BTS, BTS,
                  BTS, BTS, BTS, BTS, BTS,
                  BTS, BTS, BTS, BTS, ALOHA,
@@ -255,40 +255,42 @@ void set_layer_color(int layer) {
     }
 }
 
+uint32_t remove_common_layer(uint32_t layer_mask) { return layer_mask & ~(1UL << commonL); }
+
 void rgb_matrix_indicators_user(void) {
     if (g_suspend_state || keyboard_config.disable_layer_led) {
         return;
     }
-    switch (biton32(layer_state)) {
+    switch (biton32(remove_common_layer(layer_state))) {
         case mineL:
             set_layer_color(mineL);
             break;
-        case 1:
-            set_layer_color(1);
+        case ja1L:
+            set_layer_color(ja1L);
             break;
-        case 2:
-            set_layer_color(2);
+        case ja2L:
+            set_layer_color(ja2L);
             break;
-        case 3:
-            set_layer_color(3);
+        case qwertzL:
+            set_layer_color(qwertzL);
             break;
-        case 4:
-            set_layer_color(4);
+        case editL:
+            set_layer_color(editL);
             break;
-        case 5:
-            set_layer_color(5);
+        case numPadL:
+            set_layer_color(numPadL);
             break;
-        case 6:
-            set_layer_color(6);
+        case prgSymL:
+            set_layer_color(prgSymL);
             break;
-        case 7:
-            set_layer_color(7);
+        case txtSymL:
+            set_layer_color(txtSymL);
             break;
-        case 8:
-            set_layer_color(8);
+        case fncKeysL:
+            set_layer_color(fncKeysL);
             break;
-        case 9:
-            set_layer_color(9);
+        case mediaL:
+            set_layer_color(mediaL);
             break;
         default:
             if (rgb_matrix_get_flags() == LED_FLAG_NONE) rgb_matrix_set_color_all(0, 0, 0);

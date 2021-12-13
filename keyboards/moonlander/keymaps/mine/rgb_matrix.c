@@ -8,22 +8,38 @@ extern rgb_config_t rgb_matrix_config;
 #define ALOHA      {122, 216, 172}
 #define ASSESSIN   {0, 249, 243}   /* Assessin’s Red */
 #define BARB_L     {30,239,161}    /* Barbarian leather, brown */
-#define BAY_B      {15,255,125}    /* Bab Brown */
 #define BLACK      {0, 0, 0}
 #define BLUE       {170,255,255}   /* Blue */
+
+/* QWERTZ Layer */
 #define BTS        {196, 235, 173} /* purple */
+#define GOT7       {91, 165, 255}  /* Aghase Green, 5aff72 */
+
+/* NumPad Layer */
 #define CERULEAN   {141, 255, 233} /* Cerulean Blue */
+#define EXIT_L     {73, 196, 189}  /* Exit Light, green, #52BE2A */
+
 #define CYBER_Y    {35, 255, 255}  /* Cyber Yellow */
 #define DELFT_BLUE {180, 255, 233}
 #define FUEGO_N    {14, 222, 242}  /* Fuego Nuevo */
-#define FOREST_N   {86,255,34}     /* Forest Night, dark green */
+
+/* Mine Layer */
 #define FOREST_R   {85,255,105}    /* Forest Ride, green, #006900*/
+#define MERLOT     {234,255, 105}  /* Merlot, #690034, accent 1 */
+#define DEEP_V     {191, 255, 105} /* Deep Violet, #340069, accent 2 */
+
+/* Edit layer */
+#define PEPPRONI   {17,255,170}    /* warm orange */
+#define EXTRA_A    {166, 255, 170} /* Extravehicular Activity */
+#define DARK_C     {123, 255,84}   /* "White Color", Dark Cyan, #0a9 */
+#define CANDY_G    {70, 255, 171}  /* Candy Grass, #3baa00 */
+
+
 #define FORSYTHIA  {33, 255, 255}  /* orange */
 #define GOLD_F     {29, 255, 255}  /* Gold Fusion */
 #define GREEN      {86, 255, 255}
 #define LINDERH_G  {85, 203, 158}  /* Linderhof Garden, green */
 #define MYOGA_P    {233, 218, 217} /* Myoga Purple */
-#define PEPPRONI   {14,255,175}    /* warm orange */
 #define RED        {0, 255, 255}
 #define RED_VIT    {0, 205, 155}   /* Red Vitality */
 #define WHITE      {0, 0, 255}
@@ -35,11 +51,11 @@ extern rgb_config_t rgb_matrix_config;
  * 4. right thumb (top to down, big red one)
  */
 const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
-    [mineL] = { FOREST_R, FOREST_R, ASSESSIN, FOREST_R, FOREST_R,
+    [mineL] = { FOREST_R, FOREST_R, MERLOT,   FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, ALOHA,
-                FOREST_R, FOREST_R, FOREST_R, FOREST_R, PEPPRONI,
+                FOREST_R, FOREST_R, DEEP_V,   FOREST_R, PEPPRONI,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, WHITE,    BTS,
 
@@ -49,11 +65,11 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, BARB_L,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, CERULEAN,
-                FOREST_R, FOREST_R, FOREST_R, FOREST_R, GREEN,
+                FOREST_R, FOREST_R, DEEP_V,   FOREST_R, GREEN,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
-                FOREST_R, FOREST_R, FOREST_R,
+                FOREST_R, MERLOT, FOREST_R,
 
-                FOREST_R, RED, ASSESSIN, FOREST_R },
+                FOREST_R, FOREST_R, FOREST_R, FOREST_R },
 
     [ja1L] = {WHITE, WHITE, DELFT_BLUE, WHITE, WHITE,
               WHITE, WHITE, WHITE, WHITE, WHITE,
@@ -75,42 +91,42 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
               DELFT_BLUE, RED, WHITE, DELFT_BLUE},
 
-    [qwertzL] = {BTS, BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS, BTS, ALOHA,
-                 BTS, BTS, BTS, BTS, CERULEAN,
-                 BTS, BTS, BTS, BTS,
+    [qwertzL] = {BTS, BTS, BTS,        BTS, BTS,
+                 BTS, BTS, BTS,        BTS, BTS,
+                 BTS, BTS, BTS,        BTS, BTS,
+                 BTS, BTS, BTS,        BTS, ALOHA,
+                 BTS, BTS, GOT7, BTS, CERULEAN,
+                 BTS, BTS, BTS,        BTS,
                  FOREST_R, WHITE, BTS,
 
                  WHITE, CERULEAN, BTS, BTS,
 
-                 BTS, BTS, BTS, BTS, CYBER_Y,
-                 BTS, BTS, BTS, BTS, BARB_L,
-                 BTS, BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS, BTS, CERULEAN,
-                 BTS, BTS, BTS, BTS, GREEN,
-                 BTS, BTS, BTS, BTS,
-                 BTS, BTS, BTS,
+                 BTS, BTS, BTS,  BTS, CYBER_Y,
+                 BTS, BTS, BTS,  BTS, BARB_L,
+                 BTS, BTS, BTS,  BTS, BTS,
+                 BTS, BTS, BTS,  BTS, CERULEAN,
+                 BTS, BTS, GOT7, BTS, GREEN,
+                 BTS, BTS, BTS,  BTS,
+                 BTS, GOT7, BTS,
 
                  BTS, RED, ASSESSIN, BTS},
     [editL] = {BLACK, BLACK,     BLACK,     BLACK,    BLACK,
-               BLACK, FORSYTHIA, FORSYTHIA, BLACK,    BLACK,
-               BLACK, RED,       BLUE,     RED,       BLACK,
-               BLACK, BLUE,      BLUE,     BLACK,     BLACK,
-               BLACK, RED,       BLUE,     RED,       BLACK,
-               BLACK, FORSYTHIA, FORSYTHIA, CERULEAN,
+               BLACK, CANDY_G,   CANDY_G,   BLACK,    BLACK,
+               BLACK, PEPPRONI,  EXTRA_A,   BLACK,    BLACK,
+               BLACK, EXTRA_A,   EXTRA_A,   BLACK,    BLACK,
+               BLACK, PEPPRONI,  EXTRA_A,   BLACK,    BLACK,
+               BLACK, CANDY_G,   CANDY_G,   DARK_C,
                FOREST_R, WHITE,  BTS,
 
                BLACK, BLACK,     BLACK,    BLACK,
 
-               BLACK, BLACK,  BLACK,    BLACK,    BLACK,
-               BLACK, BLACK,  BLACK,    BLACK,    BLACK,
-               BLACK, BAY_B,  PEPPRONI, PEPPRONI, BLACK,
-               BLACK, BAY_B,  PEPPRONI, BLACK,    BLACK,
-               BLACK, BAY_B,  PEPPRONI, BLACK,    GREEN,
-               BLACK, BLACK,  BAY_B,    BLACK,
-               BLACK, BLACK,  BLACK,
+               BLACK, BLACK,   BLACK,    BLACK,    BLACK,
+               BLACK, BLACK,   BLACK,    BLACK,    BLACK,
+               BLACK, CANDY_G, PEPPRONI, PEPPRONI, BLACK,
+               BLACK, CANDY_G, PEPPRONI, BLACK,    BLACK,
+               BLACK, CANDY_G, PEPPRONI, BLACK,    GREEN,
+               BLACK, BLACK,   CANDY_G,  BLACK,
+               BLACK, BLACK,   BLACK,
 
                BLACK, BLACK, BLACK, BLACK},
 
@@ -124,11 +140,11 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
                  BLACK, BLACK, BLACK, BLACK,
 
-                 BLACK, CYBER_Y,  CYBER_Y,  BLACK,    BLACK,
-                 BLACK, CYBER_Y,  CYBER_Y,  CYBER_Y,  BLACK,
-                 BLACK, CERULEAN, CERULEAN, CERULEAN, BLACK,
-                 BLACK, CERULEAN, CERULEAN, CERULEAN, WHITE,
-                 RED,   CERULEAN, CERULEAN, CERULEAN, GREEN,
+                 BLACK,   CYBER_Y,  CYBER_Y,  BLACK,    BLACK,
+                 BLACK,   CYBER_Y,  CYBER_Y,  CYBER_Y,  BLACK,
+                 BLACK,   CERULEAN, CERULEAN, CERULEAN, BLACK,
+                 BLACK,   CERULEAN, CERULEAN, CERULEAN, WHITE,
+                 EXIT_L,  CERULEAN, CERULEAN, CERULEAN, GREEN,
                  BLACK, CYBER_Y,  CYBER_Y, CERULEAN,
                  BLACK, BLACK,    BLACK,
 

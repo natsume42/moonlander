@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        SWITCH_QWERTZ,                                  _______,          _______,        _______,        _______,        _______,        _______,        _______,           
     KC_LSHIFT,      _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        KC_RSHIFT,      
     KC_LCTRL,       KC_LGUI,        KC_LALT,        OSL_prgSym,     TT(editL),                      _______,                                        _______,                          KC_MEH,         TO(numPadL),    _______, TOGGLE_LAYER_COLOR,    TO(mediaL),          
-                                                                    KC_LSHIFT,      _______,        _______,                                        _______,          KC_BSPACE,      KC_SPACE
+                                                                    KC_LSHIFT,      KC_ENTER,        _______,                                        _______,          KC_BSPACE,      KC_SPACE
   ),
  [mineL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,        
@@ -122,8 +122,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
     _______,        KC_PGUP,        KC_BSPACE,      KC_UP,          KC_DELETE,      KC_PGDOWN,      _______,                                        _______,        _______,        LCTL(KC_X),     LCTL(KC_C),     LCTL(KC_V),     _______,        _______,        
     _______,        KC_HOME,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_END,         _______,                                                                        _______,        LCTL(KC_A),     KC_LCTRL,       KC_LGUI,        KC_LALT,        _______,     _______,        
-    _______,        _______,        LCTL(KC_BSPACE),_______,        RCTL(KC_DELETE),KC_INSERT,                                      _______,        _______,        _______,        KC_RALT,        _______,        _______,        
-    _______,        _______,        _______,        OSL_prgSym,     XXXXXXX,       _______,                                                                                                       _______,        TO_DFLTL,       _______,        _______,        _______,     _______,        
+    _______,        _______,        _______,        _______,        _______,        KC_INSERT,                                      _______,        _______,        _______,        KC_RALT,        _______,        _______,        
+    _______,        _______,        _______,        OSL_prgSym,     XXXXXXX,        _______,                                                                                                       _______,        TO_DFLTL,       _______,        _______,        _______,     _______,        
     KC_LSHIFT,      _______,        _______,                        _______,        _______,        KC_TRANSPARENT
   ),
   [numPadL] = LAYOUT_moonlander(

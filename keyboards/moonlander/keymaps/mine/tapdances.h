@@ -14,8 +14,6 @@ enum tap_dance_codes {
     DANCE_9,
     DANCE_10,
     DANCE_11,
-    DANCE_12,
-    DANCE_13,
     DANCE_14,
     DANCE_15,
     DANCE_16,

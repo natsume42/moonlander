@@ -5,12 +5,12 @@
 #include "keymap_us_international.h"
 
 #include "layers.h"
-#include "oneshot.h"
+#include "custom_actions.h"
 #include "layouts.h"
 #include "tapdances.h"
 
 #ifdef CONSOLE_ENABLE
-#   include "print.h"
+#    include "print.h"
 #endif
 
 #define KC_PC_UNDO LCTL(KC_Z)
@@ -23,7 +23,7 @@
 #define MOON_LED_LEVEL LED_LEVEL
 
 enum custom_keycodes {
-    RGB_SLD = ML_SAFE_RANGE,
+    RGB_SLD = TN_SAFE_RANGE,
     ST_MACRO_0,
     ST_MACRO_1,
     ST_MACRO_2,
@@ -74,9 +74,6 @@ enum custom_keycodes {
     SWITCH_MINE,
     SWITCH_JISX6004,
     SWITCH_QWERTZ,
-    OSL_prgSym,
-    OSL_txtSym,
-    OSL_fncKeys,
     TO_DFLTL,
     DE_LSPO,
     DE_RSPC,
@@ -91,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         _______,        _______,        _______,        _______,        _______,        SWITCH_JISX6004,                                LGUI(LSFT(KC_A)), _______,        _______,        _______,        _______,        _______,        _______,          
     _______,        _______,        _______,        _______,        _______,        _______,        SWITCH_QWERTZ,                                  _______,          _______,        _______,        _______,        _______,        _______,        _______,           
     KC_LSHIFT,      _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        KC_RSHIFT,      
-    KC_LCTRL,       KC_LGUI,        KC_LALT,        OSL_prgSym,     TT(editL),                      _______,                                        _______,                          KC_MEH,         TO(numPadL),     _______, TOGGLE_LAYER_COLOR,    TO(mediaL),          
+    KC_LCTRL,       KC_LGUI,        KC_LALT,        FOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         TO(numPadL),     _______, TOGGLE_LAYER_COLOR,    TO(mediaL),          
                                                                     KC_LSHIFT,      KC_ENTER,        _______,                                       _______,          KC_BSPACE,      LT(numPadL, KC_SPACE)
   ),
  [mineL] = LAYOUT_moonlander(
@@ -108,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     JP_ZHTG,        TD(DANCE_19),   KC_T,           KC_D,           KC_S,           KC_Q,           _______,                                        _______,        KC_H,           KC_4,           KC_E,           KC_LBRACKET,    KC_G,          TD(DANCE_22),   
     _______,        TD(DANCE_20),   TD(DANCE_21),   KC_I,           KC_X,           KC_3,                                                                           LSFT(KC_Z),     KC_DOT,         LSFT(KC_COMMA), LSFT(KC_DOT),   KC_SCOLON,      _______,        
     _______,        _______,        _______,        _______,        _______,                        JP_KANA,                                        JP_MHEN,                        _______,         _______,       _______,        _______,        _______,        
-                                                                    OSL(ja2L),      _______,        _______,                                        _______,        _______,        JP_HENK
+                                                                    FOSL(ja2L),     _______,        _______,                                        _______,        _______,        JP_HENK
   ),
   [qwertzL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        DE_SS,          
@@ -123,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        KC_PGUP,        KC_BSPACE,      KC_UP,          KC_DELETE,      KC_PGDOWN,      _______,                                        _______,        _______,        LCTL(KC_X),     LCTL(KC_C),     LCTL(KC_V),     _______,        _______,        
     _______,        KC_HOME,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_END,         _______,                                                                        _______,        LCTL(KC_A),     KC_LCTRL,       KC_LGUI,        KC_LALT,        _______,     _______,        
     _______,        _______,        _______,        _______,        _______,        KC_INSERT,                                      _______,        _______,        _______,        KC_RALT,        _______,        _______,        
-    _______,        _______,        _______,        OSL_prgSym,     XXXXXXX,        _______,                                                                                                       _______,        TO_DFLTL,       _______,        _______,        _______,     _______,        
+    _______,        _______,        _______,        _______,        XXXXXXX,        _______,                                                                                                       _______,        TO_DFLTL,       _______,        _______,        _______,     _______,        
     KC_LSHIFT,      _______,        _______,                        _______,        _______,        KC_TRANSPARENT
   ),
   [numPadL] = LAYOUT_moonlander(
@@ -139,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        DE_UNDS,        DE_LBRC,        DE_RBRC,        DE_CIRC,        _______,                                        _______,        DE_EXLM,        DE_LESS,        DE_MORE,        DE_EQL,         DE_AMPR,        ST_MACRO_5,     
     _______,        DE_BSLS,        DE_SLSH,        DE_LCBR,        DE_RCBR,        DE_ASTR,        _______,                                                                        _______,        DE_QST,         DE_LPRN,        DE_RPRN,        DE_MINS,        DE_COLN,        DE_AT,          
     _______,        DE_HASH,        DE_DLR,         DE_PIPE,        DE_TILD,        DE_GRV,                                         DE_PLUS,        DE_PERC,        DE_DQOT,        DE_QUOT,        DE_SCLN,        _______,        
-    _______,        _______,        _______,        OSL_txtSym,     _______,        _______,                                                                                                        _______,        TO_DFLTL,          _______,        _______,        _______,        _______,        
+    _______,        _______,        _______,        FOSL(txtSymL),  _______,        _______,                                                                                                        _______,        TO_DFLTL,          _______,        _______,        _______,        _______,        
     _______,        _______,        _______,                        _______,        _______,        KC_TRANSPARENT
   ),
   [txtSymL] = LAYOUT_moonlander(
@@ -147,7 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        ST_MACRO_8,     ST_MACRO_9,     ST_MACRO_10,    ST_MACRO_11,    DE_PARA,        _______,                                        _______,        DE_EXLM,        ST_MACRO_21,    ST_MACRO_22,    ST_MACRO_23,    ST_MACRO_24,    ST_MACRO_25,    
     _______,        ST_MACRO_12,    DE_EURO,        ST_MACRO_13,    ST_MACRO_14,    DE_RING,        _______,                                                                        _______,        DE_QST,         ST_MACRO_26,    ST_MACRO_27,    ST_MACRO_28,    ST_MACRO_29,    _______,        
     _______,        ST_MACRO_15,    KC_DLR,         ST_MACRO_16,    ST_MACRO_17,    ST_MACRO_18,                                    ST_MACRO_30,    ST_MACRO_31,    ST_MACRO_32,    ST_MACRO_33,    DE_MINS,        _______,        
-    _______,        _______,        _______,        OSL_fncKeys,    _______,        _______,                                                                                                  ST_MACRO_34,    TO_DFLTL,          _______,        _______,        _______,        _______,        
+    _______,        _______,        _______,        FOSL(fncKeysL), _______,        _______,                                                                                                  ST_MACRO_34,    TO_DFLTL,          _______,        _______,        _______,        _______,        
     _______,        _______,        _______,                        _______,        _______,        ST_MACRO_35
   ),
   [ja2L] = LAYOUT_moonlander(
@@ -177,7 +174,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 // clang-format on
 
-
 void keyboard_post_init_user(void) {
     rgb_matrix_enable();
     switch_to_mine();
@@ -188,19 +184,12 @@ void keyboard_post_init_user(void) {
 #endif
 }
 
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+    if (!process_custom_action(keycode, record)) {
+        return true;
+    }
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case OSL_prgSym:
-            process_oneshot_key(prgSymL, record);
-            break;
-        case OSL_txtSym:
-            process_oneshot_key(txtSymL, record);
-            break;
-        case OSL_fncKeys:
-            process_oneshot_key(fncKeysL, record);
-            break;
-
         case TO_DFLTL:
             default_layer_move();
             break;

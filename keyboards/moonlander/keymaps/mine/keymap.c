@@ -77,7 +77,6 @@ enum custom_keycodes {
     OSL_prgSym,
     OSL_txtSym,
     OSL_fncKeys,
-    OSL_numPad,
     TO_DFLTL,
     DE_LSPO,
     DE_RSPC,
@@ -92,8 +91,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         _______,        _______,        _______,        _______,        _______,        SWITCH_JISX6004,                                LGUI(LSFT(KC_A)), _______,        _______,        _______,        _______,        _______,        _______,          
     _______,        _______,        _______,        _______,        _______,        _______,        SWITCH_QWERTZ,                                  _______,          _______,        _______,        _______,        _______,        _______,        _______,           
     KC_LSHIFT,      _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        KC_RSHIFT,      
-    KC_LCTRL,       KC_LGUI,        KC_LALT,        OSL_prgSym,     TT(editL),                      _______,                                        _______,                          KC_MEH,         OSL_numPad,     _______, TOGGLE_LAYER_COLOR,    TO(mediaL),          
-                                                                    KC_LSHIFT,      KC_ENTER,        _______,                                       _______,          KC_BSPACE,      KC_SPACE
+    KC_LCTRL,       KC_LGUI,        KC_LALT,        OSL_prgSym,     TT(editL),                      _______,                                        _______,                          KC_MEH,         TO(numPadL),     _______, TOGGLE_LAYER_COLOR,    TO(mediaL),          
+                                                                    KC_LSHIFT,      KC_ENTER,        _______,                                       _______,          KC_BSPACE,      LT(numPadL, KC_SPACE)
   ),
  [mineL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,        
@@ -132,7 +131,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        KC_MS_BTN3,     KC_MS_WH_UP,    KC_MS_UP,       KC_MS_WH_DOWN,  _______,        _______,                                        _______,        KC_TAB,         KC_KP_7,        KC_KP_8,        KC_KP_9,        TD(DANCE_15),   DE_COLN,        
     _______,        KC_MS_BTN1,     KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    _______,        _______,                                                                        _______,        DE_EQL,         KC_KP_4,        KC_KP_5,        KC_KP_6,        TD(DANCE_16),   TD(DANCE_17),   
     _______,        KC_MS_BTN2,     _______,        KC_MS_ACCEL0,   KC_MS_ACCEL1,   KC_MS_ACCEL2,                                   KC_KP_0,        KC_KP_1,        KC_KP_2,        KC_KP_3,        TD(DANCE_18),   _______,        
-    _______,        _______,        _______,        _______,        _______,        _______,                                                                                                        _______,        TO_DFLTL,       TO(numPadL),   _______,        _______,        _______,        
+    _______,        _______,        _______,        _______,        _______,        _______,                                                                                                        _______,        TO_DFLTL,       TO(fncKeysL),   _______,        _______,        _______,        
     _______,        _______,        _______,                        _______,        _______,        KC_TRANSPARENT
   ),
   [prgSymL] = LAYOUT_moonlander(
@@ -200,9 +199,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case OSL_fncKeys:
             process_oneshot_key(fncKeysL, record);
-            break;
-        case OSL_numPad:
-            process_oneshot_key(numPadL, record);
             break;
 
         case TO_DFLTL:

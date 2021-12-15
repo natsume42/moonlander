@@ -20,25 +20,15 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     ML_LED_5(false);
     ML_LED_6(false);
 
-    switch (state) {
-        case (1UL << mineL)...(1UL << ja1L) - 1:
-            break;
-        case (1UL << ja1L)...(1UL << ja2L) - 1:
-        case (1UL << ja2L)...(1UL << qwertzL) - 1:
-            ML_LED_3(true);
-            break;
-        case (1UL << qwertzL)...(1UL << editL) - 1 :
-            ML_LED_2(true);
-            break;
-        case (1UL << editL)...(1UL << numPadL) - 1 :
-            ML_LED_6(true);
-            break;
-        case (1UL << numPadL)...(1UL << prgSymL) - 1 :
-            ML_LED_1(true);
-            ML_LED_5(num_lock);
-            break;
-        default:
-            break;
+    if (layer_state_cmp(state, ja1L) || layer_state_cmp(state, ja2L)) {
+        ML_LED_3(true);
+    } else if (layer_state_cmp(state, qwertzL)) {
+        ML_LED_2(true);
+    } else if (layer_state_cmp(state, editL)) {
+        ML_LED_6(true);
+    } else if (layer_state_cmp(state, numPadL)) {
+        ML_LED_1(true);
+        ML_LED_5(num_lock);
     }
 
     // Ensure that our led settings do not get overwritten by moonlander logic.

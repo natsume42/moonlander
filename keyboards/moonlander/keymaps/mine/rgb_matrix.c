@@ -1,8 +1,14 @@
 #include "layers.h"
 #include QMK_KEYBOARD_H
+#include "rgb_animations.h"
 
 extern bool         g_suspend_state;
 extern rgb_config_t rgb_matrix_config;
+
+extern bool         num_lock;
+
+/* This position needs to be aligned with keymaps. */
+#define NUM_LOCK_KEY_INDEX 56
 
 // clang-format off
 #define ALOHA      {122, 216, 172}
@@ -17,7 +23,7 @@ extern rgb_config_t rgb_matrix_config;
 
 /* NumPad Layer */
 #define CERULEAN   {141, 255, 233} /* Cerulean Blue */
-#define EXIT_L     {73, 196, 189}  /* Exit Light, green, #52BE2A */
+#define EXIT_LIGHT_G {73, 196, 189}  /* Exit Light, green, #52BE2A */
 
 #define CYBER_Y    {35, 255, 255}  /* Cyber Yellow */
 #define DELFT_BLUE {180, 255, 233}
@@ -144,7 +150,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                  BLACK,   CYBER_Y,  CYBER_Y,  CYBER_Y,  BLACK,
                  BLACK,   CERULEAN, CERULEAN, CERULEAN, BLACK,
                  BLACK,   CERULEAN, CERULEAN, CERULEAN, WHITE,
-                 EXIT_L,  CERULEAN, CERULEAN, CERULEAN, GREEN,
+                 BLACK,   CERULEAN, CERULEAN, CERULEAN, GREEN,
                  BLACK, CYBER_Y,  CYBER_Y, CERULEAN,
                  BLACK, BLACK,    BLACK,
 
@@ -251,8 +257,13 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 BLACK, BLACK, BLACK, BLACK},
 };
 // clang-format on
-
-void set_layer_color(int layer);
+// void rgb_matrix_set_hsv(int led_pos, uint8_t hue, uint8_t sat, uint8_t val) {
+void rgb_matrix_set_hsv(int led_pos, HSV hsv) {
+    // HSV   hsv = {.h = hue, .s = sat, .v = val};
+    RGB   rgb = hsv_to_rgb(hsv);
+    float f   = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
+    rgb_matrix_set_color(led_pos, f * rgb.r, f * rgb.g, f * rgb.b);
+}
 
 void set_layer_color(int layer) {
     for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
@@ -264,9 +275,7 @@ void set_layer_color(int layer) {
         if (!hsv.h && !hsv.s && !hsv.v) {
             rgb_matrix_set_color(i, 0, 0, 0);
         } else {
-            RGB   rgb = hsv_to_rgb(hsv);
-            float f   = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
-            rgb_matrix_set_color(i, f * rgb.r, f * rgb.g, f * rgb.b);
+            rgb_matrix_set_hsv(i, hsv);
         }
     }
 }
@@ -275,11 +284,11 @@ uint32_t remove_common_layer(uint32_t layer_mask) { return layer_mask & ~(1UL <<
 
 custom_layers_t get_custom_layer(uint32_t layer_mask) { return (custom_layers_t)biton32(remove_common_layer(layer_state)); }
 
-
 void rgb_matrix_indicators_user(void) {
     if (g_suspend_state || keyboard_config.disable_layer_led) {
         return;
     }
+
     switch (get_custom_layer(layer_state)) {
         case mineL:
             set_layer_color(mineL);
@@ -298,6 +307,14 @@ void rgb_matrix_indicators_user(void) {
             break;
         case numPadL:
             set_layer_color(numPadL);
+
+            if (!num_lock) {
+                HSV numLockOffColor = {HSV_RED};
+                rgb_matrix_set_hsv(NUM_LOCK_KEY_INDEX, rgb_step_breathe(numLockOffColor, 10, 5));
+            } else {
+                HSV numLockOnColor = EXIT_LIGHT_G;
+                rgb_matrix_set_hsv(NUM_LOCK_KEY_INDEX, numLockOnColor);
+            }
             break;
         case prgSymL:
             set_layer_color(prgSymL);

@@ -5,10 +5,13 @@
 extern bool         g_suspend_state;
 extern rgb_config_t rgb_matrix_config;
 
-extern bool         num_lock;
+extern bool num_lock;
 
-/* This position needs to be aligned with keymaps. */
+/* These positions need to be aligned with keymaps. */
 #define NUM_LOCK_KEY_INDEX 56
+#define GLOBAL_ANIMATION_TOGGLE_INDEX 45
+#define MEDIA_L_ANIMATION_TOGGLE_INDEX 27
+#define MEDIA_L_LIGHTS_TOGGLE_INDEX 22
 
 // clang-format off
 #define ALOHA      {122, 216, 172}
@@ -289,6 +292,9 @@ void rgb_matrix_indicators_user(void) {
         return;
     }
 
+    HSV animationToggleColor = {0, 255, 255};
+    animationToggleColor     = rgb_step_rainbow(animationToggleColor, 10, 1);
+
     switch (get_custom_layer(layer_state)) {
         case mineL:
             set_layer_color(mineL);
@@ -327,9 +333,14 @@ void rgb_matrix_indicators_user(void) {
             break;
         case mediaL:
             set_layer_color(mediaL);
+            rgb_matrix_set_hsv(MEDIA_L_ANIMATION_TOGGLE_INDEX, animationToggleColor);
+            HSV lightToggleColor = {HSV_WHITE};
+            rgb_matrix_set_hsv(MEDIA_L_LIGHTS_TOGGLE_INDEX, rgb_step_breathe(lightToggleColor, 10, 5));
             break;
         default:
             if (rgb_matrix_get_flags() == LED_FLAG_NONE) rgb_matrix_set_color_all(0, 0, 0);
             break;
     }
+
+    rgb_matrix_set_hsv(GLOBAL_ANIMATION_TOGGLE_INDEX, animationToggleColor);
 }

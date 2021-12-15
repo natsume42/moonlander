@@ -29,3 +29,18 @@ HSV rgb_step_breathe(HSV color, uint16_t delay, uint8_t step_size) {
     color.v = breathe_val;
     return color;
 }
+
+HSV rgb_step_rainbow(HSV color, uint16_t delay, uint8_t step_size) {
+    static uint16_t start_time;
+    static uint8_t  rainbow_hue;
+
+    uint16_t now = timer_read();
+    if (start_time > now || now - start_time > delay) {
+        start_time = now;
+
+        rainbow_hue += step_size;
+    }
+
+    color.h = rainbow_hue;
+    return color;
+}

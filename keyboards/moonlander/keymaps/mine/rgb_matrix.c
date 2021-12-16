@@ -1,11 +1,10 @@
 #include "layers.h"
 #include QMK_KEYBOARD_H
 #include "rgb_animations.h"
+#include "leds.h"
 
 extern bool         g_suspend_state;
 extern rgb_config_t rgb_matrix_config;
-
-extern bool num_lock;
 
 /* These positions need to be aligned with keymaps. */
 #define NUM_LOCK_KEY_INDEX 56
@@ -314,7 +313,7 @@ void rgb_matrix_indicators_user(void) {
         case numPadL:
             set_layer_color(numPadL);
 
-            if (!num_lock) {
+            if (!get_num_lock()) {
                 HSV numLockOffColor = {HSV_RED};
                 rgb_matrix_set_hsv(NUM_LOCK_KEY_INDEX, rgb_step_breathe(numLockOffColor, 10, 5));
             } else {

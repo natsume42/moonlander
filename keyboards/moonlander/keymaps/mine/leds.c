@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "leds.h"
 #include "layers.h"
 extern bool mcp23018_leds[3];
 
@@ -36,3 +37,5 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
     return state;
 }
+
+bool get_num_lock() { return num_lock; }

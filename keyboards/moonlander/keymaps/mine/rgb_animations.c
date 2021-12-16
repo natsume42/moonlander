@@ -59,6 +59,24 @@ HSV rgb_step_rainbow(HSV color, uint16_t delay, uint8_t step_size) {
     return color;
 }
 
+HSV rgb_step_toggle(toggle_data* data) {
+    uint16_t now = timer_read();
+
+    if (data->use_color1) {
+        if (is_timer_elapsed(data->start_time, now, data->delay1)) {
+            data->start_time = now;
+            data->use_color1 = false;
+        }
+    } else {
+        if (is_timer_elapsed(data->start_time, now, data->delay2)) {
+            data->start_time = now;
+            data->use_color1 = true;
+         }
+    }
+
+    return data->use_color1 ? data->color1 : data->color2;
+}
+
 HSV rgb_step_hue_gradient(HSV from_color, HSV to_color, uint16_t delay, uint8_t step_size) {
     static uint16_t start_time;
     static uint8_t  hue;
@@ -68,13 +86,12 @@ HSV rgb_step_hue_gradient(HSV from_color, HSV to_color, uint16_t delay, uint8_t 
     if (is_timer_elapsed(start_time, now, delay)) {
         start_time = now;
 
-        if ((raise && hit_upper_boundary(to_color.h, hue, step_size))
-            || !is_in_range(from_color.h, to_color.h, hue)) {
-            raise       = false;
-            hue = to_color.h;
+        if ((raise && hit_upper_boundary(to_color.h, hue, step_size)) || !is_in_range(from_color.h, to_color.h, hue)) {
+            raise = false;
+            hue   = to_color.h;
         } else if (!raise && hit_lower_boundary(from_color.h, hue, step_size)) {
-            raise       = true;
-            hue = from_color.h;
+            raise = true;
+            hue   = from_color.h;
         } else if (raise) {
             hue += step_size;
         } else {

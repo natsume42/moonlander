@@ -336,13 +336,11 @@ void rgb_matrix_indicators_user(void) {
 
             rgb_matrix_set_hsv(MEDIA_L_ANIMATION_TOGGLE_INDEX, animationToggleColor);
 
-            HSV lightToggleColor = {HSV_WHITE};
-            rgb_matrix_set_hsv(MEDIA_L_LIGHTS_TOGGLE_INDEX, rgb_step_breathe(lightToggleColor, 10, 5));
+            static toggle_data light_toggle_data = {{255, 0, 0}, 500, {0, 0, 255}, 1000};
+            rgb_matrix_set_hsv(MEDIA_L_LIGHTS_TOGGLE_INDEX, rgb_step_toggle(&light_toggle_data));
 
-            HSV play_toggle_from_color = {HSV_RED};
-            HSV play_toggle_to_color   = {HSV_GREEN};
-            rgb_matrix_set_hsv(MEDIA_L_PLAY_TOGGLE_INDEX,
-                rgb_step_hue_gradient(play_toggle_from_color, play_toggle_to_color, 10, 3));
+            static toggle_data play_toggle_data = {{HSV_RED}, 500, {HSV_GREEN}, 500};
+            rgb_matrix_set_hsv(MEDIA_L_PLAY_TOGGLE_INDEX, rgb_step_toggle(&play_toggle_data));
             break;
         default:
             if (rgb_matrix_get_flags() == LED_FLAG_NONE) rgb_matrix_set_color_all(0, 0, 0);

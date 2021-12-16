@@ -11,6 +11,7 @@ extern rgb_config_t rgb_matrix_config;
 #define GLOBAL_ANIMATION_TOGGLE_INDEX 45
 #define MEDIA_L_ANIMATION_TOGGLE_INDEX 27
 #define MEDIA_L_LIGHTS_TOGGLE_INDEX 22
+#define MEDIA_L_PLAY_TOGGLE_INDEX 53
 
 // clang-format off
 #define ALOHA      {122, 216, 172}
@@ -332,9 +333,16 @@ void rgb_matrix_indicators_user(void) {
             break;
         case mediaL:
             set_layer_color(mediaL);
+
             rgb_matrix_set_hsv(MEDIA_L_ANIMATION_TOGGLE_INDEX, animationToggleColor);
+
             HSV lightToggleColor = {HSV_WHITE};
             rgb_matrix_set_hsv(MEDIA_L_LIGHTS_TOGGLE_INDEX, rgb_step_breathe(lightToggleColor, 10, 5));
+
+            HSV play_toggle_from_color = {HSV_RED};
+            HSV play_toggle_to_color   = {HSV_GREEN};
+            rgb_matrix_set_hsv(MEDIA_L_PLAY_TOGGLE_INDEX,
+                rgb_step_hue_gradient(play_toggle_from_color, play_toggle_to_color, 10, 3));
             break;
         default:
             if (rgb_matrix_get_flags() == LED_FLAG_NONE) rgb_matrix_set_color_all(0, 0, 0);

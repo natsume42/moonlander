@@ -293,7 +293,7 @@ void rgb_matrix_indicators_user(void) {
     }
 
     HSV animationToggleColor = {0, 255, 255};
-    animationToggleColor     = rgb_step_rainbow(animationToggleColor, 10, 1);
+    animationToggleColor     = rgb_step_rainbow(animationToggleColor, 5, 1);
 
     switch (get_custom_layer(layer_state)) {
         case mineL:

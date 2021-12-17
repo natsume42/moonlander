@@ -7,8 +7,9 @@ extern bool         g_suspend_state;
 extern rgb_config_t rgb_matrix_config;
 
 /* These positions need to be aligned with keymaps. */
-#define NUM_LOCK_KEY_INDEX 56
+#define NUM_LOCK_KEY_INDEX 5
 #define GLOBAL_ANIMATION_TOGGLE_INDEX 45
+#define MEDIA_L_AUDIO_TOGGLE_INDEX 13
 #define MEDIA_L_ANIMATION_TOGGLE_INDEX 27
 #define MEDIA_L_LIGHTS_TOGGLE_INDEX 22
 #define MEDIA_L_PLAY_TOGGLE_INDEX 53
@@ -123,7 +124,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                BLACK, CANDY_G,   CANDY_G,   BLACK,    BLACK,
                BLACK, PEPPRONI,  EXTRA_A,   BLACK,    BLACK,
                BLACK, EXTRA_A,   EXTRA_A,   BLACK,    BLACK,
-               BLACK, PEPPRONI,  EXTRA_A,   BLACK,    BLACK,
+               BLACK, PEPPRONI,  EXTRA_A,   WHITE,    BLACK,
                BLACK, CANDY_G,   CANDY_G,   DARK_C,
                FOREST_R, WHITE,  BTS,
 
@@ -336,11 +337,14 @@ void rgb_matrix_indicators_user(void) {
 
             rgb_matrix_set_hsv(MEDIA_L_ANIMATION_TOGGLE_INDEX, animationToggleColor);
 
-            static toggle_data light_toggle_data = {{255, 0, 0}, 500, {0, 0, 255}, 1000};
+            static toggle_data light_toggle_data = {{255, 0, 0}, 500, {0, 0, 255}, 1000}; /* Black and White */
             rgb_matrix_set_hsv(MEDIA_L_LIGHTS_TOGGLE_INDEX, rgb_step_toggle(&light_toggle_data));
 
             static toggle_data play_toggle_data = {{HSV_RED}, 500, {HSV_GREEN}, 500};
             rgb_matrix_set_hsv(MEDIA_L_PLAY_TOGGLE_INDEX, rgb_step_toggle(&play_toggle_data));
+
+            static toggle_data audio_toggle_data = {{255, 0, 0}, 500, {0, 0, 255}, 1000}; /* Black and White */
+            rgb_matrix_set_hsv(MEDIA_L_AUDIO_TOGGLE_INDEX, rgb_step_toggle(&audio_toggle_data));
             break;
         default:
             if (rgb_matrix_get_flags() == LED_FLAG_NONE) rgb_matrix_set_color_all(0, 0, 0);

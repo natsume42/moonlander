@@ -99,9 +99,18 @@ HSV calc_color(int index) {
     /* 180: hue of violet. Used as color for min.
      * 0: hue of red. Used as color for max.
      */
-    double_t m   = 180 / (min - max);
-    double_t hue = m * (keycount[index] - max);
 
+    /* Calculate differences first to get numbers in low ranges to avoid rounding errors. */
+    uint16_t diff  = max - keycount[index];
+    uint16_t range = max - min;
+    double_t hue   = 0;
+
+    /* Avoid division by zero. */
+    if (range == 0 || diff == 0) {
+        hue = 0;
+    } else {
+        hue = 180 * ((double)diff / (double)range);
+    }
     HSV color = {(int)hue, 255, 255};
     if (keycount[index] == 0 || disabled_keys[index]) {
         color.v = 0;

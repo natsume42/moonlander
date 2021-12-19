@@ -3,7 +3,7 @@
 
 static uint16_t keycount[DRIVER_LED_TOTAL];
 static bool     disabled_keys[DRIVER_LED_TOTAL];
-static uint16_t max, min;
+static uint16_t max, min, max2, min2;
 static bool     heatmap_enabled = false;
 
 void heatmap_toggle() { heatmap_enabled = !heatmap_enabled; }
@@ -14,7 +14,7 @@ void heatmap_reset() {
         disabled_keys[i] = false;
     }
 
-    max = min = 0;
+    max = min = max2 = min2 = 0;
 }
 
 int keypos_to_index(keypos_t key) {
@@ -35,11 +35,10 @@ int keypos_to_index(keypos_t key) {
     }
 
     /* Right key pad. */
-    // if (key.row < 11) {
+    // else: key.row < 11
     int i = 36 + 5 * (6 - key.col) + key.row - 6;
     if (i > 64) i--;
     return i;
-    //}
 }
 
 void handle_overflow(void) {
@@ -55,16 +54,21 @@ void handle_overflow(void) {
     min >>= 1;
 }
 
-uint16_t get_min_count(void) {
-    uint16_t result = UINT16_MAX;
+void update_extremes(void) {
+    max = max2 = 0;
+    min = min2 = UINT16_MAX;
 
     for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
-        if (result > keycount[i] && keycount[i] > 0) {
-            result = keycount[i];
+        if (min > keycount[i] && keycount[i] > 0) {
+            min2 = min;
+            min = keycount[i];
+        }
+
+        if (max < keycount[i]) {
+            max2 = max;
+            max  = keycount[i];
         }
     }
-
-    return result;
 }
 
 void heatmap_process(keypos_t key) {
@@ -72,39 +76,51 @@ void heatmap_process(keypos_t key) {
     if (keycount[i] == UINT16_MAX) handle_overflow();
 
     if (!disabled_keys[i]) {
-        bool update_min = min == keycount[i];
+        bool update_required = min == keycount[i] || max == keycount[i];
 
         keycount[i]++;
 
-        if (max < keycount[i]) {
-            max++;
-        }
-        if (min > keycount[i]) {
-            min = keycount[i];
-        }
-        if (update_min) {
-            min = get_min_count();
+        if (update_required) {
+            update_extremes();
         }
     }
 }
 
+/*
+ * Color calculation uses a simple sigmoid function:
+ * 0 <= count < min2: constant violet.
+ * min2 <= count < max2: linear color gradient from violet to red.
+ * max2 > count: constant red.
+ *
+ * min2/max2 are used instead of min/max to cut of extrem outliers like SPACE
+ * key, which is used much more frequent than any other key and would therefore
+ * cause a "blue shift" of all "regular" keys (letters).
+ * From a mathematical point of view using 10%/90% quantile would be a better,
+ * choice but their calculation was deemed to be too expensive in terms of 
+ * resource consumption. 
+ */
 HSV calc_color(int index) {
-    /* 180: hue of violet. Used as color for min.
-     * 0: hue of red. Used as color for max.
-     */
+    const uint8_t violet = 180; /* Used as color for min2 and below. */
+    const uint8_t red    = 0;   /* Used for max2 and above. */
 
     /* Calculate differences first to get numbers in low ranges to avoid rounding errors. */
-    uint16_t diff  = max - keycount[index];
-    uint16_t range = max - min;
+    uint16_t low   = (double)min2;
+    uint16_t high  = (double)max2;
+    uint16_t diff  = high - keycount[index];
+    uint16_t range = high - low;
     double_t hue   = 0;
-
+    
     /* Avoid division by zero. */
-    if (range == 0 || diff == 0) {
-        hue = 0;
+    if (range == 0 || diff == 0 || keycount[index] > high) {
+        hue = red;
     } else {
-        hue = 180 * ((double)diff / (double)range);
+        if (keycount[index] < low) {
+            hue = violet;
+        } else {
+            hue = (double)violet * ((double)diff / (double)range) + red;
+        }
     }
-    HSV color = {(int)hue, 255, 255};
+    HSV color = {(int8_t)hue, 255, 255};
     if (keycount[index] == 0 || disabled_keys[index]) {
         color.v = 0;
     }

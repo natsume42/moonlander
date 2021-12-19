@@ -1,7 +1,8 @@
 #include "layers.h"
-#include QMK_KEYBOARD_H
+#include "rgb_matrix_utils.h"
 #include "rgb_animations.h"
 #include "leds.h"
+#include "heatmap.h"
 
 extern bool         g_suspend_state;
 extern rgb_config_t rgb_matrix_config;
@@ -261,14 +262,6 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 BLACK, BLACK, BLACK, BLACK},
 };
 // clang-format on
-// void rgb_matrix_set_hsv(int led_pos, uint8_t hue, uint8_t sat, uint8_t val) {
-void rgb_matrix_set_hsv(int led_pos, HSV hsv) {
-    // HSV   hsv = {.h = hue, .s = sat, .v = val};
-    RGB   rgb = hsv_to_rgb(hsv);
-    float f   = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
-    rgb_matrix_set_color(led_pos, f * rgb.r, f * rgb.g, f * rgb.b);
-}
-
 void set_layer_color(int layer) {
     for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
         HSV hsv = {
@@ -290,6 +283,10 @@ custom_layers_t get_custom_layer(uint32_t layer_mask) { return (custom_layers_t)
 
 void rgb_matrix_indicators_user(void) {
     if (g_suspend_state || keyboard_config.disable_layer_led) {
+        return;
+    }
+
+    if (heatmap_render()) {
         return;
     }
 
@@ -316,10 +313,10 @@ void rgb_matrix_indicators_user(void) {
             set_layer_color(numPadL);
 
             if (!get_num_lock()) {
-                HSV numLockOffColor = {HSV_RED};
+                const HSV numLockOffColor = {HSV_RED};
                 rgb_matrix_set_hsv(NUM_LOCK_KEY_INDEX, rgb_step_breathe(numLockOffColor, 10, 5));
             } else {
-                HSV numLockOnColor = EXIT_LIGHT_G;
+                const HSV numLockOnColor = EXIT_LIGHT_G;
                 rgb_matrix_set_hsv(NUM_LOCK_KEY_INDEX, numLockOnColor);
             }
             break;

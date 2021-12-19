@@ -6,12 +6,7 @@ static bool     disabled_keys[DRIVER_LED_TOTAL];
 static uint16_t max, min;
 static bool     heatmap_enabled = false;
 
-void heatmap_toggle() {
-    heatmap_enabled = !heatmap_enabled;
-    if (heatmap_enabled) {
-        heatmap_reset();
-    }
-}
+void heatmap_toggle() { heatmap_enabled = !heatmap_enabled; }
 
 void heatmap_reset() {
     for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
@@ -73,24 +68,22 @@ uint16_t get_min_count(void) {
 }
 
 void heatmap_process(keypos_t key) {
-    if (heatmap_enabled) {
-        int i = keypos_to_index(key);
-        if (keycount[i] == UINT16_MAX) handle_overflow();
+    int i = keypos_to_index(key);
+    if (keycount[i] == UINT16_MAX) handle_overflow();
 
-        if (!disabled_keys[i]) {
-            bool update_min = min == keycount[i];
+    if (!disabled_keys[i]) {
+        bool update_min = min == keycount[i];
 
-            keycount[i]++;
+        keycount[i]++;
 
-            if (max < keycount[i]) {
-                max++;
-            }
-            if (min > keycount[i]) {
-                min = keycount[i];
-            }
-            if (update_min) {
-                min = get_min_count();
-            }
+        if (max < keycount[i]) {
+            max++;
+        }
+        if (min > keycount[i]) {
+            min = keycount[i];
+        }
+        if (update_min) {
+            min = get_min_count();
         }
     }
 }

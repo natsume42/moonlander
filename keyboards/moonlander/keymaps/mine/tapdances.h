@@ -14,6 +14,7 @@ enum tap_dance_codes {
     DANCE_9,
     DANCE_10,
     DANCE_11,
+    DANCE_12,
     DANCE_14,
     DANCE_15,
     DANCE_16,
@@ -35,6 +36,8 @@ enum tap_dance_codes {
     DANCE_32,
     DANCE_33,
     DANCE_34,
+    HEATMAP_DANCE,
+    LAST_DANCE,
 };
 
 typedef struct {
@@ -151,3 +154,7 @@ void dance_33_reset(qk_tap_dance_state_t *state, void *user_data);
 void on_dance_34(qk_tap_dance_state_t *state, void *user_data);
 void dance_34_finished(qk_tap_dance_state_t *state, void *user_data);
 void dance_34_reset(qk_tap_dance_state_t *state, void *user_data);
+
+void on_dance_heatmap(qk_tap_dance_state_t *state, void *user_data);
+void dance_heatmap_finished(qk_tap_dance_state_t *state, void *user_data);
+void dance_hean_reset(qk_tap_dance_state_t *state, void *user_data);

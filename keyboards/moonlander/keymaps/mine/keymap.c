@@ -76,7 +76,6 @@ enum custom_keycodes {
     SWITCH_JISX6004,
     SWITCH_QWERTZ,
     TO_DFLTL,
-    TOGGLE_HEATMAP,
     DE_LSPO,
     DE_RSPC,
     JP_LSPO,
@@ -90,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         _______,        _______,        _______,        _______,        _______,        SWITCH_JISX6004,                                LGUI(LSFT(KC_A)), _______,        _______,        _______,        _______,        _______,        _______,          
     _______,        _______,        _______,        _______,        _______,        _______,        SWITCH_QWERTZ,                                  _______,          _______,        _______,        _______,        _______,        _______,        _______,           
     KC_LSHIFT,      _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        KC_RSHIFT,      
-    KC_LCTRL,       KC_LGUI,        KC_LALT,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         TO(numPadL),    TOGGLE_HEATMAP, TOGGLE_LAYER_COLOR,    TO(mediaL),          
+    KC_LCTRL,       KC_LGUI,        KC_LALT,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         TO(numPadL), TD(HEATMAP_DANCE), TOGGLE_LAYER_COLOR,    TO(mediaL),          
                                                                     KC_LSHIFT,      KC_ENTER,       _______,                                        _______,          KC_BSPACE,      LT(numPadL, KC_SPACE)
   ),
  [mineL] = LAYOUT_moonlander(
@@ -213,11 +212,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 switch_to_qwertz();
             }
             break;
-        case TOGGLE_HEATMAP:
-            if (record->event.pressed) {
-                heatmap_toggle();
-                break;
-            }
         case ST_MACRO_1:
             if (record->event.pressed) {
                 SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_8) SS_TAP(X_1)));

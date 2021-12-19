@@ -10,6 +10,7 @@ extern rgb_config_t rgb_matrix_config;
 /* These positions need to be aligned with keymaps. */
 #define NUM_LOCK_KEY_INDEX 5
 #define GLOBAL_ANIMATION_TOGGLE_INDEX 45
+#define GLOBAL_HEATMAP_TOGGLE_INDEX 50
 #define MEDIA_L_AUDIO_TOGGLE_INDEX 13
 #define MEDIA_L_ANIMATION_TOGGLE_INDEX 27
 #define MEDIA_L_LIGHTS_TOGGLE_INDEX 22
@@ -349,4 +350,8 @@ void rgb_matrix_indicators_user(void) {
     }
 
     rgb_matrix_set_hsv(GLOBAL_ANIMATION_TOGGLE_INDEX, animationToggleColor);
+
+    const HSV heatmapToggleColor2 = {180, 255, 255}; /* Violet */
+    const HSV heatmapToggleColor1 = RED;
+    rgb_matrix_set_hsv(GLOBAL_HEATMAP_TOGGLE_INDEX, rgb_step_hue_gradient(heatmapToggleColor1, heatmapToggleColor2, 300, 40));
 }

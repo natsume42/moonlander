@@ -9,6 +9,7 @@
 #include "layouts.h"
 #include "tapdances.h"
 #include "heatmap.h"
+#include "unicodemap.h"
 
 #ifdef CONSOLE_ENABLE
 #    include "print.h"
@@ -25,53 +26,6 @@
 
 enum custom_keycodes {
     RGB_SLD = TN_SAFE_RANGE,
-    ST_MACRO_0,
-    ST_MACRO_1,
-    ST_MACRO_2,
-    ST_MACRO_3,
-    ST_MACRO_4,
-    ST_MACRO_5,
-    ST_MACRO_6,
-    ST_MACRO_7,
-    ST_MACRO_8,
-    ST_MACRO_9,
-    ST_MACRO_10,
-    ST_MACRO_11,
-    ST_MACRO_12,
-    ST_MACRO_13,
-    ST_MACRO_14,
-    ST_MACRO_15,
-    ST_MACRO_16,
-    ST_MACRO_17,
-    ST_MACRO_18,
-    ST_MACRO_19,
-    ST_MACRO_20,
-    ST_MACRO_21,
-    ST_MACRO_22,
-    ST_MACRO_23,
-    ST_MACRO_24,
-    ST_MACRO_25,
-    ST_MACRO_26,
-    ST_MACRO_27,
-    ST_MACRO_28,
-    ST_MACRO_29,
-    ST_MACRO_30,
-    ST_MACRO_31,
-    ST_MACRO_32,
-    ST_MACRO_33,
-    ST_MACRO_34,
-    ST_MACRO_35,
-    ST_MACRO_36,
-    ST_MACRO_37,
-    ST_MACRO_38,
-    ST_MACRO_39,
-    ST_MACRO_40,
-    ST_MACRO_41,
-    ST_MACRO_42,
-    ST_MACRO_43,
-    ST_MACRO_44,
-    ST_MACRO_45,
-    ST_MACRO_46,
     SWITCH_MINE,
     SWITCH_JISX6004,
     SWITCH_QWERTZ,
@@ -133,20 +87,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,                        _______,        _______,        _______
   ),
   [prgSymL] = LAYOUT_moonlander(
-    _______,        ST_MACRO_1,     ST_MACRO_2,     ST_MACRO_3,     ST_MACRO_4,     _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
-    _______,        _______,        DE_UNDS,        DE_LBRC,        DE_RBRC,        DE_CIRC,        _______,                                        _______,        DE_EXLM,        DE_LESS,        DE_MORE,        DE_EQL,         DE_AMPR,        ST_MACRO_5,     
+    _______,        X(SUB1),        X(SUB2),        X(SUB3),        X(SUB4),        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
+    _______,        _______,        DE_UNDS,        DE_LBRC,        DE_RBRC,        DE_CIRC,        _______,                                        _______,        DE_EXLM,        DE_LESS,        DE_MORE,        DE_EQL,         DE_AMPR,        X(LONGS),     
     _______,        DE_BSLS,        DE_SLSH,        DE_LCBR,        DE_RCBR,        DE_ASTR,        _______,                                        _______,        DE_QST,         DE_LPRN,        DE_RPRN,        DE_MINS,        DE_COLN,        DE_AT,          
     _______,        DE_HASH,        DE_DLR,         DE_PIPE,        DE_TILD,        DE_GRV,                                                                         DE_PLUS,        DE_PERC,        DE_DQOT,        DE_QUOT,        DE_SCLN,        _______,        
     _______,        _______,        _______,        MOSL(txtSymL),  _______,                        _______,                                        _______,                        TO_DFLTL,       _______,        _______,        _______,        _______,        
                                                                     _______,        _______,        _______,                                        _______,        _______,        _______
   ),
   [txtSymL] = LAYOUT_moonlander(
-    _______,        ST_MACRO_6,     DE_SQ2,         DE_SQ3,         ST_MACRO_7,     _______,        _______,                                        _______,        _______,        _______,        _______,        ST_MACRO_19,    ST_MACRO_20,    DE_ACUT,        
-    _______,        ST_MACRO_8,     ST_MACRO_9,     ST_MACRO_10,    ST_MACRO_11,    DE_PARA,        _______,                                        _______,        DE_EXLM,        ST_MACRO_21,    ST_MACRO_22,    ST_MACRO_23,    ST_MACRO_24,    ST_MACRO_25,    
-    _______,        ST_MACRO_12,    DE_EURO,        ST_MACRO_13,    ST_MACRO_14,    DE_RING,        _______,                                        _______,        DE_QST,         ST_MACRO_26,    ST_MACRO_27,    ST_MACRO_28,    ST_MACRO_29,    _______,        
-    _______,        ST_MACRO_15,    KC_DLR,         ST_MACRO_16,    ST_MACRO_17,    ST_MACRO_18,                                                                    ST_MACRO_30,    ST_MACRO_31,    ST_MACRO_32,    ST_MACRO_33,    DE_MINS,        _______,        
-    _______,        _______,        _______,        MOSL(fncKeysL), _______,                        _______,                                        ST_MACRO_34,                    TO_DFLTL,       _______,        _______,        _______,        _______,        
-                                                                    _______,        _______,        _______,                                        _______,        _______,        ST_MACRO_35
+    _______,        X(SUP1),        X(SUP2),        X(SUP3),        X(SUP4),        _______,        _______,                                        _______,        _______,        _______,        _______,        X(CEDILLA),     X(MACRON),      DE_ACUT,        
+    _______,        X(HELLP),       X(EMPTY_SET),   X(SGR),         X(SGL),         DE_PARA,        _______,                                        _______,        DE_EXLM,        X(SLWQM),       X(SLQM),        X(SRQM),        X(EM_DASH),     X(CSHS),    
+    _______,        X(POUND),       X(EUR),         X(DGR),         X(DGL),         DE_RING,        _______,                                        _______,        DE_QST,         X(DLWQM),       X(DLQM),        X(DRQM),        X(EN_DASH),     _______,        
+    _______,        X(CENT),        X(DOLLAR),      XP(ARRL,DARRL), XP(ARRR, DARRR),XP(ARRLR, DARRLR),                                                              X(WCIRCLE),     X(CHCKM),       X(XSIGN),       XP(BULLET,MDOT),DE_MINS,        _______,        
+    _______,        _______,        _______,        MOSL(fncKeysL), _______,                        _______,                                        _______,                        TO_DFLTL,       _______,        _______,        _______,        _______,        
+                                                                    _______,        _______,        _______,                                        _______,        _______,        X(NNBS)
   ),
   [ja2L] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
@@ -158,8 +112,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [fncKeysL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
-    _______,        _______,        ST_MACRO_36,    ST_MACRO_37,    ST_MACRO_38,    ST_MACRO_39,    _______,                                        _______,        TD(DANCE_23),   TD(DANCE_24),   TD(DANCE_25),   TD(DANCE_26),   _______,        _______,        
-    _______,        ST_MACRO_40,    ST_MACRO_41,    ST_MACRO_42,    ST_MACRO_43,    ST_MACRO_44,    _______,                                        _______,        TD(DANCE_27),   TD(DANCE_28),   TD(DANCE_29),   TD(DANCE_30),   _______,        _______,        
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        TD(DANCE_23),   TD(DANCE_24),   TD(DANCE_25),   TD(DANCE_26),   _______,        _______,        
+    _______,        _______,        X(ALEQ),        X(LE),          X(GE),          X(PLMNS),       _______,                                        _______,        TD(DANCE_27),   TD(DANCE_28),   TD(DANCE_29),   TD(DANCE_30),   _______,        _______,        
     _______,        _______,        _______,        _______,        _______,        _______,                                                                        TD(DANCE_31),   TD(DANCE_32),   TD(DANCE_33),   TD(DANCE_34),   _______,        _______,        
     _______,        _______,        _______,        TO_DFLTL,       _______,                        _______,                                        _______,                        TO_DFLTL,       TO(fncKeysL),   _______,        _______,        _______,        
                                                                     _______,        _______,        _______,                                        _______,        _______,        _______
@@ -210,236 +164,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case SWITCH_QWERTZ:
             if (record->event.pressed) {
                 switch_to_qwertz();
-            }
-            break;
-        case ST_MACRO_1:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_8) SS_TAP(X_1)));
-            }
-            break;
-        case ST_MACRO_2:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_8) SS_TAP(X_2)));
-            }
-            break;
-        case ST_MACRO_3:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_8) SS_TAP(X_3)));
-            }
-            break;
-        case ST_MACRO_4:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_8) SS_TAP(X_4)));
-            }
-            break;
-        case ST_MACRO_5:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_0) SS_TAP(X_1) SS_TAP(X_7) SS_TAP(X_F)));
-            }
-            break;
-        case ST_MACRO_6:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_8) SS_TAP(X_KP_5)));
-            }
-            break;
-        case ST_MACRO_7:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_7) SS_TAP(X_4)));
-            }
-            break;
-        case ST_MACRO_8:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_2) SS_TAP(X_6)));
-            }
-            break;
-        case ST_MACRO_9:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_1) SS_TAP(X_KP_5) SS_TAP(X_KP_7)));
-            }
-            break;
-        case ST_MACRO_10:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_5) SS_TAP(X_KP_5)));
-            }
-            break;
-        case ST_MACRO_11:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_3) SS_TAP(X_9)));
-            }
-            break;
-        case ST_MACRO_12:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_1) SS_TAP(X_KP_5) SS_TAP(X_KP_6)));
-            }
-            break;
-        case ST_MACRO_13:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_1) SS_TAP(X_KP_7) SS_TAP(X_KP_5)));
-            }
-            break;
-        case ST_MACRO_14:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_1) SS_TAP(X_KP_7) SS_TAP(X_KP_4)));
-            }
-            break;
-        case ST_MACRO_15:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_1) SS_TAP(X_KP_8) SS_TAP(X_KP_9)));
-            }
-            break;
-        case ST_MACRO_16:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_1) SS_TAP(X_9) SS_TAP(X_0)));
-            }
-            break;
-        case ST_MACRO_17:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_1) SS_TAP(X_9) SS_TAP(X_2)));
-            }
-            break;
-        case ST_MACRO_18:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_2) SS_TAP(X_KP_9)));
-            }
-            break;
-        case ST_MACRO_19:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_0) SS_TAP(X_3) SS_TAP(X_2) SS_TAP(X_7)));
-            }
-            break;
-        case ST_MACRO_20:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_0) SS_TAP(X_3) SS_TAP(X_0) SS_TAP(X_4)));
-            }
-            break;
-        case ST_MACRO_21:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_3) SS_TAP(X_KP_0)));
-            }
-            break;
-        case ST_MACRO_22:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_1) SS_TAP(X_8)));
-            }
-            break;
-        case ST_MACRO_23:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_1) SS_TAP(X_9)));
-            }
-            break;
-        case ST_MACRO_24:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_1) SS_TAP(X_4)));
-            }
-            break;
-        case ST_MACRO_25:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_1) SS_TAP(X_E) SS_TAP(X_9) SS_TAP(X_E)));
-            }
-            break;
-        case ST_MACRO_26:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_3) SS_TAP(X_KP_2)));
-            }
-            break;
-        case ST_MACRO_27:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_4) SS_TAP(X_KP_7)));
-            }
-            break;
-        case ST_MACRO_28:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_4) SS_TAP(X_KP_8)));
-            }
-            break;
-        case ST_MACRO_29:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_1) SS_TAP(X_3)));
-            }
-            break;
-        case ST_MACRO_30:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_9)));
-            }
-            break;
-        case ST_MACRO_31:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_7) SS_TAP(X_1) SS_TAP(X_4)));
-            }
-            break;
-        case ST_MACRO_32:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_1) SS_TAP(X_KP_5)));
-            }
-            break;
-        case ST_MACRO_33:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_2) SS_TAP(X_2)));
-            }
-            break;
-        case ST_MACRO_34:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_2) SS_TAP(X_F)));
-            }
-            break;
-        case ST_MACRO_35:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_0) SS_TAP(X_9)));
-            }
-            break;
-        case ST_MACRO_36:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_5)));
-            }
-            break;
-        case ST_MACRO_37:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_2) SS_TAP(X_6) SS_TAP(X_4)));
-            }
-            break;
-        case ST_MACRO_38:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_2) SS_TAP(X_6) SS_TAP(X_5)));
-            }
-            break;
-        case ST_MACRO_39:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_2) SS_TAP(X_KP_4) SS_TAP(X_KP_1)));
-            }
-            break;
-        case ST_MACRO_40:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_2) SS_TAP(X_KP_5) SS_TAP(X_KP_0)));
-            }
-            break;
-        case ST_MACRO_41:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_2) SS_TAP(X_4) SS_TAP(X_8)));
-            }
-            break;
-        case ST_MACRO_42:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_1) SS_TAP(X_D) SS_TAP(X_0)));
-            }
-            break;
-        case ST_MACRO_43:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_1) SS_TAP(X_D) SS_TAP(X_2)));
-            }
-            break;
-        case ST_MACRO_44:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_1) SS_TAP(X_D) SS_TAP(X_4)));
-            }
-            break;
-        case ST_MACRO_45:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_1) SS_TAP(X_3)));
-            }
-            break;
-        case ST_MACRO_46:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_KP_PLUS) SS_TAP(X_2) SS_TAP(X_0) SS_TAP(X_2) SS_TAP(X_2)));
             }
             break;
         case DE_LSPO:

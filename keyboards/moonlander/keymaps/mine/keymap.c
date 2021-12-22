@@ -48,9 +48,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
  [mineL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,        
-    _______,        KC_J,           KC_L,           KC_U,           KC_A,           KC_Q,           _______,                                     LGUI(LSFT(KC_A)),    KC_W,           KC_B,           KC_D,           KC_G,           DE_Y,           DE_SS,          
-    LCTL(KC_BSPACE),KC_C,           KC_R,           KC_I,           KC_E,           KC_O,           _______,                                        LGUI(KC_6),       KC_M,           KC_N,           KC_T,           KC_S,           KC_H,           DE_Z,           
-    _______,        KC_V,           KC_X,           DE_UE,          DE_AE,          DE_OE,                                                                            KC_P,           CD(KC_F),       KC_COMMA,       KC_DOT,         KC_K,           _______,      
+    _______,        CD(KC_J),       CD(KC_L),       CD(KC_U),       CD(KC_A),       CD(KC_Q),       _______,                                     LGUI(LSFT(KC_A)),    CD(KC_W),       CD(KC_B),       CD(KC_D),       CD(KC_G),       CD(DE_Y),       DE_SS,          
+    LCTL(KC_BSPACE),CD(KC_C),       CD(KC_R),       CD(KC_I),       CD(KC_E),       CD(KC_O),       _______,                                        LGUI(KC_6),       CD(KC_M),       CD(KC_N),       CD(KC_T),       CD(KC_S),       CD(KC_H),       CD(DE_Z),           
+    _______,        CD(KC_V),       CD(KC_X),       DE_UE,          DE_AE,          DE_OE,                                                                            CD(KC_P),       CD(KC_F),       KC_COMMA,       KC_DOT,         CD(KC_K),       _______,      
     _______,        _______,        _______,        _______,        _______,                        LGUI(KC_2),                                     LGUI(KC_3),                       _______,        _______,        _______,        _______,        TO(mediaL),          
                                                                     _______,        CD(KC_ENTER),   _______,                                        CD(KC_DELETE),    _______,        _______
   ),

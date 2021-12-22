@@ -1,4 +1,5 @@
 #include "ctrl_dance.h"
+#include "custom_actions.h"
 
 static uint16_t ctrl_dance_start_time;
 static uint8_t  ctrl_dance_keycode;
@@ -8,7 +9,9 @@ void reset_ctrl_dance(void) {
     ctrl_dance_start_time = 0;
 }
 
-bool within_tapping_term(uint16_t time, uint8_t keycode) { return time - ctrl_dance_start_time < get_tapping_term(keycode, NULL); }
+bool within_tapping_term(uint16_t time, uint8_t keycode) {
+    return time - ctrl_dance_start_time < get_tapping_term(CD(keycode), NULL);
+}
 
 void process_ctrl_dance(uint8_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {

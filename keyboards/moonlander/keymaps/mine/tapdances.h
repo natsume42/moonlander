@@ -16,7 +16,6 @@ enum tap_dance_codes {
     DANCE_12,
     DANCE_15,
     DANCE_16,
-    DANCE_17,
     DANCE_18,
     DANCE_19,
     DANCE_20,
@@ -80,9 +79,6 @@ void dance_15_reset(qk_tap_dance_state_t *state, void *user_data);
 void on_dance_16(qk_tap_dance_state_t *state, void *user_data);
 void dance_16_finished(qk_tap_dance_state_t *state, void *user_data);
 void dance_16_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_17(qk_tap_dance_state_t *state, void *user_data);
-void dance_17_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_17_reset(qk_tap_dance_state_t *state, void *user_data);
 void on_dance_18(qk_tap_dance_state_t *state, void *user_data);
 void dance_18_finished(qk_tap_dance_state_t *state, void *user_data);
 void dance_18_reset(qk_tap_dance_state_t *state, void *user_data);

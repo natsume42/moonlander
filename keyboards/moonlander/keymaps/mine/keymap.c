@@ -88,9 +88,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [prgSymL] = LAYOUT_moonlander(
     _______,        X(SUB1),        X(SUB2),        X(SUB3),        X(SUB4),        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
-    _______,        _______,        DE_UNDS,        DE_LBRC,        DE_RBRC,        DE_CIRC,        _______,                                        _______,        DE_EXLM,        DE_LESS,        DE_MORE,        DE_EQL,         DE_AMPR,        X(LONGS),     
+    _______,        _______,        DE_UNDS,        DE_LBRC,        DE_RBRC,        DE_CIRC,        _______,                                        _______,        DE_EXLM,        XP(LT, LE),     XP(GT, GE),     XP(EQ, ALEQ),   DE_AMPR,        X(LONGS),     
     _______,        DE_BSLS,        DE_SLSH,        DE_LCBR,        DE_RCBR,        DE_ASTR,        _______,                                        _______,        DE_QST,         DE_LPRN,        DE_RPRN,        DE_MINS,        DE_COLN,        DE_AT,          
-    _______,        DE_HASH,        DE_DLR,         DE_PIPE,        DE_TILD,        DE_GRV,                                                                         DE_PLUS,        DE_PERC,        DE_DQOT,        DE_QUOT,        DE_SCLN,        _______,        
+    _______,        DE_HASH,        DE_DLR,         DE_PIPE,        DE_TILD,        DE_GRV,                                                                         XP(PLUS, PLMNS),DE_PERC,        DE_DQOT,        DE_QUOT,        DE_SCLN,        _______,        
     _______,        _______,        _______,        MOSL(txtSymL),  _______,                        _______,                                        _______,                        TO_DFLTL,       _______,        _______,        _______,        _______,        
                                                                     _______,        _______,        _______,                                        _______,        _______,        _______
   ),
@@ -113,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [fncKeysL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        CD(KC_F12),     CD(KC_F7),      CD(KC_F8),      CD(KC_F9),      _______,        _______,        
-    _______,        _______,        X(ALEQ),        X(LE),          X(GE),          X(PLMNS),       _______,                                        _______,        CD(KC_F11),     CD(KC_F4),      CD(KC_F5),      CD(KC_F6),      _______,        _______,        
+    _______,        _______,        _______,        _______,        _______,        _______,       _______,                                        _______,        CD(KC_F11),     CD(KC_F4),      CD(KC_F5),      CD(KC_F6),      _______,        _______,        
     _______,        _______,        _______,        _______,        _______,        _______,                                                                        CD(KC_F10),     CD(KC_F1),      CD(KC_F2),      CD(KC_F3),      _______,        _______,        
     _______,        _______,        _______,        TO_DFLTL,       _______,                        _______,                                        _______,                        TO_DFLTL,       TO(fncKeysL),   _______,        _______,        _______,        
                                                                     _______,        _______,        _______,                                        _______,        _______,        _______

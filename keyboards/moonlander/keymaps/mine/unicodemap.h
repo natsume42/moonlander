@@ -5,6 +5,10 @@
 enum unicode_names {
     /* prgSym layer */
     SUB1, SUB2, SUB3, SUB4, LONGS,
+    LT, GT, EQ,
+    ALEQ, LE, GE,
+    PLUS, 
+    PLMNS, 
 
     /* txtSym layer */
     SUP1, SUP2, SUP3, SUP4,
@@ -19,9 +23,6 @@ enum unicode_names {
     WCIRCLE, CHCKM, XSIGN, BULLET,
     MDOT,
     NNBS,
-
-    /* fncKeys layer */
-    ALEQ, LE, GE, PLMNS, 
 };
 // clang-format on
 
@@ -32,6 +33,14 @@ const uint32_t PROGMEM unicode_map[] = {
     [SUB3]  = 0x2083,  // ₃
     [SUB4]  = 0x2084,  // ₄
     [LONGS] = 0x017f,  // ſ
+    [LT]    = 0x003c,  // <
+    [GT]    = 0x003e,  // >
+    [EQ]    = 0x003d,  // =
+    [ALEQ]  = 0x2248,  // ≈
+    [LE]    = 0x2264,  // ≤
+    [GE]    = 0x2265,  // ≥
+    [PLUS]  = 0x002b,  // +
+    [PLMNS] = 0x00B1,  // ±
 
     /* txtSym layer */
     [SUP1]      = 0x00b9,  // ¹
@@ -72,10 +81,4 @@ const uint32_t PROGMEM unicode_map[] = {
     [BULLET]  = 0x2022,  // •
     [MDOT]    = 0x00B7,  // ·
     [NNBS]    = 0x202f,  // Narrow no-break space
-
-    /* fncKeys layer */
-    [ALEQ] = 0x2248,  // ≈
-    [LE]   = 0x2264,  // ≤
-    [GE]   = 0x2265,  // ≥
-    [PLMNS] = 0x00B1, // ±
 };

@@ -6,4 +6,5 @@ WEBUSB_ENABLE = yes
 ORYX_ENABLE = yes
 TAP_DANCE_ENABLE = yes
 UNICODEMAP_ENABLE = yes
-SRC = matrix.c oneshot.c custom_actions.c layouts.c tapdances.c rgb_matrix.c leds.c rgb_animations.c heatmap.c rgb_matrix_utils.c tapping_term.c
+SRC = matrix.c oneshot.c custom_actions.c layouts.c tapdances.c rgb_matrix.c \
+      leds.c rgb_animations.c heatmap.c rgb_matrix_utils.c tapping_term.c ctrl_dance.c

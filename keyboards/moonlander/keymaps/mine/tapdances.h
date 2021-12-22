@@ -8,14 +8,12 @@ enum tap_dance_codes {
     DANCE_3,
     DANCE_4,
     DANCE_5,
-    DANCE_6,
     DANCE_7,
     DANCE_8,
     DANCE_9,
     DANCE_10,
     DANCE_11,
     DANCE_12,
-    DANCE_14,
     DANCE_15,
     DANCE_16,
     DANCE_17,
@@ -24,18 +22,6 @@ enum tap_dance_codes {
     DANCE_20,
     DANCE_21,
     DANCE_22,
-    DANCE_23,
-    DANCE_24,
-    DANCE_25,
-    DANCE_26,
-    DANCE_27,
-    DANCE_28,
-    DANCE_29,
-    DANCE_30,
-    DANCE_31,
-    DANCE_32,
-    DANCE_33,
-    DANCE_34,
     HEATMAP_DANCE,
     LAST_DANCE,
 };
@@ -67,9 +53,6 @@ void dance_4_reset(qk_tap_dance_state_t *state, void *user_data);
 void on_dance_5(qk_tap_dance_state_t *state, void *user_data);
 void dance_5_finished(qk_tap_dance_state_t *state, void *user_data);
 void dance_5_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_6(qk_tap_dance_state_t *state, void *user_data);
-void dance_6_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_6_reset(qk_tap_dance_state_t *state, void *user_data);
 void on_dance_7(qk_tap_dance_state_t *state, void *user_data);
 void dance_7_finished(qk_tap_dance_state_t *state, void *user_data);
 void dance_7_reset(qk_tap_dance_state_t *state, void *user_data);
@@ -91,9 +74,6 @@ void dance_12_reset(qk_tap_dance_state_t *state, void *user_data);
 void on_dance_13(qk_tap_dance_state_t *state, void *user_data);
 void dance_13_finished(qk_tap_dance_state_t *state, void *user_data);
 void dance_13_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_14(qk_tap_dance_state_t *state, void *user_data);
-void dance_14_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_14_reset(qk_tap_dance_state_t *state, void *user_data);
 void on_dance_15(qk_tap_dance_state_t *state, void *user_data);
 void dance_15_finished(qk_tap_dance_state_t *state, void *user_data);
 void dance_15_reset(qk_tap_dance_state_t *state, void *user_data);
@@ -118,42 +98,6 @@ void dance_21_reset(qk_tap_dance_state_t *state, void *user_data);
 void on_dance_22(qk_tap_dance_state_t *state, void *user_data);
 void dance_22_finished(qk_tap_dance_state_t *state, void *user_data);
 void dance_22_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_23(qk_tap_dance_state_t *state, void *user_data);
-void dance_23_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_23_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_24(qk_tap_dance_state_t *state, void *user_data);
-void dance_24_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_24_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_25(qk_tap_dance_state_t *state, void *user_data);
-void dance_25_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_25_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_26(qk_tap_dance_state_t *state, void *user_data);
-void dance_26_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_26_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_27(qk_tap_dance_state_t *state, void *user_data);
-void dance_27_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_27_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_28(qk_tap_dance_state_t *state, void *user_data);
-void dance_28_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_28_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_29(qk_tap_dance_state_t *state, void *user_data);
-void dance_29_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_29_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_30(qk_tap_dance_state_t *state, void *user_data);
-void dance_30_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_30_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_31(qk_tap_dance_state_t *state, void *user_data);
-void dance_31_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_31_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_32(qk_tap_dance_state_t *state, void *user_data);
-void dance_32_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_32_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_33(qk_tap_dance_state_t *state, void *user_data);
-void dance_33_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_33_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_34(qk_tap_dance_state_t *state, void *user_data);
-void dance_34_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_34_reset(qk_tap_dance_state_t *state, void *user_data);
 
 void on_dance_heatmap(qk_tap_dance_state_t *state, void *user_data);
 void dance_heatmap_finished(qk_tap_dance_state_t *state, void *user_data);

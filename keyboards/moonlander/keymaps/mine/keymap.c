@@ -50,9 +50,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,        
     _______,        KC_J,           KC_L,           KC_U,           KC_A,           KC_Q,           _______,                                     LGUI(LSFT(KC_A)),    KC_W,           KC_B,           KC_D,           KC_G,           DE_Y,           DE_SS,          
     LCTL(KC_BSPACE),KC_C,           KC_R,           KC_I,           KC_E,           KC_O,           _______,                                        LGUI(KC_6),       KC_M,           KC_N,           KC_T,           KC_S,           KC_H,           DE_Z,           
-    _______,        KC_V,           KC_X,           DE_UE,          DE_AE,          DE_OE,                                                                            KC_P,           KC_F,           KC_COMMA,       KC_DOT,         KC_K,           _______,      
+    _______,        KC_V,           KC_X,           DE_UE,          DE_AE,          DE_OE,                                                                            KC_P,           CD(KC_F),       KC_COMMA,       KC_DOT,         KC_K,           _______,      
     _______,        _______,        _______,        _______,        _______,                        LGUI(KC_2),                                     LGUI(KC_3),                       _______,        _______,        _______,        _______,        TO(mediaL),          
-                                                                    _______,        TD(DANCE_6),    _______,                                        TD(DANCE_14),     _______,        _______
+                                                                    _______,        CD(KC_ENTER),   _______,                                        CD(KC_DELETE),    _______,        _______
   ),
   [ja1L] = LAYOUT_moonlander(
     _______,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_4,        KC_KP_5,        _______,                                        _______,        KC_KP_6,        KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_0,        KC_KP_MINUS,    
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           _______,                                        _______,        DE_Z,           KC_U,           KC_I,           KC_O,           KC_P,           DE_UE,          
     _______,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           _______,                                        _______,        KC_H,           KC_J,           KC_K,           KC_L,           DE_OE,          DE_AE,
     _______,        DE_Y,           KC_X,           KC_C,           KC_V,           KC_B,                                                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         DE_MINS,        _______,      
-    _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                        KC_MEH,         _______,        _______,        _______,        _______,        
+    _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                        _______,         _______,        _______,        _______,        _______,        
                                                                     _______,        _______,        _______,                                        _______,        _______,        _______
   ),
   [editL] = LAYOUT_moonlander(
@@ -112,9 +112,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [fncKeysL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        TD(DANCE_23),   TD(DANCE_24),   TD(DANCE_25),   TD(DANCE_26),   _______,        _______,        
-    _______,        _______,        X(ALEQ),        X(LE),          X(GE),          X(PLMNS),       _______,                                        _______,        TD(DANCE_27),   TD(DANCE_28),   TD(DANCE_29),   TD(DANCE_30),   _______,        _______,        
-    _______,        _______,        _______,        _______,        _______,        _______,                                                                        TD(DANCE_31),   TD(DANCE_32),   TD(DANCE_33),   TD(DANCE_34),   _______,        _______,        
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        CD(KC_F12),     CD(KC_F7),      CD(KC_F8),      CD(KC_F9),      _______,        _______,        
+    _______,        _______,        X(ALEQ),        X(LE),          X(GE),          X(PLMNS),       _______,                                        _______,        CD(KC_F11),     CD(KC_F4),      CD(KC_F5),      CD(KC_F6),      _______,        _______,        
+    _______,        _______,        _______,        _______,        _______,        _______,                                                                        CD(KC_F10),     CD(KC_F1),      CD(KC_F2),      CD(KC_F3),      _______,        _______,        
     _______,        _______,        _______,        TO_DFLTL,       _______,                        _______,                                        _______,                        TO_DFLTL,       TO(fncKeysL),   _______,        _______,        _______,        
                                                                     _______,        _______,        _______,                                        _______,        _______,        _______
   ),

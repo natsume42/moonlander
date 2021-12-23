@@ -8,7 +8,8 @@ enum unicode_names {
     LT, GT, EQ,
     ALEQ, LE, GE,
     PLUS, 
-    PLMNS, 
+    PLMNS,
+    GRAVE,
 
     /* txtSym layer */
     CCIRC, SUP1, SUP2, SUP3, SUP4,
@@ -45,6 +46,7 @@ const uint32_t PROGMEM unicode_map[] = {
     [GE]    = 0x2265,  // ≥
     [PLUS]  = 0x002b,  // +
     [PLMNS] = 0x00B1,  // ±
+    [GRAVE] = 0x0060,  // `
 
     /* txtSym layer */
     [CCIRC]     = 0x0302,  // ^ (dead key)

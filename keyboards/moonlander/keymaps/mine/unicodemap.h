@@ -4,14 +4,14 @@
 // clang-format off
 enum unicode_names {
     /* prgSym layer */
-    SUB1, SUB2, SUB3, SUB4, LONGS,
+    CIRC, SUB1, SUB2, SUB3, SUB4, LONGS,
     LT, GT, EQ,
     ALEQ, LE, GE,
     PLUS, 
     PLMNS, 
 
     /* txtSym layer */
-    SUP1, SUP2, SUP3, SUP4,
+    CCIRC, SUP1, SUP2, SUP3, SUP4,
     HELLP, EMPTY_SET, SGR, SGL,
     POUND, EUR, DGR, DGL,
     CENT, DOLLAR, ARRL, ARRR, ARRLR,
@@ -31,6 +31,7 @@ enum unicode_names {
 
 const uint32_t PROGMEM unicode_map[] = {
     /* prgSym layer */
+    [CIRC]  = 0x005e,  // ^
     [SUB1]  = 0x2081,  // ₁
     [SUB2]  = 0x2082,  // ₂
     [SUB3]  = 0x2083,  // ₃
@@ -46,6 +47,7 @@ const uint32_t PROGMEM unicode_map[] = {
     [PLMNS] = 0x00B1,  // ±
 
     /* txtSym layer */
+    [CCIRC]     = 0x0302,  // ^ (dead key)
     [SUP1]      = 0x00b9,  // ¹
     [SUP2]      = 0x00b2,  // ²
     [SUP3]      = 0x00b3,  // ³

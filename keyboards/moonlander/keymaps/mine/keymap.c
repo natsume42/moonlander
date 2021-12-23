@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,                        _______,        _______,        _______
   ),
   [prgSymL] = LAYOUT_moonlander(
-    _______,        X(SUB1),        X(SUB2),        X(SUB3),        X(SUB4),        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
+    X(CIRC),        X(SUB1),        X(SUB2),        X(SUB3),        X(SUB4),        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
     _______,        _______,        DE_UNDS,        DE_LBRC,        DE_RBRC,        DE_CIRC,        _______,                                        _______,        DE_EXLM,        XP(LT, LE),     XP(GT, GE),     XP(EQ, ALEQ),   DE_AMPR,        X(LONGS),     
     _______,        DE_BSLS,        DE_SLSH,        DE_LCBR,        DE_RCBR,        DE_ASTR,        _______,                                        _______,        DE_QST,         DE_LPRN,        DE_RPRN,        DE_MINS,        DE_COLN,        DE_AT,          
     _______,        DE_HASH,        DE_DLR,         DE_PIPE,        DE_TILD,        DE_GRV,                                                                         XP(PLUS, PLMNS),DE_PERC,        DE_DQOT,        DE_QUOT,        DE_SCLN,        _______,        
@@ -95,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                     _______,        _______,        _______,                                        _______,        _______,        _______
   ),
   [txtSymL] = LAYOUT_moonlander(
-    _______,        X(SUP1),        X(SUP2),        X(SUP3),        X(SUP4),        _______,        _______,                                        _______,        _______,        _______,        _______,        X(CEDILLA),     X(MACRON),      DE_ACUT,        
+    X(CCIRC),       X(SUP1),        X(SUP2),        X(SUP3),        X(SUP4),        _______,        _______,                                        _______,        _______,        _______,        _______,        X(CEDILLA),     X(MACRON),      DE_ACUT,        
     _______,        X(HELLP),       X(EMPTY_SET),   X(SGR),         X(SGL),         DE_PARA,        _______,                                        _______,        DE_EXLM,        X(SLWQM),       X(SLQM),        X(SRQM),        X(EM_DASH),     X(CSHS),    
     _______,        X(POUND),       X(EUR),         X(DGR),         X(DGL),         DE_RING,        _______,                                        _______,        DE_QST,         X(DLWQM),       X(DLQM),        X(DRQM),        X(EN_DASH),     _______,        
     _______,        X(CENT),        X(DOLLAR),      XP(ARRL,DARRL), XP(ARRR, DARRR),XP(ARRLR, DARRLR),                                                              X(WCIRCLE),     X(CHCKM),       X(XSIGN),       XP(BULLET,MDOT),DE_MINS,        _______,        

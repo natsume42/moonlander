@@ -23,6 +23,9 @@ enum unicode_names {
     WCIRCLE, CHCKM, XSIGN, BULLET,
     MDOT,
     NNBS,
+
+    /* numPad */
+    COLON,
 };
 // clang-format on
 
@@ -81,4 +84,7 @@ const uint32_t PROGMEM unicode_map[] = {
     [BULLET]  = 0x2022,  // •
     [MDOT]    = 0x00B7,  // ·
     [NNBS]    = 0x202f,  // Narrow no-break space
+
+    /* NumPad layer */
+    [COLON] = 0x003a,  // :
 };

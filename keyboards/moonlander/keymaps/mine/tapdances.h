@@ -14,9 +14,9 @@ enum tap_dance_codes {
     DANCE_10,
     DANCE_11,
     DANCE_12,
-    DANCE_15,
-    DANCE_16,
-    DANCE_18,
+    MULT_DIV,
+    PLUS_MINUS,
+    COMMA_DOT,
     DANCE_19,
     DANCE_20,
     DANCE_21,
@@ -73,15 +73,6 @@ void dance_12_reset(qk_tap_dance_state_t *state, void *user_data);
 void on_dance_13(qk_tap_dance_state_t *state, void *user_data);
 void dance_13_finished(qk_tap_dance_state_t *state, void *user_data);
 void dance_13_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_15(qk_tap_dance_state_t *state, void *user_data);
-void dance_15_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_15_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_16(qk_tap_dance_state_t *state, void *user_data);
-void dance_16_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_16_reset(qk_tap_dance_state_t *state, void *user_data);
-void on_dance_18(qk_tap_dance_state_t *state, void *user_data);
-void dance_18_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_18_reset(qk_tap_dance_state_t *state, void *user_data);
 void on_dance_19(qk_tap_dance_state_t *state, void *user_data);
 void dance_19_finished(qk_tap_dance_state_t *state, void *user_data);
 void dance_19_reset(qk_tap_dance_state_t *state, void *user_data);

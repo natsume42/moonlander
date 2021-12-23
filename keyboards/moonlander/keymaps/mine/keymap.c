@@ -80,9 +80,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [numPadL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        KC_NUMLOCK,     _______,        _______,        _______,        _______,        
-    _______,        KC_MS_BTN3,     KC_MS_WH_UP,    KC_MS_UP,       KC_MS_WH_DOWN,  _______,        _______,                                        _______,        KC_TAB,         KC_KP_7,        KC_KP_8,        KC_KP_9,        TD(DANCE_15),   DE_COLN,        
-    _______,        KC_MS_BTN1,     KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    _______,        _______,                                        _______,        DE_EQL,         KC_KP_4,        KC_KP_5,        KC_KP_6,        TD(DANCE_16),   CD(KC_ENTER),   
-    _______,        KC_MS_BTN2,     _______,        KC_MS_ACCEL0,   KC_MS_ACCEL1,   KC_MS_ACCEL2,                                                                   KC_KP_0,        KC_KP_1,        KC_KP_2,        KC_KP_3,        TD(DANCE_18),   _______,        
+    _______,        KC_MS_BTN3,     KC_MS_WH_UP,    KC_MS_UP,       KC_MS_WH_DOWN,  _______,        _______,                                        _______,        KC_TAB,         KC_KP_7,        KC_KP_8,        KC_KP_9,        TD(MULT_DIV),   X(COLON),        
+    _______,        KC_MS_BTN1,     KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    _______,        _______,                                        _______,        X(EQ),          KC_KP_4,        KC_KP_5,        KC_KP_6,        TD(PLUS_MINUS), CD(KC_ENTER),   
+    _______,        KC_MS_BTN2,     _______,        KC_MS_ACCEL0,   KC_MS_ACCEL1,   KC_MS_ACCEL2,                                                                   KC_KP_0,        KC_KP_1,        KC_KP_2,        KC_KP_3,        TD(COMMA_DOT),  _______,        
     _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                        TO_DFLTL,       MOSL(fncKeysL), _______,        _______,        _______,        
     _______,        _______,        _______,                        _______,        _______,        _______
   ),

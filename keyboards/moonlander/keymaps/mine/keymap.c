@@ -5,10 +5,10 @@
 #include "keymap_us_international.h"
 
 #include "layers.h"
-#include "custom_actions.h"
 #include "layouts.h"
 #include "tapdances.h"
-#include "heatmap.h"
+#include "custom_actions/custom_actions.h"
+#include "rgb_matrix/heatmap.h"
 #include "unicodemap.h"
 
 #ifdef CONSOLE_ENABLE

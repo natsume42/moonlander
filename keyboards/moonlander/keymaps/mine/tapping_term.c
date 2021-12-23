@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "layers.h"
-#include "custom_actions.h"
+#include "custom_actions/custom_actions.h"
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     const uint16_t long_term = TAPPING_TERM + 1000;

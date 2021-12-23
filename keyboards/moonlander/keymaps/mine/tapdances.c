@@ -3,7 +3,7 @@
 #include "keymap_jp.h"
 #include "keymap_us_international.h"
 
-#include "heatmap.h"
+#include "rgb_matrix/heatmap.h"
 
 static tap dance_state[LAST_DANCE];
 

@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LCTL(KC_BSPACE),CD(KC_C),       CD(KC_R),       CD(KC_I),       CD(KC_E),       CD(KC_O),       _______,                                        LGUI(KC_6),       CD(KC_M),       CD(KC_N),       CD(KC_T),       CD(KC_S),       CD(KC_H),       CD(DE_Z),           
     _______,        CD(KC_V),       CD(KC_X),       DE_UE,          DE_AE,          DE_OE,                                                                            CD(KC_P),       CD(KC_F),       KC_COMMA,       KC_DOT,         CD(KC_K),       _______,      
     _______,        _______,        _______,        _______,        _______,                        LGUI(KC_2),                                     LGUI(KC_3),                       _______,        _______,        _______,        _______,        TO(mediaL),          
-                                                                    _______,        CD(KC_ENTER),   _______,                                        CD(KC_DELETE),    _______,        _______
+                                                                    _______,        CD(KC_ENTER),   MOSL(fncKeysL),                                 CD(KC_DELETE),    _______,        _______
   ),
   [ja1L] = LAYOUT_moonlander(
     _______,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_4,        KC_KP_5,        _______,                                        _______,        KC_KP_6,        KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_0,        KC_KP_MINUS,    
@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        KC_MS_BTN3,     KC_MS_WH_UP,    KC_MS_UP,       KC_MS_WH_DOWN,  _______,        _______,                                        _______,        KC_TAB,         KC_KP_7,        KC_KP_8,        KC_KP_9,        TD(MULT_DIV),   X(COLON),        
     _______,        KC_MS_BTN1,     KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    _______,        _______,                                        _______,        X(EQ),          KC_KP_4,        KC_KP_5,        KC_KP_6,        TD(PLUS_MINUS), CD(KC_ENTER),   
     _______,        KC_MS_BTN2,     _______,        KC_MS_ACCEL0,   KC_MS_ACCEL1,   KC_MS_ACCEL2,                                                                   KC_KP_0,        KC_KP_1,        KC_KP_2,        KC_KP_3,        TD(COMMA_DOT),  _______,        
-    _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                        TO_DFLTL,       MOSL(fncKeysL), _______,        _______,        _______,        
+    _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                        TO_DFLTL,       TO(fncKeysL),   _______,        _______,        _______,        
     _______,        _______,        _______,                        _______,        _______,        _______
   ),
   [prgSymL] = LAYOUT_moonlander(
@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        X(HELLP),       X(EMPTY_SET),   X(SGR),         X(SGL),         DE_PARA,        _______,                                        _______,        DE_EXLM,        X(SLWQM),       X(SLQM),        X(SRQM),        X(EM_DASH),     X(CSHS),    
     _______,        X(POUND),       X(EUR),         X(DGR),         X(DGL),         DE_RING,        _______,                                        _______,        DE_QST,         X(DLWQM),       X(DLQM),        X(DRQM),        X(EN_DASH),     _______,        
     _______,        X(CENT),        X(DOLLAR),      XP(ARRL,DARRL), XP(ARRR, DARRR),XP(ARRLR, DARRLR),                                                              X(WCIRCLE),     X(CHCKM),       X(XSIGN),       XP(BULLET,MDOT),DE_MINS,        _______,        
-    _______,        _______,        _______,        MOSL(fncKeysL), _______,                        _______,                                        _______,                        TO_DFLTL,       _______,        _______,        _______,        _______,        
+    _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                        TO_DFLTL,       _______,        _______,        _______,        _______,        
                                                                     _______,        _______,        _______,                                        _______,        _______,        X(NNBS)
   ),
   [ja2L] = LAYOUT_moonlander(

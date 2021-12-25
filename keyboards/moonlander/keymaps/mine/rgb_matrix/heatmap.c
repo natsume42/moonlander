@@ -1,10 +1,12 @@
 #include "heatmap.h"
 #include "rgb_matrix_utils.h"
 
-static uint16_t keycount[DRIVER_LED_TOTAL];
-static bool     disabled_keys[DRIVER_LED_TOTAL];
-static uint16_t max, min, max2, min2;
-static bool     heatmap_enabled = false;
+static uint16_t   keycount[DRIVER_LED_TOTAL];
+static bool       disabled_keys[DRIVER_LED_TOTAL];
+static uint16_t   max, min, max2, min2;
+static bool       heatmap_enabled = false;
+static const char separator[]     = " ";
+static char string[64];
 
 void heatmap_toggle() { heatmap_enabled = !heatmap_enabled; }
 
@@ -17,23 +19,35 @@ void heatmap_reset() {
     max = min = max2 = min2 = 0;
 }
 
+void dump_counts_of_pad(uint16_t* pad) {
+    for (int i = 0; i < DRIVER_LED_TOTAL / 2; i++) {
+        itoa(pad[i], string, 10);
+        SEND_STRING(string);
+        SEND_STRING(separator);
+    }
+    SEND_STRING("\n");
+}
+
+void dump_disabled_of_pad(bool* pad) {
+    for (int i = 0; i < DRIVER_LED_TOTAL / 2; i++) {
+        itoa(pad[i], string, 10);
+        SEND_STRING(string);
+        SEND_STRING(separator);
+    }
+    SEND_STRING("\n");
+}
+
 void heatmap_dump() {
     char separator[] = " ";
     char string[64];
     SEND_STRING("count\n");
-    for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
-        itoa(keycount[i], string, 10);
-        SEND_STRING(string);
-        SEND_STRING(separator);
-    }
-    SEND_STRING("\ndisabled\n");
-    for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
-        itoa(disabled_keys[i], string, 10);
-        SEND_STRING(string);
-        SEND_STRING(separator);
-    }
+    dump_counts_of_pad(keycount);
+    dump_counts_of_pad(&keycount[DRIVER_LED_TOTAL / 2]);
+    SEND_STRING("disabled\n");
+    dump_disabled_of_pad(disabled_keys);
+    dump_disabled_of_pad(&disabled_keys[DRIVER_LED_TOTAL / 2]);
 
-    SEND_STRING("\nHeatmap ");
+    SEND_STRING("Heatmap ");
     if (heatmap_enabled) {
         SEND_STRING("enabled");
     } else {

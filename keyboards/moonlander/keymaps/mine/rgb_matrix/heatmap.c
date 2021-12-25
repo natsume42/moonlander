@@ -56,18 +56,29 @@ void handle_overflow(void) {
 
 void update_extremes(void) {
     max = max2 = 0;
-    min = min2 = UINT16_MAX;
+    min2 = min = UINT16_MAX;
 
     for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
-        if (min > keycount[i] && keycount[i] > 0) {
-            min2 = min;
-            min = keycount[i];
+        if (keycount[i] < min2) {
+            if (keycount[i] < min) {
+                min2 = min;
+                min  = keycount[i];
+            } else if (min != keycount[i]) {
+                min2 = keycount[i];
+            }
         }
 
-        if (max < keycount[i]) {
-            max2 = max;
-            max  = keycount[i];
+        if (keycount[i] > max2) {
+            if (keycount[i] > max) {
+                max2 = max;
+                max  = keycount[i];
+            } else if (max != keycount[i]) {
+                max2 = keycount[i];
+            }
         }
+    }
+    if (min2 > max2) {
+        max2 = min2;
     }
 }
 
@@ -88,7 +99,8 @@ void heatmap_process(keypos_t key) {
 
 /*
  * Color calculation uses a simple sigmoid function:
- * 0 <= count < min2: constant violet.
+ * 0 == count: black.
+ * 0 < count < min2: violet.
  * min2 <= count < max2: linear color gradient from violet to red.
  * max2 > count: constant red.
  *
@@ -96,29 +108,26 @@ void heatmap_process(keypos_t key) {
  * key, which is used much more frequent than any other key and would therefore
  * cause a "blue shift" of all "regular" keys (letters).
  * From a mathematical point of view using 10%/90% quantile would be a better,
- * choice but their calculation was deemed to be too expensive in terms of 
- * resource consumption. 
+ * choice but their calculation was deemed to be too expensive in terms of
+ * resource consumption.
  */
 HSV calc_color(int index) {
     const uint8_t violet = 180; /* Used as color for min2 and below. */
     const uint8_t red    = 0;   /* Used for max2 and above. */
 
     /* Calculate differences first to get numbers in low ranges to avoid rounding errors. */
-    uint16_t low   = (double)min2;
-    uint16_t high  = (double)max2;
-    uint16_t diff  = high - keycount[index];
-    uint16_t range = high - low;
+    uint16_t diff  = max2 - keycount[index];
+    uint16_t range = max2 - min2;
     double_t hue   = 0;
-    
+
     /* Avoid division by zero. */
-    if (range == 0 || diff == 0 || keycount[index] > high) {
+    if (range == 0 || diff == 0 || keycount[index] >= max2) {
         hue = red;
     } else {
-        if (keycount[index] < low) {
+        if (0 < keycount[index] && keycount[index] < min2) {
             hue = violet;
-        } else {
-            hue = (double)violet * ((double)diff / (double)range) + red;
         }
+        hue = (double)violet * ((double)diff / (double)range) + red;
     }
     HSV color = {(int8_t)hue, 255, 255};
     if (keycount[index] == 0 || disabled_keys[index]) {

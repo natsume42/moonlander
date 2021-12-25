@@ -17,6 +17,44 @@ void heatmap_reset() {
     max = min = max2 = min2 = 0;
 }
 
+void heatmap_dump() {
+    char separator[] = " ";
+    char string[64];
+    SEND_STRING("count\n");
+    for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
+        itoa(keycount[i], string, 10);
+        SEND_STRING(string);
+        SEND_STRING(separator);
+    }
+    SEND_STRING("\ndisabled\n");
+    for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
+        itoa(disabled_keys[i], string, 10);
+        SEND_STRING(string);
+        SEND_STRING(separator);
+    }
+
+    SEND_STRING("\nHeatmap ");
+    if (heatmap_enabled) {
+        SEND_STRING("enabled");
+    } else {
+        SEND_STRING("disabled");
+    }
+
+    itoa(min, string, 10);
+    SEND_STRING("\nmin, min2, max2, max ");
+    SEND_STRING(string);
+    SEND_STRING(separator);
+    itoa(min2, string, 10);
+    SEND_STRING(string);
+    SEND_STRING(separator);
+    itoa(max2, string, 10);
+    SEND_STRING(string);
+    SEND_STRING(separator);
+    itoa(max, string, 10);
+    SEND_STRING(string);
+    SEND_STRING("\n");
+}
+
 int keypos_to_index(keypos_t key) {
     /* Left thumb pad. */
     if (key.row == 5) {

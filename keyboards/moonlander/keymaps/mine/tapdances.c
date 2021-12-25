@@ -373,6 +373,9 @@ void dance_heatmap_finished(qk_tap_dance_state_t *state, void *user_data) {
         case SINGLE_TAP:
             heatmap_toggle();
             break;
+        case DOUBLE_TAP:
+            heatmap_dump();
+            break;
         case DOUBLE_HOLD:
             heatmap_reset();
             break;

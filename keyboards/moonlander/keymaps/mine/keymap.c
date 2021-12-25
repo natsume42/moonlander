@@ -36,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         _______,        _______,        _______,        _______,        _______,        SWITCH_JISX6004,                                LGUI(LSFT(KC_A)), _______,        _______,        _______,        _______,        _______,        _______,          
     _______,        _______,        _______,        _______,        _______,        _______,        SWITCH_QWERTZ,                                  _______,          _______,        _______,        _______,        _______,        _______,        _______,           
     KC_LSHIFT,      _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        KC_RSHIFT,      
-    KC_LCTRL,       KC_LGUI,        KC_LALT,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         TO(numPadL), TD(HEATMAP_DANCE), TOGGLE_LAYER_COLOR,    TO(mediaL),          
+    KC_LCTRL,       KC_LGUI,        KC_LALT,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         TO(numPadL), TD(HEATMAP_DANCE), TOGGLE_LAYER_COLOR, TO(mediaL),          
                                                                     KC_LSHIFT,      KC_ENTER,       _______,                                        _______,          KC_BSPACE,      LT(numPadL, KC_SPACE)
   ),
  [mineL] = LAYOUT_moonlander(
@@ -113,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [mediaL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,             _______,             _______,        KC_SYSTEM_SLEEP,
-    _______,        RGB_HUI,        RGB_SAI,        RGB_VAI,        RGB_MOD,        _______,        _______,                                        _______,        _______,   KC_AUDIO_VOL_DOWN,   KC_AUDIO_VOL_UP,     KC_AUDIO_MUTE,       _______,        KC_SYSTEM_POWER,
+    _______,        RGB_HUI,        RGB_SAI,        RGB_VAI,        RGB_MOD,        _______,        _______,                                        _______,        _______,   KC_AUDIO_VOL_DOWN,   KC_AUDIO_MUTE,       KC_AUDIO_VOL_UP,     _______,        KC_SYSTEM_POWER,
     _______,        RGB_HUD,        RGB_SAD,        RGB_VAD,        RGB_TOG,    TOGGLE_LAYER_COLOR, _______,                                        _______,        _______,   KC_MEDIA_PREV_TRACK, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_NEXT_TRACK, _______,        RESET,        
     _______,        _______,        AU_TOG,         MU_TOG,         MU_MOD,         _______,                                                                        _______,        _______,        _______,             _______,             _______,        _______,        
     _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                        TO_DFLTL,       _______,             _______,             _______,        _______,        

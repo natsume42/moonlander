@@ -14,6 +14,7 @@ extern rgb_config_t rgb_matrix_config;
 #define MEDIA_L_AUDIO_TOGGLE_INDEX 13
 #define MEDIA_L_ANIMATION_TOGGLE_INDEX 27
 #define MEDIA_L_LIGHTS_TOGGLE_INDEX 22
+#define MEDIA_L_MUTE_TOGGLE_INDEX 52
 #define MEDIA_L_PLAY_TOGGLE_INDEX 53
 
 // clang-format off
@@ -254,8 +255,8 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
                 CERULEAN, WHITE,     RED,     BLACK, BLACK,
                 BLACK,    BLACK,     BLACK,   BLACK, BLACK,
-                BLACK,    WHITE,     CYBER_Y, BLACK, BLACK,
-                BLACK,    MYOGA_P,   GREEN,   BLACK, BLACK,
+                BLACK,    MYOGA_P,   CYBER_Y, BLACK, BLACK,
+                BLACK,    WHITE,     GREEN,   BLACK, BLACK,
                 BLACK,    CERULEAN,  CYBER_Y, BLACK, GREEN,
                 BLACK,    BLACK,     BLACK,   BLACK,
                 BLACK,    BLACK,     BLACK,
@@ -340,6 +341,9 @@ void rgb_matrix_indicators_user(void) {
 
             static toggle_data play_toggle_data = {{HSV_RED}, 500, {HSV_GREEN}, 500};
             rgb_matrix_set_hsv(MEDIA_L_PLAY_TOGGLE_INDEX, rgb_step_toggle(&play_toggle_data));
+
+            static toggle_data mute_toggle_data = {{255, 0, 0}, 500, {0, 0, 255}, 1000}; /* Black and White */
+            rgb_matrix_set_hsv(MEDIA_L_MUTE_TOGGLE_INDEX, rgb_step_toggle(&mute_toggle_data));
 
             static toggle_data audio_toggle_data = {{255, 0, 0}, 500, {0, 0, 255}, 1000}; /* Black and White */
             rgb_matrix_set_hsv(MEDIA_L_AUDIO_TOGGLE_INDEX, rgb_step_toggle(&audio_toggle_data));

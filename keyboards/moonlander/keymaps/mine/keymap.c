@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        SWITCH_QWERTZ,                                  _______,          _______,        _______,        _______,        _______,        _______,        _______,           
     KC_LSHIFT,      _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        KC_RSHIFT,      
     KC_LCTRL,       KC_LGUI,        KC_LALT,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         TO(numPadL), TD(HEATMAP_DANCE), TOGGLE_LAYER_COLOR, TO(mediaL),          
-                                                                    KC_LSHIFT,      KC_ENTER,       _______,                                        _______,          KC_BSPACE,      LT(numPadL, KC_SPACE)
+                                                                    OSM(MOD_LSFT),  KC_ENTER,       _______,                                        _______,          KC_BSPACE,      LT(numPadL, KC_SPACE)
   ),
  [mineL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,        

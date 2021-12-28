@@ -8,7 +8,7 @@ extern bool         g_suspend_state;
 extern rgb_config_t rgb_matrix_config;
 
 /* These positions need to be aligned with keymaps. */
-#define NUM_LOCK_KEY_INDEX 5
+#define NUM_LOCK_KEY_INDEX 56
 #define GLOBAL_ANIMATION_TOGGLE_INDEX 45
 #define GLOBAL_HEATMAP_TOGGLE_INDEX 50
 #define MEDIA_L_AUDIO_TOGGLE_INDEX 13

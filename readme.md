@@ -15,6 +15,6 @@ make moonlander:mine
 
 ## Architectural Measures
 - Modularize keymap.
-- Custom actions infrastructure similar to actions infrastructure provide by core code.
+- Custom actions infrastructure similar to actions infrastructure provided by core code.
 - Extract common layer that serves as a base for all layout/default layers to make intended commonalities more explicit.
 - Use unicode map to generate symbols. Provides a more reliable and maintainable experience than custom made unicode macros.

@@ -3,3 +3,18 @@
 ## How to build
 Run in a “QMK MSYS” shell:
 make moonlander:mine
+
+## Features
+- Keys for switching layouts (default layers) and language settings (mine/DE, JISX6004/JP) in Windows with one tap.
+- Chainable Multi-OSLs that do not require TAPPING_TERM to pass until same key can be used for another OSL action.
+- NumLock LED and NumLock key that is animated when NumLock is not active.
+- Single key rgb animations: breathing, rainbow, hue gradient, color switch.
+- Enable custom tapping terms for certain keys.
+- Heatmap reflecting occurances of key presses. Also suports dumping its data to allow simple statistical evaluations.
+- Ctrl dance to provide compact <key>/CTRL+<key> combos, which do not cause lags (TAPPING_TERM) during typing to provide for a smooth typing experience.
+
+## Architectural Measures
+- Modularize keymap.
+- Custom actions infrastructure similar to actions infrastructure provide by core code.
+- Extract common layer that serves as a base for all layout/default layers to make intended commonalities more explicit.
+- Use unicode map to generate symbols. Provides a more reliable and maintainable experience than custom made unicode macros.

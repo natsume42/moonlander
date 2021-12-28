@@ -10,6 +10,7 @@ make moonlander:mine
 - NumLock LED and NumLock key that is animated when NumLock is not active.
 - Single key rgb animations: breathing, rainbow, hue gradient, color switch.
 - Enable custom tapping terms for certain keys.
+- Enable sticky shift key to further reduce need for key combos.
 - Heatmap reflecting occurances of key presses. Also suports dumping its data to allow simple statistical evaluations.
 - Ctrl dance to provide compact <key>/CTRL+<key> combos, which do not cause lags (TAPPING_TERM) during typing to provide for a smooth typing experience.
 

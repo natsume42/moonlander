@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        SWITCH_QWERTZ,                                  _______,          _______,        _______,        _______,        _______,        _______,        _______,           
     KC_LSHIFT,      _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        KC_RSHIFT,      
     KC_LCTRL,       KC_LGUI,        KC_LALT,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         TO(numPadL), TD(HEATMAP_DANCE), TOGGLE_LAYER_COLOR, TO(mediaL),          
-                                                                    OSM(MOD_LSFT),  KC_ENTER,       _______,                                        _______,          KC_BSPACE,      LT(numPadL, KC_SPACE)
+                                                                    OSM(MOD_LSFT),  KC_ENTER,       _______,                                        _______,          KC_BSPACE,      FLT(numPadL, KC_SPACE)
   ),
  [mineL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,        
@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        KC_MS_BTN1,     KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    _______,        _______,                                        _______,        X(EQ),          KC_KP_4,        KC_KP_5,        KC_KP_6,        TD(PLUS_MINUS), CD(KC_ENTER),   
     _______,        KC_MS_BTN2,     _______,        KC_MS_ACCEL0,   KC_MS_ACCEL1,   KC_MS_ACCEL2,                                                                   KC_KP_0,        KC_KP_1,        KC_KP_2,        KC_KP_3,        TD(COMMA_DOT),  _______,        
     _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                        TO_DFLTL,       TO(fncKeysL),   _______,        _______,        _______,        
-    _______,        _______,        _______,                        _______,        _______,        _______
+                                                                    _______,        _______,        _______,                                        _______,        _______,        _______    
   ),
   [prgSymL] = LAYOUT_moonlander(
     X(CIRC),        X(SUB1),        X(SUB2),        X(SUB3),        X(SUB4),        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
@@ -136,8 +136,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     if (record->event.pressed) {
         heatmap_process(record->event.key);
     }
-    if (!process_custom_action(keycode, record)) {
-        return true;
+
+    switch (process_custom_action(keycode, record)) {
+        case processed:
+            return true;
+            break;
+        case consumed:
+            return false;
+            break;
+        case not_processed:
+            break;
     }
 
     switch (keycode) {

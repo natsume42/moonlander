@@ -8,5 +8,6 @@ TAP_DANCE_ENABLE = yes
 UNICODEMAP_ENABLE = yes
 SRC = matrix.c layouts.c tapdances.c tapping_term.c \
       custom_actions/oneshot.c custom_actions/custom_actions.c custom_actions/ctrl_dance.c \
+	  custom_actions/fast_layer_tap.c \
 	  rgb_matrix/rgb_matrix.c rgb_matrix/leds.c rgb_matrix/rgb_animations.c \
 	  rgb_matrix/heatmap.c rgb_matrix/rgb_matrix_utils.c \

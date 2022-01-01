@@ -19,6 +19,7 @@ make moonlander:mine
 - Enable sticky shift key to further reduce need for key combos.
 - Heatmap reflecting occurances of key presses. Also suports dumping its data to allow simple statistical evaluations.
 - Ctrl dance to provide compact <key>/CTRL+<key> combos, which do not cause lags (TAPPING_TERM) during typing.
+- Fast Layer Tap (FTL) that does not require TAPPING_TERM to pass between tap and layer switch.
 
 ## Architectural Measures
 - Modularize keymap.

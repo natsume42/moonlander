@@ -10,7 +10,7 @@ extern rgb_config_t rgb_matrix_config;
 /* These positions need to be aligned with keymaps. */
 #define NUM_LOCK_KEY_INDEX 56
 #define GLOBAL_ANIMATION_TOGGLE_INDEX 45
-#define GLOBAL_HEATMAP_TOGGLE_INDEX 50
+#define HEATMAP_TOGGLE_INDEX 36
 #define MEDIA_L_AUDIO_TOGGLE_INDEX 13
 #define MEDIA_L_ANIMATION_TOGGLE_INDEX 27
 #define MEDIA_L_LIGHTS_TOGGLE_INDEX 22
@@ -74,9 +74,9 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
 
-                FOREST_R, FOREST_R, FOREST_R, FOREST_R, CYBER_Y,
+                MERLOT, FOREST_R, FOREST_R, FOREST_R, CYBER_Y,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, BARB_L,
-                FOREST_R, FOREST_R, FOREST_R, FOREST_R, MERLOT,
+                FOREST_R, FOREST_R, FOREST_R, FOREST_R, PEPPRONI,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, CERULEAN,
                 FOREST_R, FOREST_R, DEEP_V,   FOREST_R, GREEN,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
@@ -357,5 +357,5 @@ void rgb_matrix_indicators_user(void) {
 
     //const HSV heatmapToggleColor2 = {180, 255, 255}; /* Violet */
     //const HSV heatmapToggleColor1 = RED;
-    //rgb_matrix_set_hsv(GLOBAL_HEATMAP_TOGGLE_INDEX, rgb_step_hue_gradient(heatmapToggleColor1, heatmapToggleColor2, 300, 40));
+    //rgb_matrix_set_hsv(HEATMAP_TOGGLE_INDEX, rgb_step_hue_gradient(heatmapToggleColor1, heatmapToggleColor2, 300, 40));
 }

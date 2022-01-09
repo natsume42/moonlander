@@ -407,4 +407,5 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [DANCE_21]      = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_21, dance_21_finished, dance_21_reset),
     [DANCE_22]      = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_22, dance_22_finished, dance_22_reset),
     [HEATMAP_DANCE] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_heatmap, dance_heatmap_finished, dance_heatmap_reset),
+    [PASTE]         = ACTION_TAP_DANCE_DOUBLE(LCTL(KC_V),LGUI(KC_V)),
 };

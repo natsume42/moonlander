@@ -7,6 +7,8 @@
 extern bool         g_suspend_state;
 extern rgb_config_t rgb_matrix_config;
 
+int numpad_number_positions[] = {47, 48, 49, 52, 53, 54, 57, 58, 59, 64};
+
 /* These positions need to be aligned with keymaps. */
 #define NUM_LOCK_KEY_INDEX 56
 #define GLOBAL_ANIMATION_TOGGLE_INDEX 45
@@ -317,6 +319,10 @@ void rgb_matrix_indicators_user(void) {
             if (!get_num_lock()) {
                 const HSV numLockOffColor = {HSV_RED};
                 rgb_matrix_set_hsv(NUM_LOCK_KEY_INDEX, rgb_step_breathe(numLockOffColor, 10, 5));
+
+                for (int i = 0; i < sizeof(numpad_number_positions)/sizeof(numpad_number_positions[0]); i++) {
+                    rgb_matrix_set_hsv(numpad_number_positions[i], numLockOffColor);
+                }
             } else {
                 const HSV numLockOnColor = EXIT_LIGHT_G;
                 rgb_matrix_set_hsv(NUM_LOCK_KEY_INDEX, numLockOnColor);
@@ -355,7 +361,7 @@ void rgb_matrix_indicators_user(void) {
 
     rgb_matrix_set_hsv(GLOBAL_ANIMATION_TOGGLE_INDEX, animationToggleColor);
 
-    //const HSV heatmapToggleColor2 = {180, 255, 255}; /* Violet */
-    //const HSV heatmapToggleColor1 = RED;
-    //rgb_matrix_set_hsv(HEATMAP_TOGGLE_INDEX, rgb_step_hue_gradient(heatmapToggleColor1, heatmapToggleColor2, 300, 40));
+    // const HSV heatmapToggleColor2 = {180, 255, 255}; /* Violet */
+    // const HSV heatmapToggleColor1 = RED;
+    // rgb_matrix_set_hsv(HEATMAP_TOGGLE_INDEX, rgb_step_hue_gradient(heatmapToggleColor1, heatmapToggleColor2, 300, 40));
 }

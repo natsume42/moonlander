@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
  [mineL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        CD(KC_J),       CD(KC_L),       CD(KC_U),       CD(KC_A),       CD(KC_Q),       _______,                                     LGUI(LSFT(KC_A)),    CD(KC_W),       CD(KC_B),       CD(KC_D),       CD(KC_G),       CD(DE_Y),       DE_SS,          
+    _______,        CD(KC_W),       CD(KC_L),       CD(KC_U),       CD(KC_A),       CD(KC_Q),       _______,                                     LGUI(LSFT(KC_A)),    CD(KC_J),       CD(KC_B),       CD(KC_D),       CD(KC_G),       CD(DE_Y),       DE_SS,          
     LCTL(KC_BSPACE),CD(KC_C),       CD(KC_R),       CD(KC_I),       CD(KC_E),       CD(KC_O),       _______,                                        LGUI(KC_6),       CD(KC_M),       CD(KC_N),       CD(KC_T),       CD(KC_S),       CD(KC_H),       CD(DE_Z),           
     _______,        CD(KC_V),       CD(KC_X),       DE_UE,          DE_AE,          DE_OE,                                                                            CD(KC_P),       CD(KC_F),       KC_COMMA,       KC_DOT,         CD(KC_K),       _______,      
     _______,        _______,        _______,        _______,        _______,                        LGUI(KC_2),                                     LGUI(KC_3),                       _______,        _______,        _______,        _______,        TO(mediaL),          

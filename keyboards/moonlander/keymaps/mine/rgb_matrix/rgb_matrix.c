@@ -74,7 +74,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, WHITE,    BTS,
 
-                FOREST_R, FOREST_R, FOREST_R, FOREST_R,
+                FOREST_R, FOREST_R, WHITE, FOREST_R,
 
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, CYBER_Y,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, BARB_L,
@@ -225,12 +225,12 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
               ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN},
 
-    [fncKeysL] = {BLACK, BLACK,    BLACK,    BLACK, BLACK,
-                  BLACK, BLACK,    CERULEAN, BLACK, BLACK,
-                  BLACK, CERULEAN, CERULEAN, BLACK, BLACK,
-                  BLACK, CERULEAN, CERULEAN, BLACK, GREEN,
-                  BLACK, CERULEAN, CERULEAN, BLACK, BLACK,
-                  BLACK, CERULEAN, CERULEAN, BLACK,
+    [fncKeysL] = {BLACK, BLACK, BLACK, BLACK, BLACK,
+                  BLACK, BLACK, BLACK, BLACK, BLACK,
+                  BLACK, BLACK, BLACK, BLACK, BLACK,
+                  BLACK, BLACK, BLACK, BLACK, BLACK,
+                  BLACK, BLACK, BLACK, BLACK, BLACK,
+                  BLACK, BLACK, BLACK, BLACK,
                   FOREST_R, WHITE, BTS,
 
                   BLACK, BLACK, BLACK, BLACK,

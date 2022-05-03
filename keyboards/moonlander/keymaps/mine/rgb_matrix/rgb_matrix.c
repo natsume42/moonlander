@@ -74,7 +74,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, WHITE,    BTS,
 
-                FOREST_R, FOREST_R, WHITE, FOREST_R,
+                FOREST_R, FOREST_R, FOREST_R, FOREST_R,
 
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, CYBER_Y,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, BARB_L,

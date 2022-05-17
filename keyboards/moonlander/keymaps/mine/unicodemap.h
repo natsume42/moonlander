@@ -18,7 +18,7 @@ enum unicode_names {
     CENT, DOLLAR, ARRL, ARRR, ARRLR,
     DARRL, DARRR, DARRLR,
 
-    CEDILLA, MACRON,
+    CARON, CEDILLA, MACRON,
     SLWQM, SLQM, SRQM, EM_DASH, CSHS,
     DLWQM, DLQM, DRQM, EN_DASH,
     WCIRCLE, CHCKM, XSIGN, BULLET,
@@ -71,6 +71,7 @@ const uint32_t PROGMEM unicode_map[] = {
     [DARRR]     = 0x21D2,  // ⇒
     [DARRLR]    = 0x21D4,  // ⇔
 
+    [CARON]   = 0x030C,  // ̌
     [CEDILLA] = 0x0327,  // ̧
     [MACRON]  = 0x0304,  // ̄
     [SLWQM]   = 0x201A,  // ‚

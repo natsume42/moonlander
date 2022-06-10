@@ -6,10 +6,10 @@ typedef enum custom_layers_t {
     ja1L,
     ja2L,
     qwertzL,
-    editL,
     numPadL,
     prgSymL,
     txtSymL,
+    editL,
     fncKeysL,
     mediaL,
 } custom_layers_t ;

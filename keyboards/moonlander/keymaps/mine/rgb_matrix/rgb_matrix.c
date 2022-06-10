@@ -66,7 +66,7 @@ int numpad_number_positions[] = {47, 48, 49, 52, 53, 54, 57, 58, 59, 64};
  * 4. right thumb (top to down, big red one)
  */
 const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
-    [mineL] = { FOREST_R, FOREST_R, MERLOT,   FOREST_R, FOREST_R,
+    [mineL] = { FOREST_R, FOREST_R, CERULEAN, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, ALOHA,
@@ -79,7 +79,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, CYBER_Y,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, BARB_L,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, PEPPRONI,
-                FOREST_R, FOREST_R, FOREST_R, FOREST_R, CERULEAN,
+                FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, DEEP_V,   FOREST_R, GREEN,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 MERLOT, MERLOT, MERLOT,

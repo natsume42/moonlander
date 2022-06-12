@@ -66,11 +66,11 @@ int numpad_number_positions[] = {47, 48, 49, 52, 53, 54, 57, 58, 59, 64};
  * 4. right thumb (top to down, big red one)
  */
 const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
-    [mineL] = { FOREST_R, FOREST_R, CERULEAN, FOREST_R, FOREST_R,
+    [mineL] = { FOREST_R, FOREST_R, MERLOT, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, ALOHA,
-                FOREST_R, FOREST_R, DEEP_V,   FOREST_R, PEPPRONI,
+                FOREST_R, FOREST_R, DEEP_V,   FOREST_R, CERULEAN,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, WHITE,    BTS,
 
@@ -78,7 +78,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, CYBER_Y,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, BARB_L,
-                FOREST_R, FOREST_R, FOREST_R, FOREST_R, PEPPRONI,
+                FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, DEEP_V,   FOREST_R, GREEN,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
@@ -125,45 +125,25 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                  BTS, GOT7, BTS,
 
                  BTS, RED, ASSESSIN, BTS},
-    [editL] = {BLACK, BLACK,     BLACK,     BLACK,    BLACK,
-               BLACK, CANDY_G,   CANDY_G,   BLACK,    BLACK,
-               BLACK, PEPPRONI,  EXTRA_A,   BLACK,    BLACK,
-               BLACK, EXTRA_A,   EXTRA_A,   BLACK,    BLACK,
-               BLACK, PEPPRONI,  EXTRA_A,   WHITE,    BLACK,
-               BLACK, CANDY_G,   CANDY_G,   DARK_C,
+    [editL] = {BLACK, BLACK,     BLACK,     FUEGO_N,  BLACK,
+               BLACK, CANDY_G,   CANDY_G,   CYBER_Y,  BLACK,
+               BLACK, PEPPRONI,  EXTRA_A,   CYBER_Y,  BLACK,
+               BLACK, EXTRA_A,   EXTRA_A,   CYBER_Y,  BLACK,
+               BLACK, PEPPRONI,  EXTRA_A,   CYBER_Y,  BLACK,
+               BLACK, CANDY_G,   CANDY_G,   WHITE,
                FOREST_R, WHITE,  BTS,
 
                BLACK, BLACK,     BLACK,    BLACK,
 
-               BLACK, CANDY_G, BLACK,    BLACK,    BLACK,
-               BLACK, CANDY_G, BLACK,    BLACK,    BLACK,
-               BLACK, CANDY_G, PEPPRONI, PEPPRONI, BLACK,
-               BLACK, CANDY_G, PEPPRONI, BLACK,    BLACK,
-               BLACK, CANDY_G, PEPPRONI, CANDY_G,  GREEN,
-               BLACK, BLACK,   CANDY_G,  BLACK,
-               BLACK, BLACK,   BLACK,
+               BLACK,   CYBER_Y,  CYBER_Y,  BLACK,    BLACK,
+               BLACK,   CYBER_Y,  CYBER_Y,  CYBER_Y,  CYBER_Y,
+               BLACK,   CERULEAN, CERULEAN, CERULEAN, CYBER_Y,
+               BLACK,   CERULEAN, CERULEAN, CERULEAN, FUEGO_N,
+               BLACK,   CERULEAN, CERULEAN, CERULEAN, GREEN,
+               BLACK, CYBER_Y,  CYBER_Y, CERULEAN,
+               BLACK, BLACK,    BLACK,
 
                BLACK, BLACK, BLACK, BLACK},
-
-   [numPadL] = {BLACK, BLACK,   BLACK,   BLACK, BLACK,
-                BLACK, BLACK,  BLACK,   BLACK, BLACK,
-                BLACK, BLACK,  CYBER_Y, BLACK, BLACK,
-                BLACK, BLACK,  CYBER_Y, BLACK, BLACK,
-                BLACK, BLACK,  CYBER_Y, BLACK, BLACK,
-                BLACK, BLACK,   BLACK,  BLACK,
-                FOREST_R, WHITE,  BTS,
-
-                BLACK, BLACK, BLACK, BLACK,
-
-                BLACK,   CYBER_Y,  CYBER_Y,  BLACK,    BLACK,
-                BLACK,   CYBER_Y,  CYBER_Y,  CYBER_Y,  CYBER_Y,
-                BLACK,   CERULEAN, CERULEAN, CERULEAN, PEPPRONI,
-                BLACK,   CERULEAN, CERULEAN, CERULEAN, WHITE,
-                BLACK,   CERULEAN, CERULEAN, CERULEAN, GREEN,
-                BLACK, CYBER_Y,  CYBER_Y, CERULEAN,
-                BLACK, BLACK,    BLACK,
-
-                BLACK, BLACK, BLACK, BLACK},
 
     [prgSymL] = {ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
                  ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
@@ -188,7 +168,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
     [txtSymL] = {GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
-                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, WHITE,
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  FOREST_R, WHITE, BTS,
@@ -312,10 +292,6 @@ void rgb_matrix_indicators_user(void) {
             break;
         case editL:
             set_layer_color(editL);
-            break;
-        case numPadL:
-            set_layer_color(numPadL);
-
             if (!get_num_lock()) {
                 const HSV numLockOffColor = {HSV_RED};
                 rgb_matrix_set_hsv(NUM_LOCK_KEY_INDEX, rgb_step_breathe(numLockOffColor, 10, 5));

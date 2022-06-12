@@ -137,7 +137,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
                BLACK,   CYBER_Y,  CYBER_Y,  BLACK,    BLACK,
                BLACK,   CYBER_Y,  CYBER_Y,  CYBER_Y,  CYBER_Y,
-               BLACK,   CERULEAN, CERULEAN, CERULEAN, CYBER_Y,
+               BLACK,   CERULEAN, CERULEAN, CERULEAN, BLACK,
                BLACK,   CERULEAN, CERULEAN, CERULEAN, FUEGO_N,
                BLACK,   CERULEAN, CERULEAN, CERULEAN, GREEN,
                BLACK, CYBER_Y,  CYBER_Y, CERULEAN,
@@ -296,7 +296,7 @@ void rgb_matrix_indicators_user(void) {
                 const HSV numLockOffColor = {HSV_RED};
                 rgb_matrix_set_hsv(NUM_LOCK_KEY_INDEX, rgb_step_breathe(numLockOffColor, 10, 5));
 
-                for (int i = 0; i < sizeof(numpad_number_positions)/sizeof(numpad_number_positions[0]); i++) {
+                for (int i = 0; i < sizeof(numpad_number_positions) / sizeof(numpad_number_positions[0]); i++) {
                     rgb_matrix_set_hsv(numpad_number_positions[i], numLockOffColor);
                 }
             } else {
@@ -335,7 +335,9 @@ void rgb_matrix_indicators_user(void) {
             break;
     }
 
-    rgb_matrix_set_hsv(GLOBAL_ANIMATION_TOGGLE_INDEX, animationToggleColor);
+    if (get_custom_layer(layer_state) != editL) {
+        rgb_matrix_set_hsv(GLOBAL_ANIMATION_TOGGLE_INDEX, animationToggleColor);
+    }
 
     // const HSV heatmapToggleColor2 = {180, 255, 255}; /* Violet */
     // const HSV heatmapToggleColor1 = RED;

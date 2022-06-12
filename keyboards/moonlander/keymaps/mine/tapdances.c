@@ -387,6 +387,57 @@ void dance_heatmap_reset(qk_tap_dance_state_t *state, void *user_data) {
     dance_state[HEATMAP_DANCE].step = 0;
 }
 
+void on_dance_enter_undo(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 3) {
+        tap_code16(KC_ENTER);
+        tap_code16(KC_ENTER);
+        tap_code16(KC_ENTER);
+    }
+    if (state->count > 3) {
+        tap_code16(KC_ENTER);
+    }
+}
+
+void dance_enter_undo_finished(qk_tap_dance_state_t *state, void *user_data) {
+    dance_state[0].step = dance_step(state);
+    switch (dance_state[0].step) {
+        case SINGLE_TAP:
+            register_code16(KC_ENTER);
+            break;
+        case DOUBLE_TAP:
+            register_code16(KC_ENTER);
+            register_code16(KC_ENTER);
+            break;
+        case DOUBLE_HOLD:
+            register_code16(LCTL(DE_Y));
+            break;
+        case SINGLE_HOLD:
+            register_code16(LCTL(DE_Z));
+            break;
+    }
+}
+
+void dance_enter_undo_reset(qk_tap_dance_state_t *state, void *user_data) {
+    wait_ms(10);
+    switch (dance_state[0].step) {
+        case SINGLE_TAP:
+            unregister_code16(KC_ENTER);
+            break;
+        case DOUBLE_TAP:
+            unregister_code16(KC_ENTER);
+            unregister_code16(KC_ENTER);
+            break;
+        case DOUBLE_HOLD:
+            unregister_code16(LCTL(DE_Y));
+            break;
+        case SINGLE_HOLD:
+            unregister_code16(LCTL(DE_Z));
+            break;
+    }
+    dance_state[0].step = 0;
+}
+
+
 qk_tap_dance_action_t tap_dance_actions[] = {
     [ESC_F4]        = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_esc_f4, dance_esc_f4_finished, dance_esc_f4_reset),
     [DANCE_1]       = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
@@ -403,6 +454,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [PLUS_MINUS]    = ACTION_TAP_DANCE_DOUBLE(KC_KP_PLUS, KC_KP_MINUS),
     [COMMA_DOT]     = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_DOT),
     [TAB_EQ]        = ACTION_TAP_DANCE_DOUBLE(KC_TAB, DE_EQL),
+    [ENTER_UNDO]    = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_enter_undo, dance_enter_undo_finished, dance_enter_undo_reset),
     [DANCE_19]      = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_19, dance_19_finished, dance_19_reset),
     [DANCE_20]      = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_20, dance_20_finished, dance_20_reset),
     [DANCE_21]      = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_21, dance_21_finished, dance_21_reset),

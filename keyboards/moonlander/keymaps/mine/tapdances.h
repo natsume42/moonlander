@@ -17,6 +17,7 @@ enum tap_dance_codes {
     PLUS_MINUS,
     COMMA_DOT,
     TAB_EQ,
+    ENTER_UNDO,
     DANCE_19,
     DANCE_20,
     DANCE_21,

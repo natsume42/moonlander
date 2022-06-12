@@ -36,8 +36,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         _______,        _______,        _______,        _______,        _______,        SWITCH_JISX6004,                                LGUI(LSFT(KC_A)), _______,        _______,        _______,        _______,        _______,        _______,          
     TT(numPadL),    _______,        _______,        _______,        _______,        _______,        SWITCH_QWERTZ,                                  _______,          _______,        _______,        _______,        _______,        _______,        _______,           
     KC_LSHIFT,      _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        KC_RSHIFT,      
-    KC_LCTRL,       KC_LGUI,        KC_LALT,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         _______,        TO(editL),  TOGGLE_LAYER_COLOR, TO(mediaL),          
-                                                                    OSM(MOD_LSFT),  LGUI_T(KC_ENTER),_______,                                       _______,       LALT_T(KC_BSPACE), LCTL_T(KC_SPACE)
+    KC_LCTRL,       KC_LGUI,        KC_LALT,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         KC_LALT,        TO(editL),  TOGGLE_LAYER_COLOR, TO(mediaL),          
+                                                                    OSM(MOD_LSFT),  LGUI_T(KC_ENTER),_______,                                       _______,          KC_BSPACE,      LCTL_T(KC_SPACE)
   ),
  [mineL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,

@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_BSPACE,      _______,        _______,        _______,        _______,        _______,        SWITCH_QWERTZ,                                  _______,          _______,        _______,        _______,        _______,        _______,        _______,           
     KC_LSHIFT,      _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        KC_RSHIFT,      
     KC_LCTRL,       KC_LGUI,        KC_LALT,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         KC_LALT,        TO(editL),  TOGGLE_LAYER_COLOR, TO(mediaL),          
-                                                                    OSM(MOD_LSFT),  KC_LGUI,        _______,                                        _______,          _______,        LCTL_T(KC_SPACE)
+                                                                    OSM(MOD_LSFT), LGUI_T(KC_ENTER),_______,                                        _______,          _______,        LCTL_T(KC_SPACE)
   ),
  [mineL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,
@@ -65,8 +65,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [editL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        KC_NUMLOCK,     _______,        _______,     _______,        _______,       
-    _______,        KC_PGUP,        KC_BSPACE,      KC_UP,          KC_DELETE,      KC_PGDOWN,      _______,                                        _______,        TD(TAB_EQ),     KC_7,           KC_8,           KC_9,        KC_KP_MINUS,   X(COLON),
-    _______,        KC_HOME,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_END,         _______,                                        _______,        TD(MULT_DIV),   LCTL_T(KC_4),   LGUI_T(KC_5),   LALT_T(KC_6),TD(PLUS_MINUS), TD(ENTER_UNDO),      
+    _______,        KC_PGUP,        KC_BSPACE,      KC_UP,          KC_DELETE,      KC_PGDOWN,      _______,                                        _______,        TD(TAB_EQ),     TD(UNDO_7),     TD(REDO_8),     TD(ALL_9),        KC_KP_MINUS,   X(COLON),
+    _______,        KC_HOME,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_END,         _______,                                        _______,        TD(MULT_DIV),   LCTL_T(KC_4),   LGUI_T(KC_5),   LALT_T(KC_6),TD(PLUS_MINUS), KC_ENTER,      
     KC_LGUI,        LCTL(KC_S),     LCTL(KC_X),     LCTL(KC_C),     TD(PASTE),      MOSL(fncKeysL),                                                                 KC_0,           KC_1,           KC_2,           KC_3,        TD(COMMA_DOT),  _______,        
     _______,        _______,        _______,        _______,        XXXXXXX,                        _______,                                        _______,                        TO_DFLTL,       KC_F20,         _______,     KC_DOT,        _______,        
                                                                     KC_LSHIFT,      _______,        _______,                                        _______,        _______,        _______    

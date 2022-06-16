@@ -37,14 +37,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_BSPACE,      _______,        _______,        _______,        _______,        _______,        SWITCH_QWERTZ,                                  _______,          _______,        _______,        _______,        _______,        _______,        _______,           
     KC_LSHIFT,      _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        KC_RSHIFT,      
     KC_LCTRL,       KC_LGUI,        KC_LALT,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         KC_LALT,        TO(editL),  TOGGLE_LAYER_COLOR, TO(mediaL),          
-                                                                    OSM(MOD_LSFT), LGUI_T(KC_ENTER),_______,                                        _______,          _______,        LCTL_T(KC_SPACE)
+                                                                    OSM(MOD_LSFT), KC_ENTER,        _______,                                        _______,          _______,        LCTL_T(KC_SPACE)
   ),
  [mineL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        CD(KC_W),       CD(KC_L),       CD(KC_U),       CD(KC_A),       CD(KC_Q),       _______,                                        _______,          CD(KC_J),       CD(KC_B),       CD(KC_D),       CD(KC_G),       CD(DE_Y),       DE_SS,          
-    _______,        CD(KC_C),       CD(KC_R),       CD(KC_I),       CD(KC_E),       CD(KC_O),       _______,                                        LGUI(KC_6),       CD(KC_M),       CD(KC_N),       CD(KC_T),       CD(KC_S),       CD(KC_H),       CD(DE_Z),           
-    _______,        CD(KC_V),       CD(KC_X),       DE_UE,          DE_AE,          DE_OE,                                                                            CD(KC_P),       CD(KC_F),       KC_COMMA,       KC_DOT,         CD(KC_K),       _______,      
-    _______,        _______,        _______,        _______,        _______,                        LGUI(KC_2),                                     LGUI(KC_3),                       _______,        _______,        _______,        _______,        TO(mediaL),          
+    _______,           KC_W,           KC_L,          KC_U,           KC_A,           KC_Q,         _______,                                        _______,              KC_J,           KC_B,           KC_D,           KC_G,           DE_Y,         DE_SS,          
+    _______,           KC_C,   LCTL_T(KC_R),  LGUI_T(KC_I),   LALT_T(KC_E),           KC_O,         _______,                                        LGUI(KC_6),           KC_M,   LCTL_T(KC_N),   LGUI_T(KC_T),    LALT_T(KC_S),          KC_H,          DE_Z,           
+    _______,           KC_V,           KC_X,       DE_UE,          DE_AE,          DE_OE,                                                                                 KC_P,           KC_F,       KC_COMMA,         KC_DOT,           KC_K,       _______,      
+    _______,        _______,        _______,        _______,        _______,                        LGUI(KC_2),                                     LGUI(KC_3),                       _______,         _______,        _______,        _______,    TO(mediaL),          
                                                                     _______,        _______,       _______,                                         KC_DELETE,        _______,        _______
   ),
   [ja1L] = LAYOUT_moonlander(
@@ -66,8 +66,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [editL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        KC_NUMLOCK,     _______,        _______,     _______,        _______,       
     _______,        KC_PGUP,        KC_BSPACE,      KC_UP,          KC_DELETE,      KC_PGDOWN,      _______,                                        _______,        TD(TAB_EQ),     TD(UNDO_7),     TD(REDO_8),     TD(ALL_9),        KC_KP_MINUS,   X(COLON),
-    _______,        KC_HOME,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_END,         _______,                                        _______,        TD(MULT_DIV),   LCTL_T(KC_4),   LGUI_T(KC_5),   LALT_T(KC_6),TD(PLUS_MINUS), KC_ENTER,      
-    KC_LGUI,        LCTL(KC_S),     LCTL(KC_X),     LCTL(KC_C),     TD(PASTE),      MOSL(fncKeysL),                                                                 KC_0,           KC_1,           KC_2,           KC_3,        TD(COMMA_DOT),  _______,        
+    _______,        LGUI_T(KC_HOME),KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_END,         _______,                                        _______,        TD(MULT_DIV),   LCTL_T(KC_4),   LGUI_T(KC_5),   LALT_T(KC_6),TD(PLUS_MINUS), KC_ENTER,      
+    _______,        LCTL(KC_S),     LCTL(KC_X),     LCTL(KC_C),     TD(PASTE),      MOSL(fncKeysL),                                                                 KC_0,           KC_1,           KC_2,           KC_3,        TD(COMMA_DOT),  _______,        
     _______,        _______,        _______,        _______,        XXXXXXX,                        _______,                                        _______,                        TO_DFLTL,       KC_F20,         _______,     KC_DOT,        _______,        
                                                                     KC_LSHIFT,      _______,        _______,                                        _______,        _______,        _______    
   ),
@@ -99,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        CD(KC_F12),     CD(KC_F7),      CD(KC_F8),      CD(KC_F9),      _______,        _______,        
     _______,        _______,        KC_LCTRL,       KC_LGUI,        KC_LALT,        _______,        _______,                                        _______,        CD(KC_F11),     CD(KC_F4),      CD(KC_F5),      CD(KC_F6),      _______,        _______,        
-    _______,        _______,        _______,        _______,        TO(fncKeysL),   _______,                                                                        CD(KC_F10),     CD(KC_F1),      CD(KC_F2),      CD(KC_F3),      _______,        _______,        
+    _______,        _______,        _______,        _______,        _______,        TO(fncKeysL),                                                                   CD(KC_F10),     CD(KC_F1),      CD(KC_F2),      CD(KC_F3),      _______,        _______,        
     _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                        TO_DFLTL,       _______,        _______,        _______,        _______,        
                                                                     _______,        _______,        _______,                                        _______,        _______,        _______
   ),

@@ -74,7 +74,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, WHITE,    BTS,
 
-                FOREST_R, FOREST_R, FOREST_R, MERLOT,
+                FOREST_R, FOREST_R, FOREST_R, FOREST_R,
 
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, CYBER_Y,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, BARB_L,
@@ -82,9 +82,9 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, DEEP_V,   FOREST_R, GREEN,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
-                MERLOT, MERLOT, MERLOT,
+                FOREST_R, FOREST_R, FOREST_R,
 
-                FOREST_R, FOREST_R, FOREST_R, MERLOT },
+                FOREST_R, FOREST_R, FOREST_R, FOREST_R },
 
     [ja1L] = {WHITE, WHITE, ASSESSIN, WHITE, WHITE,
               WHITE, WHITE, WHITE, WHITE, WHITE,
@@ -94,17 +94,17 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
               WHITE, WHITE, WHITE, WHITE,
               FOREST_R, WHITE,    BTS,
 
-              ASSESSIN, WHITE, WHITE, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
 
               WHITE, WHITE, WHITE, WHITE, CYBER_Y,
               WHITE, WHITE, WHITE, WHITE, BARB_L,
               WHITE, WHITE, WHITE, WHITE, WHITE,
-              WHITE, WHITE, WHITE, WHITE, CERULEAN,
+              WHITE, WHITE, WHITE, WHITE, WHITE,
               WHITE, WHITE, WHITE, WHITE, GREEN,
               WHITE, WHITE, WHITE, WHITE,
-              ASSESSIN, ASSESSIN, ASSESSIN,
+              WHITE, WHITE, WHITE,
 
-              ASSESSIN, RED, WHITE, ASSESSIN},
+              WHITE, WHITE, WHITE, WHITE},
 
     [qwertzL] = {BTS, BTS, BTS,        BTS, BTS,
                  BTS, BTS, BTS,        BTS, BTS,
@@ -125,7 +125,8 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                  BTS, GOT7, BTS,
 
                  BTS, RED, ASSESSIN, BTS},
-    [editL] = {BLACK, BLACK,     BLACK,     FUEGO_N,  BLACK,
+
+    [editL] = {BLACK, BLACK,     BLACK,     BLACK,    BLACK,
                BLACK, CANDY_G,   CANDY_G,   CYBER_Y,  BLACK,
                BLACK, PEPPRONI,  EXTRA_A,   CYBER_Y,  BLACK,
                BLACK, EXTRA_A,   EXTRA_A,   CYBER_Y,  BLACK,

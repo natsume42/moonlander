@@ -77,7 +77,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
 
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, CYBER_Y,
-                FOREST_R, FOREST_R, FOREST_R, FOREST_R, BARB_L,
+                FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, FOREST_R,
                 FOREST_R, FOREST_R, DEEP_V,   FOREST_R, GREEN,
@@ -312,12 +312,4 @@ void rgb_matrix_indicators_user(void) {
             if (rgb_matrix_get_flags() == LED_FLAG_NONE) rgb_matrix_set_color_all(0, 0, 0);
             break;
     }
-
-    if (get_custom_layer(layer_state) != editL) {
-        rgb_matrix_set_hsv(GLOBAL_ANIMATION_TOGGLE_INDEX, animationToggleColor);
-    }
-
-    // const HSV heatmapToggleColor2 = {180, 255, 255}; /* Violet */
-    // const HSV heatmapToggleColor1 = RED;
-    // rgb_matrix_set_hsv(HEATMAP_TOGGLE_INDEX, rgb_step_hue_gradient(heatmapToggleColor1, heatmapToggleColor2, 300, 40));
 }

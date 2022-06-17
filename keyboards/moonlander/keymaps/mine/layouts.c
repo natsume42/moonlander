@@ -13,10 +13,4 @@ void switch_to_jisx6004(void) {
     default_layer_move();
 }
 
-void switch_to_qwertz(void) {
-    SEND_STRING(SS_LALT(SS_LSFT(SS_TAP(X_1))));
-    default_layer_set(1UL << qwertzL | 1UL << commonL);
-    default_layer_move();
-}
-
 void default_layer_move(void) { layer_state_set(default_layer_state); }

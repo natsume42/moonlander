@@ -21,7 +21,6 @@ enum custom_keycodes {
     RGB_SLD = ML_SAFE_RANGE,
     SWITCH_MINE,
     SWITCH_JISX6004,
-    SWITCH_QWERTZ,
     TO_DFLTL,
     DE_LSPO,
     DE_RSPC,
@@ -34,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [commonL] = LAYOUT_moonlander(
     TD(ESC_F4),     _______,        _______,        _______,        _______,        _______,        SWITCH_MINE,                                    TD(HEATMAP_DANCE), _______,       _______,        _______,        _______,        _______,        _______,        
     KC_TAB,         _______,        _______,        _______,        _______,        _______,        SWITCH_JISX6004,                                LGUI(LSFT(KC_A)), _______,        _______,        _______,        _______,        _______,        _______,          
-    KC_BSPACE,      _______,        _______,        _______,        _______,        _______,        SWITCH_QWERTZ,                                  _______,          _______,        _______,        _______,        _______,        _______,        _______,           
+    KC_BSPACE,      _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,           
     _______,        _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        _______,      
     _______,        _______,        _______,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         KC_LALT,        _______,  TOGGLE_LAYER_COLOR,   TO(mediaL),          
                                                                     OSM(MOD_LSFT), KC_ENTER,        _______,                                        _______,          _______,        LCTL_T(KC_SPACE)
@@ -54,14 +53,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        TD(DANCE_20),   TD(DANCE_21),   KC_I,           KC_X,           KC_3,                                                                           LSFT(KC_Z),     KC_DOT,         LSFT(KC_COMMA), LSFT(KC_DOT),   KC_SCOLON,      _______,        
     _______,        _______,        _______,        _______,        _______,                        JP_KANA,                                        JP_MHEN,                        _______,         _______,       _______,        _______,        _______,        
                                                                     MOSL(ja2L),     _______,        _______,                                        _______,        _______,        JP_HENK
-  ),
-  [qwertzL] = LAYOUT_moonlander(
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        DE_SS,          
-    _______,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           _______,                                        _______,        DE_Z,           KC_U,           KC_I,           KC_O,           KC_P,           DE_UE,          
-    _______,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           _______,                                        _______,        KC_H,           KC_J,           KC_K,           KC_L,           DE_OE,          DE_AE,
-    _______,        DE_Y,           KC_X,           KC_C,           KC_V,           KC_B,                                                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         DE_MINS,        _______,      
-    _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                        _______,         _______,        _______,        _______,        _______,        
-                                                                    _______,        _______,        _______,                                        _______,        _______,        _______
   ),
   [editL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        KC_NUMLOCK,     _______,        _______,     _______,        _______,       
@@ -152,11 +143,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case SWITCH_JISX6004:
             if (record->event.pressed) {
                 switch_to_jisx6004();
-            }
-            break;
-        case SWITCH_QWERTZ:
-            if (record->event.pressed) {
-                switch_to_qwertz();
             }
             break;
         case DE_LSPO:

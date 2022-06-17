@@ -14,11 +14,5 @@ void switch_to_jisx6004(void);
  */
 void switch_to_mine(void);
 
-/** \brief Change input language to German and keyboard layout to QWERTZ.
- *
- * Uses ALT+Shift+1 to switch to German IME
- */
-void switch_to_qwertz(void);
-
 /** \brief move to current default layer. */
 void default_layer_move(void);

@@ -72,7 +72,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R, ALOHA,
                 FOREST_R, FOREST_R, DEEP_V,   FOREST_R, CERULEAN,
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
-                FOREST_R, WHITE,    BTS,
+                FOREST_R, WHITE,    FOREST_R,
 
                 FOREST_R, FOREST_R, FOREST_R, FOREST_R,
 
@@ -90,11 +90,11 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
               WHITE, WHITE, WHITE, WHITE, WHITE,
               WHITE, WHITE, WHITE, WHITE, WHITE,
               WHITE, WHITE, WHITE, WHITE, ALOHA,
-              WHITE, WHITE, WHITE, WHITE, PEPPRONI,
+              WHITE, WHITE, WHITE, WHITE, CERULEAN,
               WHITE, WHITE, WHITE, WHITE,
-              FOREST_R, WHITE,    BTS,
+              FOREST_R, WHITE, WHITE,
 
-              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, WHITE, WHITE, WHITE,
 
               WHITE, WHITE, WHITE, WHITE, CYBER_Y,
               WHITE, WHITE, WHITE, WHITE, BARB_L,
@@ -106,33 +106,13 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
               WHITE, WHITE, WHITE, WHITE},
 
-    [qwertzL] = {BTS, BTS, BTS,        BTS, BTS,
-                 BTS, BTS, BTS,        BTS, BTS,
-                 BTS, BTS, BTS,        BTS, BTS,
-                 BTS, BTS, BTS,        BTS, ALOHA,
-                 BTS, BTS, GOT7, BTS, CERULEAN,
-                 BTS, BTS, BTS,        BTS,
-                 FOREST_R, WHITE, BTS,
-
-                 WHITE, CERULEAN, BTS, BTS,
-
-                 BTS, BTS, BTS,  BTS, CYBER_Y,
-                 BTS, BTS, BTS,  BTS, BARB_L,
-                 BTS, BTS, BTS,  BTS, BTS,
-                 BTS, BTS, BTS,  BTS, CERULEAN,
-                 BTS, BTS, GOT7, BTS, GREEN,
-                 BTS, BTS, BTS,  BTS,
-                 BTS, GOT7, BTS,
-
-                 BTS, RED, ASSESSIN, BTS},
-
     [editL] = {BLACK, BLACK,     BLACK,     BLACK,    BLACK,
                BLACK, CANDY_G,   CANDY_G,   CYBER_Y,  BLACK,
                BLACK, PEPPRONI,  EXTRA_A,   CYBER_Y,  BLACK,
                BLACK, EXTRA_A,   EXTRA_A,   CYBER_Y,  BLACK,
                BLACK, PEPPRONI,  EXTRA_A,   CYBER_Y,  BLACK,
                BLACK, CANDY_G,   CANDY_G,   WHITE,
-               FOREST_R, WHITE,  BTS,
+               FOREST_R, WHITE,  BLACK,
 
                BLACK, BLACK,     BLACK,    BLACK,
 
@@ -152,7 +132,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                  ALOHA, ALOHA, ALOHA, ALOHA, GOLD_F,
                  ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
                  ALOHA, ALOHA, ALOHA, ALOHA,
-                 FOREST_R, WHITE, BTS,
+                 FOREST_R, WHITE, ALOHA,
 
                  ALOHA, ALOHA, ALOHA, ALOHA,
 
@@ -172,7 +152,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F,
-                 FOREST_R, WHITE, BTS,
+                 FOREST_R, WHITE, GOLD_F,
 
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F,
 
@@ -192,19 +172,19 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
               ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
               ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
               ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
-              FOREST_R, WHITE,    BTS,
+              FOREST_R, WHITE,    ASSESSIN,
 
               ASSESSIN, ASSESSIN, ASSESSIN, WHITE,
 
               ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, CYBER_Y,
               ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, BARB_L,
-              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, PEPPRONI,
-              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, CERULEAN,
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
               ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, GREEN,
               ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
-              WHITE, WHITE, WHITE,
+              ASSESSIN, ASSESSIN, ASSESSIN,
 
-              WHITE, RED, ASSESSIN, WHITE},
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN},
 
     [fncKeysL] = {BLACK, BLACK, BLACK, BLACK, BLACK,
                   BLACK, BLACK, BLACK, BLACK, BLACK,
@@ -212,7 +192,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                   BLACK, BLACK, CYBER_Y, BLACK, BLACK,
                   BLACK, BLACK, CYBER_Y, BLACK, BLACK,
                   BLACK, BLACK, BLACK,   WHITE,
-                  FOREST_R, WHITE, BTS,
+                  FOREST_R, WHITE, BLACK,
 
                   BLACK, BLACK, BLACK, BLACK,
 
@@ -232,7 +212,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 BLACK, RED_VIT,  RED_VIT, FORSYTHIA, BLACK,
                 BLACK, CERULEAN, WHITE,   FORSYTHIA, BLACK,
                 BLACK, BLACK,    RED,     BLACK,
-                FOREST_R, WHITE, BTS,
+                FOREST_R, WHITE, BLACK,
 
                 BLACK, BLACK, BLACK, BLACK,
 
@@ -287,9 +267,6 @@ void rgb_matrix_indicators_user(void) {
             break;
         case ja2L:
             set_layer_color(ja2L);
-            break;
-        case qwertzL:
-            set_layer_color(qwertzL);
             break;
         case editL:
             set_layer_color(editL);

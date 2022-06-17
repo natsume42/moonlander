@@ -5,7 +5,6 @@ typedef enum custom_layers_t {
     mineL,
     ja1L,
     ja2L,
-    qwertzL,
     editL,
     prgSymL,
     txtSymL,

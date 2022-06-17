@@ -24,8 +24,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
     if (layer_state_cmp(state, ja1L) || layer_state_cmp(state, ja2L)) {
         ML_LED_3(true);
-    } else if (layer_state_cmp(state, qwertzL)) {
-        ML_LED_2(true);
     } else if (layer_state_cmp(state, editL)) {
         ML_LED_4(true);
         ML_LED_5(num_lock);

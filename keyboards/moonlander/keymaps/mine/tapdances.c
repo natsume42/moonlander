@@ -519,6 +519,51 @@ void dance_all_9_reset(qk_tap_dance_state_t *state, void *user_data) {
     dance_state[0].step = 0;
 }
 
+void on_dance_mike_m(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 3) {
+        tap_code16(KC_M);
+        tap_code16(KC_M);
+        tap_code16(KC_M);
+    }
+    if (state->count > 3) {
+        tap_code16(KC_M);
+    }
+}
+
+void dance_mike_m_finished(qk_tap_dance_state_t *state, void *user_data) {
+    dance_state[0].step = dance_step(state);
+    switch (dance_state[0].step) {
+        case SINGLE_TAP:
+            register_code16(KC_M);
+            break;
+        case DOUBLE_TAP:
+            register_code16(KC_M);
+            register_code16(KC_M);
+            break;
+        case SINGLE_HOLD:
+            register_code16(LGUI(LSFT(KC_A)));
+            break;
+    }
+}
+
+void dance_mike_m_reset(qk_tap_dance_state_t *state, void *user_data) {
+    wait_ms(10);
+    switch (dance_state[0].step) {
+        case SINGLE_TAP:
+            unregister_code16(KC_M);
+            break;
+        case DOUBLE_TAP:
+            unregister_code16(KC_M);
+            unregister_code16(KC_M);
+            break;
+        case SINGLE_HOLD:
+            unregister_code16(LGUI(LSFT(KC_A)));
+            break;
+    }
+    dance_state[0].step = 0;
+}
+
+
 qk_tap_dance_action_t tap_dance_actions[] = {
     [ESC_F4]        = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_esc_f4, dance_esc_f4_finished, dance_esc_f4_reset),
     [DANCE_1]       = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
@@ -544,4 +589,5 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [DANCE_22]      = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_22, dance_22_finished, dance_22_reset),
     [HEATMAP_DANCE] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_heatmap, dance_heatmap_finished, dance_heatmap_reset),
     [PASTE]         = ACTION_TAP_DANCE_DOUBLE(LCTL(KC_V),LGUI(KC_V)),
+    [MIKE_M_DANCE]  = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_mike_m, dance_mike_m_finished, dance_mike_m_reset),
 };

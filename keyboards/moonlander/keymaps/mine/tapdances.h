@@ -26,5 +26,6 @@ enum tap_dance_codes {
     DANCE_22,
     HEATMAP_DANCE,
     PASTE,
+    MIKE_M_DANCE,
     LAST_DANCE,
 };

@@ -31,11 +31,11 @@ enum custom_keycodes {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [commonL] = LAYOUT_moonlander(
-    TD(ESC_F4),     _______,        _______,        _______,        _______,        _______,        SWITCH_MINE,                                    TD(HEATMAP_DANCE), _______,       _______,        _______,        _______,        _______,        _______,        
-    KC_TAB,         _______,        _______,        _______,        _______,        _______,        SWITCH_JISX6004,                                LGUI(LSFT(KC_A)), _______,        _______,        _______,        _______,        _______,        _______,          
+    TD(ESC_F4),     _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,        
+    KC_TAB,         _______,        _______,        _______,        _______,        _______,        _______,                                        LGUI(LSFT(KC_A)), _______,        _______,        _______,        _______,        _______,        _______,          
     KC_BSPACE,      _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,           
     _______,        _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        _______,      
-    _______,        _______,        _______,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         KC_LALT,        _______,  TOGGLE_LAYER_COLOR,   TO(mediaL),          
+    _______,        _______,        _______,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         KC_LALT,        _______,        _______,        TO(mediaL),          
                                                                     OSM(MOD_LSFT), KC_ENTER,        _______,                                        _______,          _______,        LCTL_T(KC_SPACE)
   ),
  [mineL] = LAYOUT_moonlander(
@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [editL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        KC_NUMLOCK,     _______,        _______,     _______,        _______,       
-    _______,        KC_PGUP,        KC_BSPACE,      KC_UP,          KC_DELETE,      KC_PGDOWN,      _______,                                        _______,        TD(TAB_EQ),     TD(UNDO_7),     TD(REDO_8),     TD(ALL_9),        KC_KP_MINUS,   X(COLON),
+    _______,        KC_PGUP,        KC_BSPACE,      KC_UP,          KC_DELETE,      KC_PGDOWN,      _______,                                        _______,        TD(TAB_EQ),     TD(UNDO_7),     TD(REDO_8),     TD(ALL_9),   KC_KP_MINUS,    X(COLON),
     _______,        LGUI_T(KC_HOME),KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_END,         _______,                                        _______,        TD(MULT_DIV),   LCTL_T(KC_4),   LGUI_T(KC_5),   LALT_T(KC_6),TD(PLUS_MINUS), KC_ENTER,      
     _______,        LCTL(KC_S),     LCTL(KC_X),     LCTL(KC_C),     TD(PASTE),      MOSL(fncKeysL),                                                                 KC_0,           KC_1,           KC_2,           KC_3,        TD(COMMA_DOT),  _______,        
     _______,        _______,        _______,        _______,        XXXXXXX,                        _______,                                        _______,                        TO_DFLTL,       KC_F20,         _______,     KC_DOT,        _______,        
@@ -96,8 +96,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [mediaL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,             _______,             _______,        KC_SYSTEM_SLEEP,
-    _______,        RGB_HUI,        RGB_SAI,        RGB_VAI,        RGB_MOD,        _______,        _______,                                        _______,        _______,   KC_AUDIO_VOL_DOWN,   KC_AUDIO_MUTE,       KC_AUDIO_VOL_UP,     _______,        KC_SYSTEM_POWER,
-    _______,        RGB_HUD,        RGB_SAD,        RGB_VAD,        RGB_TOG,    TOGGLE_LAYER_COLOR, _______,                                        _______,        _______,   KC_MEDIA_PREV_TRACK, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_NEXT_TRACK, _______,        RESET,        
+    _______,        RGB_HUI,        RGB_SAI,        RGB_VAI,        RGB_MOD,    TD(HEATMAP_DANCE),  _______,                                        _______,SWITCH_JISX6004,   KC_AUDIO_VOL_DOWN,   KC_AUDIO_MUTE,       KC_AUDIO_VOL_UP,     _______,        KC_SYSTEM_POWER,
+    _______,        RGB_HUD,        RGB_SAD,        RGB_VAD,        RGB_TOG,    TOGGLE_LAYER_COLOR, _______,                                        _______,    SWITCH_MINE,   KC_MEDIA_PREV_TRACK, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_NEXT_TRACK, _______,        RESET,        
     _______,        _______,        AU_TOG,         MU_TOG,         MU_MOD,         KC_INSERT,                                                                      _______,        _______,        _______,             _______,             _______,        _______,        
     _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                        TO_DFLTL,       _______,             _______,             _______,        _______,        
                                                                     _______,        _______,        _______,                                        _______,        _______,        _______

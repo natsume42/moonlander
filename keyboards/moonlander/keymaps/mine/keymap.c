@@ -138,11 +138,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case SWITCH_MINE:
             if (record->event.pressed) {
                 switch_to_mine();
+                return false;
             }
             break;
         case SWITCH_JISX6004:
             if (record->event.pressed) {
                 switch_to_jisx6004();
+                return false;
             }
             break;
         case DE_LSPO:

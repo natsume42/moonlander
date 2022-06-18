@@ -7,10 +7,8 @@
 extern bool         g_suspend_state;
 extern rgb_config_t rgb_matrix_config;
 
-int numpad_number_positions[] = {47, 48, 49, 52, 53, 54, 57, 58, 59, 64};
-
 /* These positions need to be aligned with keymaps. */
-#define NUM_LOCK_KEY_INDEX 56
+#define NUM_LOCK_KEY_INDEX 64
 #define GLOBAL_ANIMATION_TOGGLE_INDEX 45
 #define HEATMAP_TOGGLE_INDEX 36
 #define MEDIA_L_AUDIO_TOGGLE_INDEX 13
@@ -110,7 +108,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                BLACK, CANDY_G,   CANDY_G,   CYBER_Y,  BLACK,
                BLACK, PEPPRONI,  EXTRA_A,   CYBER_Y,  BLACK,
                BLACK, EXTRA_A,   EXTRA_A,   CYBER_Y,  BLACK,
-               BLACK, PEPPRONI,  EXTRA_A,   CYBER_Y,  BLACK,
+               BLACK, PEPPRONI,  EXTRA_A,   CYBER_Y,  CERULEAN,
                BLACK, CANDY_G,   CANDY_G,   WHITE,
                BLACK, BLACK,     BLACK,
 
@@ -130,7 +128,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                  ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
                  ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
                  ALOHA, ALOHA, ALOHA, ALOHA, GOLD_F,
-                 ALOHA, ALOHA, ALOHA, ALOHA, ALOHA,
+                 ALOHA, ALOHA, ALOHA, ALOHA, CERULEAN,
                  ALOHA, ALOHA, ALOHA, ALOHA,
                  ALOHA, ALOHA, ALOHA,
 
@@ -150,7 +148,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
-                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, GOLD_F,
+                 GOLD_F, GOLD_F, GOLD_F, GOLD_F, CERULEAN,
                  GOLD_F, GOLD_F, GOLD_F, GOLD_F,
                  GOLD_F, GOLD_F, GOLD_F,
 
@@ -170,7 +168,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
               ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
               ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
               ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
-              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
+              ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN, CERULEAN,
               ASSESSIN, ASSESSIN, ASSESSIN, ASSESSIN,
               ASSESSIN, ASSESSIN, ASSESSIN,
 
@@ -190,7 +188,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                   BLACK, BLACK, BLACK, BLACK, BLACK,
                   BLACK, BLACK, CYBER_Y, BLACK, BLACK,
                   BLACK, BLACK, CYBER_Y, BLACK, BLACK,
-                  BLACK, BLACK, CYBER_Y, BLACK, BLACK,
+                  BLACK, BLACK, CYBER_Y, BLACK, CERULEAN,
                   BLACK, BLACK, BLACK,   WHITE,
                   BLACK, BLACK, BLACK,
 
@@ -210,7 +208,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 BLACK, RED_VIT,  RED_VIT, BLACK,     BLACK,
                 BLACK, RED_VIT,  RED_VIT, WHITE,     BLACK,
                 BLACK, RED_VIT,  RED_VIT, FORSYTHIA, BLACK,
-                BLACK, CERULEAN, WHITE,   FORSYTHIA, BLACK,
+                BLACK, CERULEAN, WHITE,   FORSYTHIA, CERULEAN,
                 BLACK, CERULEAN, RED,     BLACK,
                 BLACK, BLACK, BLACK,
 
@@ -270,17 +268,6 @@ void rgb_matrix_indicators_user(void) {
             break;
         case editL:
             set_layer_color(editL);
-            if (!get_num_lock()) {
-                const HSV numLockOffColor = {HSV_RED};
-                rgb_matrix_set_hsv(NUM_LOCK_KEY_INDEX, rgb_step_breathe(numLockOffColor, 10, 5));
-
-                for (int i = 0; i < sizeof(numpad_number_positions) / sizeof(numpad_number_positions[0]); i++) {
-                    rgb_matrix_set_hsv(numpad_number_positions[i], numLockOffColor);
-                }
-            } else {
-                const HSV numLockOnColor = EXIT_LIGHT_G;
-                rgb_matrix_set_hsv(NUM_LOCK_KEY_INDEX, numLockOnColor);
-            }
             break;
         case prgSymL:
             set_layer_color(prgSymL);
@@ -307,6 +294,14 @@ void rgb_matrix_indicators_user(void) {
 
             static toggle_data audio_toggle_data = {{255, 0, 0}, 500, {0, 0, 255}, 1000}; /* Black and White */
             rgb_matrix_set_hsv(MEDIA_L_AUDIO_TOGGLE_INDEX, rgb_step_toggle(&audio_toggle_data));
+
+            if (get_num_lock()) {
+                const HSV numLockOnColor = EXIT_LIGHT_G;
+                rgb_matrix_set_hsv(NUM_LOCK_KEY_INDEX, numLockOnColor);
+            } else {
+                const HSV numLockOffColor = {HSV_RED};
+                rgb_matrix_set_hsv(NUM_LOCK_KEY_INDEX, rgb_step_breathe(numLockOffColor, 10, 5));
+            }
             break;
         default:
             if (rgb_matrix_get_flags() == LED_FLAG_NONE) rgb_matrix_set_color_all(0, 0, 0);

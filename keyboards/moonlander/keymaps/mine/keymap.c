@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
  [mineL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,
-    _______,           KC_W,           KC_L,          KC_U,           KC_A,           KC_Q,         _______,                                        _______,         TD(JISX_J),         KC_B,        KC_D,           KC_G,           DE_Y,          DE_SS,          
+    _______,           KC_W,           KC_L,          KC_U,           KC_A,           KC_Q,         _______,                                        _______,       TD(JISX_J),           KC_B,           KC_D,           KC_G,           DE_Y,          DE_SS,          
     _______,           KC_C,   LCTL_T(KC_R),  LGUI_T(KC_I),   LALT_T(KC_E),           KC_O,         _______,                                        _______,       TD(MIKE_M),   LCTL_T(KC_N),   LGUI_T(KC_T),   LALT_T(KC_S),           KC_H,           DE_Z,           
     _______,           KC_V,           KC_X,       DE_UE,          DE_AE,          DE_OE,                                                                                KC_P,           KC_F,       KC_COMMA,         KC_DOT,           KC_K,        _______,      
     _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                          _______,        _______,        _______,        _______,        _______,          
@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                     MOSL(ja2L),     _______,        _______,                                        _______,        _______,        JP_HENK
   ),
   [editL] = LAYOUT_moonlander(
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        KC_NUMLOCK,     _______,        _______,     _______,        _______,       
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,     _______,        _______,       
     _______,        KC_PGUP,        KC_BSPACE,      KC_UP,          KC_DELETE,      KC_PGDOWN,      _______,                                        _______,        TD(TAB_EQ),     TD(UNDO_7),     TD(REDO_8),     TD(ALL_9),   DE_MINS,        X(COLON),
     _______,        LGUI_T(KC_HOME),KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_END,         _______,                                        _______,        TD(MULT_DIV),   LCTL_T(KC_4),   LGUI_T(KC_5),   LALT_T(KC_6),TD(PLUS_MINUS), KC_ENTER,      
     _______,        LCTL(KC_S),     LCTL(KC_X),     LCTL(KC_C),     TD(PASTE),      MOSL(fncKeysL),                                                                 KC_0,           KC_1,           KC_2,           KC_3,        TD(COMMA_DOT),  _______,        
@@ -98,8 +98,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,             _______,             _______,        KC_SYSTEM_SLEEP,
     _______,        RGB_HUI,        RGB_SAI,        RGB_VAI,        RGB_MOD,    TD(HEATMAP_DANCE),  _______,                                        _______,SWITCH_JISX6004,   KC_AUDIO_VOL_DOWN,   KC_AUDIO_MUTE,       KC_AUDIO_VOL_UP,     _______,        KC_SYSTEM_POWER,
     _______,        RGB_HUD,        RGB_SAD,        RGB_VAD,        RGB_TOG,    TOGGLE_LAYER_COLOR, _______,                                        _______,    SWITCH_MINE,   KC_MEDIA_PREV_TRACK, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_NEXT_TRACK, _______,        RESET,        
-    _______,        _______,        AU_TOG,         MU_TOG,         MU_MOD,         KC_INSERT,                                                                      _______,        _______,        _______,             _______,             _______,        _______,        
-    _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                        TO_DFLTL,       _______,             _______,             _______,        _______,        
+    _______,        _______,        AU_TOG,         MU_TOG,         MU_MOD,         KC_INSERT,                                                                   KC_NUMLOCK,        _______,        _______,             _______,             _______,        _______,        
+    _______,        _______,        _______,        _______,        TO(editL),                      _______,                                        _______,                        TO_DFLTL,       _______,             _______,             _______,        _______,        
                                                                     _______,        _______,        _______,                                        _______,        _______,        _______
   ),
 };

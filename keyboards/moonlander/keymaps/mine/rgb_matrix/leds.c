@@ -7,7 +7,7 @@ bool num_lock = true;
 
 bool led_update_user(led_t state) {
     /* If editL is activated */
-    if ((1UL << editL) <= layer_state && layer_state < (1UL << (editL+1))) {
+    if ((1UL << mediaL) <= layer_state && layer_state < (1UL << (mediaL+1))) {
         num_lock = state.num_lock;
         ML_LED_5(num_lock);
     }
@@ -26,6 +26,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         ML_LED_3(true);
     } else if (layer_state_cmp(state, editL)) {
         ML_LED_4(true);
+    } else if (layer_state_cmp(state, mediaL)) {
         ML_LED_5(num_lock);
     }
 

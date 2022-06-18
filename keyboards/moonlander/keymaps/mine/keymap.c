@@ -21,11 +21,7 @@ enum custom_keycodes {
     RGB_SLD = ML_SAFE_RANGE,
     SWITCH_MINE,
     SWITCH_JISX6004,
-    TO_DFLTL,
-    DE_LSPO,
-    DE_RSPC,
-    JP_LSPO,
-    JP_RSPC,
+    TO_DFLTL
 };
 
 // clang-format off
@@ -42,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,
     _______,           KC_W,           KC_L,          KC_U,           KC_A,           KC_Q,         _______,                                        _______,       TD(JISX_J),           KC_B,           KC_D,           KC_G,           DE_Y,          DE_SS,          
     _______,           KC_C,   LCTL_T(KC_R),  LGUI_T(KC_I),   LALT_T(KC_E),           KC_O,         _______,                                        _______,       TD(MIKE_M),   LCTL_T(KC_N),   LGUI_T(KC_T),   LALT_T(KC_S),           KC_H,           DE_Z,           
-    _______,           KC_V,           KC_X,       DE_UE,          DE_AE,          DE_OE,                                                                                KC_P,           KC_F,       KC_COMMA,         KC_DOT,           KC_K,        _______,      
+    _______,           KC_V,           KC_X,         DE_UE,          DE_AE,          DE_OE,                                                                              KC_P,           KC_F,       KC_COMMA,         KC_DOT,           KC_K,        _______,      
     _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                          _______,        _______,        _______,        _______,        _______,          
                                                                     _______,        _______,       _______,                                         _______,          _______,        _______
   ),
@@ -147,18 +143,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 return false;
             }
             break;
-        case DE_LSPO:
-            perform_space_cadet(record, keycode, KC_LSFT, KC_LSFT, KC_8);
-            return false;
-        case DE_RSPC:
-            perform_space_cadet(record, keycode, KC_LSFT, KC_LSFT, KC_9);
-            return false;
-        case JP_LSPO:
-            perform_space_cadet(record, keycode, KC_LSFT, KC_LSFT, KC_8);
-            return false;
-        case JP_RSPC:
-            perform_space_cadet(record, keycode, KC_LSFT, KC_LSFT, KC_9);
-            return false;
         case RGB_SLD:
             if (record->event.pressed) {
                 rgblight_mode(1);

@@ -97,6 +97,48 @@ void dance_heatmap_reset(qk_tap_dance_state_t *state, void *user_data) {
     dance_state[HEATMAP_DANCE].step = 0;
 }
 
+void on_dance_comma_dot_colon(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 3) {
+        tap_code16(DE_COMM);
+        tap_code16(DE_COMM);
+        tap_code16(DE_COMM);
+    }
+    if (state->count > 3) {
+        tap_code16(DE_COMM);
+    }
+}
+
+void dance_comma_dot_colon_finished(qk_tap_dance_state_t *state, void *user_data) {
+    dance_state[COMMA_DOT].step = dance_step(state);
+    switch (dance_state[COMMA_DOT].step) {
+        case SINGLE_TAP:
+            register_code16(DE_COMM);
+            break;
+        case DOUBLE_TAP:
+            register_code16(DE_COLN);
+            break;
+        case SINGLE_HOLD:
+            register_code16(DE_DOT);
+            break;
+    }
+}
+
+void dance_comma_dot_colon_reset(qk_tap_dance_state_t *state, void *user_data) {
+    wait_ms(10);
+    switch (dance_state[COMMA_DOT].step) {
+        case SINGLE_TAP:
+            unregister_code16(DE_COMM);
+            break;
+        case DOUBLE_TAP:
+            unregister_code16(DE_COLN);
+            break;
+        case SINGLE_HOLD:
+            unregister_code16(DE_DOT);
+            break;
+    }
+    dance_state[COMMA_DOT].step = 0;
+}
+
 #define HOLD_DANCE_IMPL(name, tapKey, holdActionFinished, holdActionReset) \
     void on_dance_ ## name (qk_tap_dance_state_t *state, void *user_data) { \
         if (state->count == 3) { \
@@ -154,7 +196,6 @@ HOLD_DANCE_KEY(MIKE_M, KC_M, LGUI(LSFT(KC_A)))
 HOLD_DANCE_KEY(UNDO_7, KC_7, LCTL(DE_Z))
 HOLD_DANCE_KEY(REDO_8, KC_8, LCTL(DE_Y))
 HOLD_DANCE_KEY(ALL_9, KC_9, LCTL(KC_A))
-HOLD_DANCE_KEY(COMMA_DOT, KC_COMMA, KC_DOT)
 
 HOLD_DANCE_IMPL(MINE_NO, KC_K, , switch_to_mine())
 HOLD_DANCE_IMPL(JISX_J, KC_J, , switch_to_jisx6004())
@@ -163,7 +204,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [ESC_F4]        = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_esc_f4, dance_esc_f4_finished, dance_esc_f4_reset),
     [MULT_DIV]      = ACTION_TAP_DANCE_DOUBLE(DE_ASTR, DE_SLSH),
     [PLUS_MINUS]    = ACTION_TAP_DANCE_DOUBLE(DE_PLUS, DE_MINS),
-    [COMMA_DOT]     = HOLD_DANCE(COMMA_DOT),
+    [COMMA_DOT]     = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_comma_dot_colon, dance_comma_dot_colon_finished, dance_comma_dot_colon_reset),
     [TAB_EQ]        = ACTION_TAP_DANCE_DOUBLE(KC_TAB, DE_EQL),
     [UNDO_7]        = HOLD_DANCE(UNDO_7),
     [REDO_8]        = HOLD_DANCE(REDO_8),

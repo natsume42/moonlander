@@ -48,10 +48,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [ja1L] = LAYOUT_moonlander(
     _______,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_4,        KC_KP_5,        _______,                                        _______,        KC_KP_6,        KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_0,        KC_KP_MINUS,    
-    _______,        KC_C,           JP_COLN,        KC_P,           KC_W,           LSFT(KC_9),     _______,                                        _______,        KC_Z,           KC_Y,           TD(MINE_NO),           LSFT(KC_0),     KC_L,           KC_A,           
+    _______,        KC_C,           JP_COLN,        KC_P,           KC_W,           LSFT(KC_9),     _______,                                        _______,        KC_Z,           KC_Y,           TD(MINE_NO),    LSFT(KC_0),     KC_L,           KC_A,           
     _______,        TD(JP_COPY),    KC_T,           KC_D,           KC_S,           KC_Q,           _______,                                        _______,        KC_H,           KC_4,           KC_E,           KC_LBRACKET,    KC_G,           TD(JP_UNDO),   
     _______,        TD(JP_PASTE),   TD(JP_CUT),     KC_I,           KC_X,           KC_3,                                                                           LSFT(KC_Z),     KC_DOT,         LSFT(KC_COMMA), LSFT(KC_DOT),   KC_SCOLON,      _______,        
-    _______,        _______,        _______,        _______,        _______,                        JP_KANA,                                        JP_MHEN,                        _______,         _______,       _______,        _______,        _______,        
+    _______,        _______,        _______,        JP_KANA,        _______,                        _______,                                        _______,                        _______,         JP_MHEN,       _______,        _______,        _______,        
                                                                     MOSL(ja2L),     _______,        _______,                                        _______,        _______,        JP_HENK
   ),
   [editL] = LAYOUT_moonlander(

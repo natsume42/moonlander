@@ -40,15 +40,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
  [mineL] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,
-    _______,           KC_W,           KC_L,          KC_U,           KC_A,           KC_Q,         _______,                                        _______,             KC_J,           KC_B,           KC_D,           KC_G,           DE_Y,          DE_SS,          
-    _______,           KC_C,   LCTL_T(KC_R),  LGUI_T(KC_I),   LALT_T(KC_E),           KC_O,         _______,                                        _______, TD(MIKE_M),   LCTL_T(KC_N),   LGUI_T(KC_T),   LALT_T(KC_S),           KC_H,           DE_Z,           
+    _______,           KC_W,           KC_L,          KC_U,           KC_A,           KC_Q,         _______,                                        _______,         TD(JISX_J),         KC_B,        KC_D,           KC_G,           DE_Y,          DE_SS,          
+    _______,           KC_C,   LCTL_T(KC_R),  LGUI_T(KC_I),   LALT_T(KC_E),           KC_O,         _______,                                        _______,       TD(MIKE_M),   LCTL_T(KC_N),   LGUI_T(KC_T),   LALT_T(KC_S),           KC_H,           DE_Z,           
     _______,           KC_V,           KC_X,       DE_UE,          DE_AE,          DE_OE,                                                                                KC_P,           KC_F,       KC_COMMA,         KC_DOT,           KC_K,        _______,      
     _______,        _______,        _______,        _______,        _______,                        _______,                                        _______,                          _______,        _______,        _______,        _______,        _______,          
                                                                     _______,        _______,       _______,                                         _______,          _______,        _______
   ),
   [ja1L] = LAYOUT_moonlander(
     _______,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_4,        KC_KP_5,        _______,                                        _______,        KC_KP_6,        KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_0,        KC_KP_MINUS,    
-    _______,        KC_C,           JP_COLN,        KC_P,           KC_W,           LSFT(KC_9),     _______,                                        _______,        KC_Z,           KC_Y,           KC_K,           LSFT(KC_0),     KC_L,           KC_A,           
+    _______,        KC_C,           JP_COLN,        KC_P,           KC_W,           LSFT(KC_9),     _______,                                        _______,        KC_Z,           KC_Y,           TD(MINE_NO),           LSFT(KC_0),     KC_L,           KC_A,           
     _______,        TD(JP_COPY),    KC_T,           KC_D,           KC_S,           KC_Q,           _______,                                        _______,        KC_H,           KC_4,           KC_E,           KC_LBRACKET,    KC_G,           TD(JP_UNDO),   
     _______,        TD(JP_PASTE),   TD(JP_CUT),     KC_I,           KC_X,           KC_3,                                                                           LSFT(KC_Z),     KC_DOT,         LSFT(KC_COMMA), LSFT(KC_DOT),   KC_SCOLON,      _______,        
     _______,        _______,        _______,        _______,        _______,                        JP_KANA,                                        JP_MHEN,                        _______,         _______,       _______,        _______,        _______,        

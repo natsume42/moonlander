@@ -4,6 +4,7 @@
 #include "keymap_us_international.h"
 
 #include "rgb_matrix/heatmap.h"
+#include "layouts.h"
 
 typedef struct {
     bool    is_press_action;
@@ -96,7 +97,7 @@ void dance_heatmap_reset(qk_tap_dance_state_t *state, void *user_data) {
     dance_state[HEATMAP_DANCE].step = 0;
 }
 
-#define HOLD_DANCE_IMPL(name, tapKey, holdKey) \
+#define HOLD_DANCE_IMPL(name, tapKey, holdActionFinished, holdActionReset) \
     void on_dance_ ## name (qk_tap_dance_state_t *state, void *user_data) { \
         if (state->count == 3) { \
             tap_code16(tapKey); \
@@ -119,7 +120,7 @@ void dance_heatmap_reset(qk_tap_dance_state_t *state, void *user_data) {
                 register_code16(tapKey); \
                 break; \
             case SINGLE_HOLD: \
-                register_code16(holdKey); \
+                holdActionFinished; \
                 break; \
         } \
     } \
@@ -135,22 +136,27 @@ void dance_heatmap_reset(qk_tap_dance_state_t *state, void *user_data) {
                 unregister_code16(tapKey); \
                 break; \
             case SINGLE_HOLD: \
-                unregister_code16(holdKey); \
+                holdActionReset; \
                 break; \
         } \
         dance_state[name].step = 0; \
     } 
 
+#define HOLD_DANCE_KEY(name, tapKey, holdKey) HOLD_DANCE_IMPL(name, tapKey, register_code16(holdKey), unregister_code16(holdKey))
+
 #define HOLD_DANCE(name) ACTION_TAP_DANCE_FN_ADVANCED(on_dance_ ## name, dance_ ## name ## _finished, dance_ ## name ## _reset)
 
-HOLD_DANCE_IMPL(JP_COPY, KC_F, LCTL(KC_C))
-HOLD_DANCE_IMPL(JP_PASTE, KC_R, LCTL(KC_V))
-HOLD_DANCE_IMPL(JP_CUT, KC_B, LCTL(KC_X))
-HOLD_DANCE_IMPL(JP_UNDO, KC_U, LCTL(KC_Z))
-HOLD_DANCE_IMPL(MIKE_M, KC_M, LGUI(LSFT(KC_A)))
-HOLD_DANCE_IMPL(UNDO_7, KC_7, LCTL(DE_Z))
-HOLD_DANCE_IMPL(REDO_8, KC_8, LCTL(DE_Y))
-HOLD_DANCE_IMPL(ALL_9, KC_9, LCTL(KC_A))
+HOLD_DANCE_KEY(JP_COPY, KC_F, LCTL(KC_C))
+HOLD_DANCE_KEY(JP_PASTE, KC_R, LCTL(KC_V))
+HOLD_DANCE_KEY(JP_CUT, KC_B, LCTL(KC_X))
+HOLD_DANCE_KEY(JP_UNDO, KC_U, LCTL(KC_Z))
+HOLD_DANCE_KEY(MIKE_M, KC_M, LGUI(LSFT(KC_A)))
+HOLD_DANCE_KEY(UNDO_7, KC_7, LCTL(DE_Z))
+HOLD_DANCE_KEY(REDO_8, KC_8, LCTL(DE_Y))
+HOLD_DANCE_KEY(ALL_9, KC_9, LCTL(KC_A))
+
+HOLD_DANCE_IMPL(MINE_NO, KC_K, , switch_to_mine())
+HOLD_DANCE_IMPL(JISX_J, KC_J, , switch_to_jisx6004())
 
 qk_tap_dance_action_t tap_dance_actions[] = {
     [ESC_F4]        = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_esc_f4, dance_esc_f4_finished, dance_esc_f4_reset),
@@ -168,4 +174,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [HEATMAP_DANCE] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_heatmap, dance_heatmap_finished, dance_heatmap_reset),
     [PASTE]         = ACTION_TAP_DANCE_DOUBLE(LCTL(KC_V),LGUI(KC_V)),
     [MIKE_M]        = HOLD_DANCE(MIKE_M),
+    [MINE_NO]       = HOLD_DANCE(MINE_NO),
+    [JISX_J]        = HOLD_DANCE(JISX_J),
 };

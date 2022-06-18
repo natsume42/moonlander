@@ -154,6 +154,7 @@ HOLD_DANCE_KEY(MIKE_M, KC_M, LGUI(LSFT(KC_A)))
 HOLD_DANCE_KEY(UNDO_7, KC_7, LCTL(DE_Z))
 HOLD_DANCE_KEY(REDO_8, KC_8, LCTL(DE_Y))
 HOLD_DANCE_KEY(ALL_9, KC_9, LCTL(KC_A))
+HOLD_DANCE_KEY(COMMA_DOT, KC_COMMA, KC_DOT)
 
 HOLD_DANCE_IMPL(MINE_NO, KC_K, , switch_to_mine())
 HOLD_DANCE_IMPL(JISX_J, KC_J, , switch_to_jisx6004())
@@ -162,7 +163,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [ESC_F4]        = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_esc_f4, dance_esc_f4_finished, dance_esc_f4_reset),
     [MULT_DIV]      = ACTION_TAP_DANCE_DOUBLE(DE_ASTR, DE_SLSH),
     [PLUS_MINUS]    = ACTION_TAP_DANCE_DOUBLE(DE_PLUS, DE_MINS),
-    [COMMA_DOT]     = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_DOT),
+    [COMMA_DOT]     = HOLD_DANCE(COMMA_DOT),
     [TAB_EQ]        = ACTION_TAP_DANCE_DOUBLE(KC_TAB, DE_EQL),
     [UNDO_7]        = HOLD_DANCE(UNDO_7),
     [REDO_8]        = HOLD_DANCE(REDO_8),

@@ -1,8 +1,13 @@
+#define UNICODEMAP_ENABLE
 #include QMK_KEYBOARD_H
 #include "version.h"
 #include "keymap_german.h"
 #include "keymap_jp.h"
 #include "keymap_us_international.h"
+#include "keyboards/moonlander/config.h"
+#include "keyboards/moonlander/moonlander.h"
+#include "process_tap_dance.h"
+#include "quantum_keycodes.h"
 
 #include "layers.h"
 #include "layouts.h"

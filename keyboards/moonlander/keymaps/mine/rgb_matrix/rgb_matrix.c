@@ -1,4 +1,8 @@
-#include "layers.h"
+#include "rgb_matrix.h"
+#include "keyboards/moonlander/moonlander.h"
+#include "keyboards/moonlander/config.h"
+
+#include "../layers.h"
 #include "rgb_matrix_utils.h"
 #include "rgb_animations.h"
 #include "leds.h"

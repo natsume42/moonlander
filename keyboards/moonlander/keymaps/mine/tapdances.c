@@ -141,13 +141,10 @@ void dance_comma_dot_colon_reset(qk_tap_dance_state_t *state, void *user_data) {
 
 #define HOLD_DANCE_IMPL(name, tapKey, holdActionFinished, holdActionReset) \
     void on_dance_ ## name (qk_tap_dance_state_t *state, void *user_data) { \
-        if (state->count == 3) { \
-            tap_code16(tapKey); \
-            tap_code16(tapKey); \
-            tap_code16(tapKey); \
-        } \
-        if (state->count > 3) { \
-            tap_code16(tapKey); \
+        if (state->count > 1) { \
+            for (int i=0; i<state->count; i++) { \
+                tap_code16(tapKey); \
+            } \
         } \
     } \
 \
@@ -155,10 +152,6 @@ void dance_comma_dot_colon_reset(qk_tap_dance_state_t *state, void *user_data) {
         dance_state[name].step = dance_step(state); \
         switch (dance_state[name].step) { \
             case SINGLE_TAP: \
-                register_code16(tapKey); \
-                break; \
-            case DOUBLE_TAP: \
-                register_code16(tapKey); \
                 register_code16(tapKey); \
                 break; \
             case SINGLE_HOLD: \
@@ -173,16 +166,12 @@ void dance_comma_dot_colon_reset(qk_tap_dance_state_t *state, void *user_data) {
             case SINGLE_TAP: \
                 unregister_code16(tapKey); \
                 break; \
-            case DOUBLE_TAP: \
-                unregister_code16(tapKey); \
-                unregister_code16(tapKey); \
-                break; \
             case SINGLE_HOLD: \
                 holdActionReset; \
                 break; \
         } \
         dance_state[name].step = 0; \
-    } 
+    }
 
 #define HOLD_DANCE_KEY(name, tapKey, holdKey) HOLD_DANCE_IMPL(name, tapKey, register_code16(holdKey), unregister_code16(holdKey))
 

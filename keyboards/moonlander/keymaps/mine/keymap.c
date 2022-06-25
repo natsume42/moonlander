@@ -1,3 +1,4 @@
+#undef UNICODEMAP_ENABLE
 #define UNICODEMAP_ENABLE
 #include QMK_KEYBOARD_H
 #include "version.h"
@@ -132,6 +133,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     switch (keycode) {
         case TO_DFLTL:
             default_layer_move();
+            return false;
             break;
     }
     return true;

@@ -188,6 +188,7 @@ HOLD_DANCE_KEY(ALL_9, KC_9, LCTL(KC_A))
 
 HOLD_DANCE_IMPL(MINE_NO, KC_K, , switch_to_mine())
 HOLD_DANCE_IMPL(JISX_J, KC_J, , switch_to_jisx6004())
+HOLD_DANCE_IMPL(MINE_D, KC_D, , switch_to_mine())
 
 qk_tap_dance_action_t tap_dance_actions[] = {
     [ESC_F4]        = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_esc_f4, dance_esc_f4_finished, dance_esc_f4_reset),
@@ -206,5 +207,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [PASTE]         = ACTION_TAP_DANCE_DOUBLE(LCTL(KC_V),LGUI(KC_V)),
     [MIKE_M]        = HOLD_DANCE(MIKE_M),
     [MINE_NO]       = HOLD_DANCE(MINE_NO),
+    [MINE_D]        = HOLD_DANCE(MINE_D),
     [JISX_J]        = HOLD_DANCE(JISX_J),
 };

@@ -18,6 +18,7 @@ enum tap_dance_codes {
     PASTE,
     MIKE_M,
     MINE_NO,
+    MINE_D,
     JISX_J,
     LAST_DANCE,
 };

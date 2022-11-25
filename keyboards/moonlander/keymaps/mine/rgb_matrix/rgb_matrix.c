@@ -249,7 +249,7 @@ uint32_t remove_common_layer(uint32_t layer_mask) { return layer_mask & ~(1UL <<
 custom_layers_t get_custom_layer(uint32_t layer_mask) { return (custom_layers_t)biton32(remove_common_layer(layer_state)); }
 
 void rgb_matrix_indicators_user(void) {
-    if (g_suspend_state || keyboard_config.disable_layer_led) {
+    if (g_suspend_state || keyboard_config.disable_layer_led || !keyboard_config.rgb_matrix_enable) {
         return;
     }
 

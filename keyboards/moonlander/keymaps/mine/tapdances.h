@@ -16,7 +16,7 @@ enum tap_dance_codes {
     JP_UNDO,
     HEATMAP_DANCE,
     PASTE,
-    MIKE_M,
+    MIKE_Q,
     MINE_NO,
     MINE_D,
     JISX_J,

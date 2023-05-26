@@ -3,5 +3,6 @@
     "files.associations": {
         "layouts.h": "c",
         "typeinfo": "c"
-    }
+    },
+    "cmake.configureOnOpen": false
 }

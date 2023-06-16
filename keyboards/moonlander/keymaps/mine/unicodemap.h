@@ -10,6 +10,7 @@ enum unicode_names {
     PLUS, 
     PLMNS,
     GRAVE,
+    NBS,
 
     /* txtSym layer */
     CCIRC, SUP1, SUP2, SUP3, SUP4,
@@ -47,6 +48,7 @@ const uint32_t PROGMEM unicode_map[] = {
     [PLUS]  = 0x002b,  // +
     [PLMNS] = 0x00B1,  // ±
     [GRAVE] = 0x0060,  // `
+    [NBS]   = 0x00a0,  // no-break space
 
     /* txtSym layer */
     [CCIRC]     = 0x0302,  // ^ (dead key)

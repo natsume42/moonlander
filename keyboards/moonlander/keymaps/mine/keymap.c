@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        DE_BSLS,        DE_SLSH,        DE_LCBR,        DE_RCBR,        DE_ASTR,        _______,                                        _______,        DE_QST,         DE_LPRN,        DE_RPRN,        DE_MINS,        DE_COLN,        DE_AT,
     _______,        DE_HASH,        DE_DLR,         DE_PIPE,        DE_TILD,        X(GRAVE),                                                                       XP(PLUS, PLMNS),DE_PERC,        DE_DQOT,        DE_QUOT,        DE_SCLN,        _______,
     _______,        _______,        _______,        MOSL(txtSymL),  _______,                        _______,                                        _______,                        TO_DFLTL,       _______,        _______,        _______,        _______,
-                                                                    _______,        _______,        _______,                                        _______,        X(NBS),          _______
+                                                                    _______,        _______,        _______,                                        _______,        _______,        X(NBS)
   ),
   [txtSymL] = LAYOUT_moonlander(
     DE_CIRC,        X(SUP1),        X(SUP2),        X(SUP3),        X(SUP4),        _______,        _______,                                        _______,        _______,        _______,        X(CARON),       X(CEDILLA),     X(MACRON),      DE_ACUT,

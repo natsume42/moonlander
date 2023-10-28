@@ -221,7 +221,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
                 CERULEAN, WHITE,     RED,     BLACK, BLACK,
                 BLACK,    BLACK,     BLACK,   BLACK, BLACK,
                 BLACK,    MYOGA_P,   CYBER_Y, BLACK, BLACK,
-                BLACK,    WHITE,     GREEN,   BLACK, BLACK,
+                BLACK,    WHITE,     GREEN,   WHITE, BLACK,
                 BLACK,    CERULEAN,  CYBER_Y, BLACK, GREEN,
                 BLACK,    BLACK,     BLACK,   BLACK,
                 BLACK,    BLACK,     BLACK,

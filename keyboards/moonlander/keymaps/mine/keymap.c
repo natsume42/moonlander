@@ -25,6 +25,8 @@
 
 enum custom_keycodes {
     TO_DFLTL = ML_SAFE_RANGE,
+    SLEEP,
+    POWER,
 };
 
 // clang-format off
@@ -34,11 +36,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         _______,        _______,        _______,        _______,        _______,        KC_F21,                                         _______,          _______,        _______,        _______,        _______,        _______,        _______,
     KC_BSPACE,      _______,        _______,        _______,        _______,        _______,        KC_F22,                                         _______,          _______,        _______,        _______,        _______,        _______,        _______,
     _______,        _______,        _______,        _______,        _______,        _______,                                                                          _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        _______,        _______,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         KC_LALT,        _______,        _______,        TO(mediaL),
+    KC_LCTRL,       KC_LGUI,        KC_LALT,        MOSL(prgSymL),  TT(editL),                      _______,                                        _______,                          KC_MEH,         KC_LALT,        _______,        _______,        TO(mediaL),
                                                                     OSM(MOD_LSFT), KC_ENTER,        _______,                                        _______,          _______,        LCTL_T(KC_SPACE)
   ),
  [mineL] = LAYOUT_moonlander(
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,          _______,        _______,        _______,        _______,        _______,        _______,
+    _______,           KC_1,           KC_2,          KC_3,           KC_4,           KC_5,         _______,                                        _______,             KC_6,           KC_7,           KC_8,           KC_9,           KC_0,        _______,
     _______,           KC_W,           KC_L,          KC_U,           KC_A,     TD(MIKE_Q),         _______,                                        _______,       TD(JISX_J),           KC_B,     TD(MINE_D),           KC_G,           DE_Y,          DE_SS,
     _______,           KC_C,   LCTL_T(KC_R),  LGUI_T(KC_I),   LALT_T(KC_E),           KC_O,         _______,                                        _______,             KC_M,   LCTL_T(KC_N),   LGUI_T(KC_T),   LALT_T(KC_S),           KC_H,           DE_Z,
     _______,           KC_V,           KC_X,         DE_UE,          DE_AE,          DE_OE,                                                                              KC_P,           KC_F,       KC_COMMA,         KC_DOT,           KC_K,        _______,
@@ -94,8 +96,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                     _______,        _______,        _______,                                        _______,        _______,        _______
   ),
   [mediaL] = LAYOUT_moonlander(
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,             _______,             _______,        KC_SYSTEM_SLEEP,
-    _______,        RGB_HUI,        RGB_SAI,        RGB_VAI,        RGB_MOD,    TD(HEATMAP_DANCE),  _______,                                        _______,        _______,   KC_AUDIO_VOL_DOWN,   KC_AUDIO_MUTE,       KC_AUDIO_VOL_UP,     _______,        KC_SYSTEM_POWER,
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,             _______,             _______,        SLEEP,
+    _______,        RGB_HUI,        RGB_SAI,        RGB_VAI,        RGB_MOD,    TD(HEATMAP_DANCE),  _______,                                        _______,        _______,   KC_AUDIO_VOL_DOWN,   KC_AUDIO_MUTE,       KC_AUDIO_VOL_UP,     _______,        POWER,
     _______,        RGB_HUD,        RGB_SAD,        RGB_VAD,        RGB_TOG,    TOGGLE_LAYER_COLOR, _______,                                        _______,        _______,   KC_MEDIA_PREV_TRACK, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_NEXT_TRACK, _______,        RESET,
     _______,        _______,        AU_TOG,         MU_TOG,         MU_MOD,         KC_INSERT,                                                                   KC_NUMLOCK,        _______,        KC_PAUSE,            _______,             _______,        _______,
     _______,        _______,        _______,        _______,        TO(editL),                      _______,                                        _______,                        TO_DFLTL,       _______,             _______,             _______,        _______,
@@ -132,7 +134,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
     switch (keycode) {
         case TO_DFLTL:
-            default_layer_move();
+            if (record->event.pressed) {
+                default_layer_move();
+            }
+            return false;
+            break;
+        case SLEEP:
+            if (record->event.pressed) {
+                tap_code16(KC_SYSTEM_SLEEP);
+                default_layer_move();
+            }
+            return false;
+            break;
+        case POWER:
+            if (record->event.pressed) {
+                tap_code16(KC_SYSTEM_POWER);
+                default_layer_move();
+            }
             return false;
             break;
     }

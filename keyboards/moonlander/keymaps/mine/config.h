@@ -29,3 +29,6 @@
 // See X() and XP() in keymap.c and unicodemap.h
 #define UNICODE_SELECTED_MODES UC_WINC
 #define UNICODE_KEY_WINC KC_F20
+
+// Required to make media keys work with tap_code().
+#define TAP_CODE_DELAY 10
